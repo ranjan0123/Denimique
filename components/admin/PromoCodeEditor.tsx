@@ -150,13 +150,13 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 text-gray-800">
+    <div className="min-h-screen bg-gray-50 py-8 text-black">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-black">
             {isEdit ? "Edit Promo Code" : "Add Promo Code"}
           </h1>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-black">
             Manage discount rules, limits, and applicability.
           </p>
         </div>
@@ -167,7 +167,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Promo Code *
               </label>
               <input
@@ -185,7 +185,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Type *
               </label>
               <select
@@ -211,7 +211,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
               ["perUserLimit", "Per User Limit"],
             ].map(([field, label]) => (
               <div key={field}>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   {label}
                 </label>
                 <input
@@ -230,7 +230,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
             ))}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Starts At
               </label>
               <input
@@ -247,7 +247,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Expires At
               </label>
               <input
@@ -265,7 +265,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Description
             </label>
             <textarea
@@ -292,19 +292,19 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
                 }))
               }
             />
-            <span className="text-sm font-medium text-gray-700">Active</span>
+            <span className="text-sm font-medium text-black">Active</span>
           </label>
 
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-xl border border-gray-200 p-4">
-              <h2 className="font-semibold text-gray-900 mb-3">
+              <h2 className="font-semibold text-black mb-3">
                 Applicable Categories
               </h2>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {categories.map((category) => (
                   <label
                     key={category._id}
-                    className="flex items-center gap-2 text-sm text-gray-700"
+                    className="flex items-center gap-2 text-sm text-black"
                   >
                     <input
                       type="checkbox"
@@ -320,14 +320,14 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
             </div>
 
             <div className="rounded-xl border border-gray-200 p-4">
-              <h2 className="font-semibold text-gray-900 mb-3">
+              <h2 className="font-semibold text-black mb-3">
                 Applicable Products
               </h2>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {groupedProducts.map((product) => (
                   <label
                     key={product.id}
-                    className="flex items-center gap-2 text-sm text-gray-700"
+                    className="flex items-center gap-2 text-sm text-black"
                   >
                     <input
                       type="checkbox"
@@ -346,14 +346,14 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
             </div>
 
             <div className="rounded-xl border border-gray-200 p-4">
-              <h2 className="font-semibold text-gray-900 mb-3">
+              <h2 className="font-semibold text-black mb-3">
                 Excluded Products
               </h2>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {groupedProducts.map((product) => (
                   <label
                     key={`excluded-${product.id}`}
-                    className="flex items-center gap-2 text-sm text-gray-700"
+                    className="flex items-center gap-2 text-sm text-black"
                   >
                     <input
                       type="checkbox"
@@ -375,7 +375,7 @@ export default function PromoCodeEditor({ mode }: { mode: "create" | "edit" }) {
           <div className="flex justify-end gap-4 border-t pt-6">
             <Link
               href="/admin/promocodes"
-              className="rounded-md border border-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-50"
+              className="rounded-md border border-gray-300 px-4 py-2 text-black hover:bg-gray-50"
             >
               Cancel
             </Link>

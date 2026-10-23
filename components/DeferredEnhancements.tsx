@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
-// const MbgChat = dynamic(() => import("@/components/MbgChat"), { ssr: false });
+const StoreChat = dynamic(() => import("@/components/StoreChat"), {
+  ssr: false,
+});
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"), {
   ssr: false,
 });
@@ -25,8 +27,8 @@ export default function DeferredEnhancements() {
 
   return (
     <>
+      <StoreChat />
       <WhatsAppButton />
-      {/* <MbgChat /> */}
     </>
   );
 }

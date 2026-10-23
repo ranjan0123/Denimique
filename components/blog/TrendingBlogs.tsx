@@ -38,8 +38,8 @@ export default function TrendingBlogs() {
   return (
     <section className="bg-white/90 rounded-2xl shadow-sm border border-emerald-900/10 p-5">
       <div className="flex items-center gap-2 mb-4">
-        <TrendingUp className="w-5 h-5 text-[#7A3511]" />
-        <h2 className="text-lg font-semibold text-slate-900">Trending Now</h2>
+        <TrendingUp className="w-5 h-5 text-black" />
+        <h2 className="text-lg font-semibold text-black">Trending Now</h2>
       </div>
 
       <div className="space-y-3">
@@ -47,7 +47,7 @@ export default function TrendingBlogs() {
           <Link
             key={blog._id}
             href={`/blog/${blog.slug}`}
-            className="flex gap-3 p-2 rounded-xl hover:bg-[#7A3511]/10 transition-colors group"
+            className="flex gap-3 p-2 rounded-xl hover:bg-[#1B2E27]/10 transition-colors group"
           >
             <div className="flex-shrink-0 w-16 h-16 bg-[#E8E3DD] rounded-lg overflow-hidden">
               <Image
@@ -61,14 +61,14 @@ export default function TrendingBlogs() {
 
             <div className="flex-1 min-w-0">
               <div className="flex items-start gap-2 mb-1">
-                <span className="flex-shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#7A3511] text-white text-[10px] font-bold">
+                <span className="flex-shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#1B2E27] text-white text-[10px] font-bold">
                   {index + 1}
                 </span>
               </div>
-              <h3 className="text-sm font-semibold text-gray-900 group-hover:text-[#7A3511] transition-colors line-clamp-2">
+              <h3 className="text-sm font-semibold text-black group-hover:text-black transition-colors line-clamp-2">
                 {blog.title}
               </h3>
-              <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+              <p className="text-xs text-black mt-1 flex items-center gap-1">
                 <span>{blog.viewCount} views</span>
               </p>
             </div>

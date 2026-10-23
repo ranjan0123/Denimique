@@ -34,7 +34,7 @@ export default function AdminUsersLayout({
 
   if (!hasInitialized || isLoading) {
     return (
-      <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="h-12 w-12 rounded-full border-4 border-[#0B0F6B] border-t-transparent animate-spin" />
       </div>
     );

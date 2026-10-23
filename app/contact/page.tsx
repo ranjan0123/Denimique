@@ -60,7 +60,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-white text-gray-800 overflow-hidden">
+    <main className="bg-white text-black overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -137,7 +137,7 @@ export default function ContactPage() {
             title: "Contact",
             content: (
               <>
-                +91 9625610749
+                +91 9213970893
                 <br />
                 Email our team
               </>
@@ -152,10 +152,10 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="backdrop-blur-lg bg-white/70 border border-gray-200 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
           >
-            <h3 className="text-xl font-semibold mb-4 text-[#7A3511]">
+            <h3 className="text-xl font-semibold mb-4 text-black">
               {item.title}
             </h3>
-            <p className="text-gray-600 leading-relaxed">{item.content}</p>
+            <p className="text-black leading-relaxed">{item.content}</p>
           </motion.div>
         ))}
       </section>
@@ -172,7 +172,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-[#7A3511] mb-8">
+            <h2 className="text-3xl font-bold text-black mb-8">
               Send a Message
             </h2>
 
@@ -184,7 +184,7 @@ export default function ContactPage() {
                   placeholder="First Name"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#7A3511] transition"
+                  className="border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#1B2E27] transition"
                 />
                 <input
                   type="text"
@@ -192,7 +192,7 @@ export default function ContactPage() {
                   placeholder="Last Name"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#7A3511] transition"
+                  className="border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#1B2E27] transition"
                 />
               </div>
 
@@ -203,7 +203,7 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#7A3511] transition"
+                className="w-full border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#1B2E27] transition"
               />
 
               <textarea
@@ -213,13 +213,13 @@ export default function ContactPage() {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#7A3511] transition"
+                className="w-full border-b border-gray-400 bg-transparent p-3 focus:outline-none focus:border-[#1B2E27] transition"
               />
 
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-6 bg-[#7A3511] text-white px-10 py-3 hover:bg-[#5A260F] transition-all duration-300 hover:scale-105"
+                className="mt-6 bg-[#1B2E27] text-white px-10 py-3 hover:bg-[#5A260F] transition-all duration-300 hover:scale-105"
               >
                 {submitting ? "Sending..." : "Get in Touch"}
               </button>
@@ -233,17 +233,16 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold text-[#7A3511] mb-6">
+            <h3 className="text-3xl font-bold text-black mb-6">
               24/7 Customer Support
             </h3>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-black leading-relaxed mb-8">
               We source premium-quality fabrics to ensure exceptional comfort,
               craftsmanship, and finish in every piece. With fast delivery and
-              friendly assistance, your Denimique experience is always
-              smooth.
+              friendly assistance, your Denimique experience is always smooth.
             </p>
 
-            {/* <div className="flex gap-6 text-[#7A3511] font-medium">
+            {/* <div className="flex gap-6 text-black font-medium">
               <a href="#" className="hover:underline">Facebook</a>
               <a href="#" className="hover:underline">Instagram</a>
               <a href="#" className="hover:underline">YouTube</a>
@@ -259,7 +258,7 @@ export default function ContactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center text-[#7A3511] mb-16"
+          className="text-3xl font-bold text-center text-black mb-16"
         >
           Frequently Asked Questions
         </motion.h2>
@@ -277,7 +276,7 @@ export default function ContactPage() {
               <summary className="font-semibold cursor-pointer">
                 {item.q}
               </summary>
-              <p className="mt-4 text-gray-600">{item.a}</p>
+              <p className="mt-4 text-black">{item.a}</p>
             </motion.details>
           ))}
         </div>
@@ -291,7 +290,7 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center text-[#7A3511] mb-16"
+            className="text-4xl font-bold text-center text-black mb-16"
           >
             Visit Our Location
           </motion.h2>
@@ -319,10 +318,10 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="absolute bottom-8 left-8 bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl max-w-sm border border-gray-200"
             >
-              <h3 className="text-xl font-bold text-[#7A3511] mb-3">
+              <h3 className="text-xl font-bold text-black mb-3">
                 Denimique HQ
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-black text-sm leading-relaxed">
                 Denimique <br />
                 H-63, Sector 62 <br />
                 Noida, Uttar Pradesh - 201301 <br />
@@ -335,7 +334,7 @@ export default function ContactPage() {
               {/* <a
                 href="https://maps.google.com"
                 target="_blank"
-                className="inline-block mt-4 text-[#7A3511] font-semibold hover:underline"
+                className="inline-block mt-4 text-black font-semibold hover:underline"
                 >
                 Open in Google Maps &rarr;
                 </a> */}

@@ -76,20 +76,20 @@ export default function CartPage() {
       <section className="flex min-h-screen items-center justify-center bg-white px-4">
         <div className="max-w-md text-center">
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#f3e9e3]">
-            <ShoppingBag size={34} className="text-[#7A3511]" />
+            <ShoppingBag size={34} className="text-black" />
           </div>
 
-          <h1 className="text-3xl font-bold tracking-tight text-[#2d1d18] md:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-black md:text-4xl">
             Your Cart is Empty
           </h1>
 
-          <p className="mt-3 text-base leading-7 text-gray-500">
+          <p className="mt-3 text-base leading-7 text-black">
             Looks like you haven&apos;t added any products to your cart yet.
           </p>
 
           <Link
             href="/shop"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#7A3511] to-[#5A260F] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(122,53,17,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(122,53,17,0.35)]"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#1B2E27] to-[#5A260F] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(122,53,17,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(122,53,17,0.35)]"
           >
             Continue Shopping
             <ArrowRight size={17} />
@@ -133,15 +133,15 @@ export default function CartPage() {
         {/* HEADER */}
         <div className="mb-8 flex flex-col gap-4 border-b border-gray-200 pb-7 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-2 text-sm font-medium text-[#7A3511]">
+            <p className="mb-2 text-sm font-medium text-black">
               YOUR SHOPPING BAG
             </p>
 
-            <h1 className="text-3xl font-bold tracking-tight text-[#2d1d18] md:text-4xl">
+            <h1 className="text-3xl font-bold tracking-tight text-black md:text-4xl">
               Shopping Cart
             </h1>
 
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-black">
               {totalItems} {totalItems === 1 ? "item" : "items"} in your cart
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function CartPage() {
                 toast.error("Unable to clear cart");
               }
             }}
-            className="inline-flex w-fit items-center rounded-lg border border-[#dfc8b9] bg-white px-4 py-2.5 text-sm font-medium text-[#7A3511] transition-all hover:border-[#7A3511] hover:bg-[#fff8f4]"
+            className="inline-flex w-fit items-center rounded-lg border border-[#dfc8b9] bg-white px-4 py-2.5 text-sm font-medium text-black transition-all hover:border-[#1B2E27] hover:bg-[#fff8f4]"
           >
             Clear Cart
           </button>
@@ -190,14 +190,14 @@ export default function CartPage() {
                       <div className="min-w-0">
                         <Link
                           href={item.slug ? `/products/${item.slug}` : "/shop"}
-                          className="line-clamp-2 text-base font-semibold leading-6 text-[#2d1d18] transition-colors hover:text-[#7A3511] sm:text-lg"
+                          className="line-clamp-2 text-base font-semibold leading-6 text-black transition-colors hover:text-black sm:text-lg"
                         >
                           {item.name}
                         </Link>
 
-                        <p className="mt-2 text-sm text-gray-500">
+                        <p className="mt-2 text-sm text-black">
                           Price:{" "}
-                          <span className="font-medium text-[#2d1d18]">
+                          <span className="font-medium text-black">
                             Rs. {item.unitPrice}
                           </span>
                         </p>
@@ -206,7 +206,7 @@ export default function CartPage() {
                       {/* REMOVE */}
                       <button
                         onClick={() => handleRemoveItem(item.id)}
-                        className="rounded-lg p-2 text-gray-400 transition-all hover:bg-red-50 hover:text-red-500"
+                        className="rounded-lg p-2 text-black transition-all hover:bg-red-50 hover:text-black"
                         aria-label={`Remove ${item.name}`}
                       >
                         <Trash2 size={18} />
@@ -216,7 +216,7 @@ export default function CartPage() {
                     {/* QUANTITY + TOTAL */}
                     <div className="mt-auto flex flex-wrap items-end justify-between gap-4 pt-5">
                       <div>
-                        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+                        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-black">
                           Quantity
                         </p>
 
@@ -228,12 +228,12 @@ export default function CartPage() {
                                 Math.max(1, item.quantity - 1),
                               )
                             }
-                            className="flex h-10 w-10 items-center justify-center text-lg text-[#7A3511] transition-colors hover:bg-[#f8f2ee]"
+                            className="flex h-10 w-10 items-center justify-center text-lg text-black transition-colors hover:bg-[#f8f2ee]"
                           >
                             −
                           </button>
 
-                          <span className="px-3 md:px-4 py-1.5 text-base md:text-lg font-bold text-[#7A3511] bg-white min-w-[36px] text-center">
+                          <span className="px-3 md:px-4 py-1.5 text-base md:text-lg font-bold text-black bg-white min-w-[36px] text-center">
                             {item.quantity}
                           </span>
 
@@ -241,7 +241,7 @@ export default function CartPage() {
                             onClick={() =>
                               handleUpdateQty(item.id, item.quantity + 1)
                             }
-                            className="flex h-10 w-10 items-center justify-center text-lg text-[#7A3511] transition-colors hover:bg-[#f8f2ee]"
+                            className="flex h-10 w-10 items-center justify-center text-lg text-black transition-colors hover:bg-[#f8f2ee]"
                           >
                             +
                           </button>
@@ -249,11 +249,11 @@ export default function CartPage() {
                       </div>
 
                       <div className="text-right">
-                        <p className="mb-1 text-xs font-medium uppercase tracking-wider text-gray-400">
+                        <p className="mb-1 text-xs font-medium uppercase tracking-wider text-black">
                           Total
                         </p>
 
-                        <p className="text-lg font-bold text-[#2d1d18]">
+                        <p className="text-lg font-bold text-black">
                           Rs. {lineTotal}
                         </p>
                       </div>
@@ -266,23 +266,23 @@ export default function CartPage() {
 
           {/* ORDER SUMMARY */}
           <aside className="h-fit rounded-2xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
-            <h2 className="text-xl font-bold text-[#2d1d18]">Order Summary</h2>
+            <h2 className="text-xl font-bold text-black">Order Summary</h2>
 
             <div className="my-5 h-px bg-gray-100" />
 
             <div className="space-y-4 text-sm">
               <div className="flex items-center justify-between">
-                <span className="text-gray-500">Subtotal</span>
+                <span className="text-black">Subtotal</span>
 
-                <span className="font-semibold text-[#2d1d18]">
+                <span className="font-semibold text-black">
                   Rs. {subtotal}
                 </span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-gray-500">Shipping</span>
+                <span className="text-black">Shipping</span>
 
-                <span className="font-medium text-[#1b7d54]">
+                <span className="font-medium text-black">
                   Calculated at checkout
                 </span>
               </div>
@@ -292,16 +292,16 @@ export default function CartPage() {
 
             {/* TOTAL */}
             <div className="flex items-center justify-between">
-              <span className="text-base font-semibold text-[#2d1d18]">
+              <span className="text-base font-semibold text-black">
                 Estimated Total
               </span>
 
-              <span className="text-xl font-bold text-[#7A3511]">
+              <span className="text-xl font-bold text-black">
                 Rs. {subtotal}
               </span>
             </div>
 
-            <p className="mt-5 text-sm leading-6 text-gray-500">
+            <p className="mt-5 text-sm leading-6 text-black">
               Taxes, shipping charges, and promotional discounts will be
               calculated during checkout.
             </p>
@@ -309,7 +309,7 @@ export default function CartPage() {
             {/* CHECKOUT BUTTON - SUITABLE VASTRA THEME */}
             <Link
               href="/checkout"
-              className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#7A3511] to-[#5A260F] px-5 py-4 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(122,53,17,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:from-[#5A260F] hover:to-[#7A3511] hover:shadow-[0_12px_28px_rgba(122,53,17,0.35)] active:translate-y-0"
+              className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1B2E27] to-[#5A260F] px-5 py-4 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(122,53,17,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:from-[#5A260F] hover:to-[#1B2E27] hover:shadow-[0_12px_28px_rgba(122,53,17,0.35)] active:translate-y-0"
             >
               Proceed to Checkout
               <ArrowRight
@@ -321,7 +321,7 @@ export default function CartPage() {
             {/* CONTINUE SHOPPING */}
             <Link
               href="/shop"
-              className="mt-4 block text-center text-sm font-medium text-[#7A3511] transition-colors hover:text-[#5A260F] hover:underline"
+              className="mt-4 block text-center text-sm font-medium text-black transition-colors hover:text-black hover:underline"
             >
               Continue Shopping
             </Link>

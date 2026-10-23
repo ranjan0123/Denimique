@@ -6,7 +6,7 @@ import { Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#10191C] text-[#F8F6F1]">
+    <footer className="relative overflow-hidden border-t border-[#E5DED3] bg-[#F5F2EC] text-black">
       {/* ===== Main Content ===== */}
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-6 py-16 sm:grid-cols-2 md:grid-cols-5 md:py-20">
         {/* Brand */}
@@ -23,7 +23,7 @@ export default function Footer() {
               Denimique
             </span>
           </div>
-          <p className="text-white/65 text-[15px] leading-relaxed">
+          <p className="text-black text-[15px] leading-relaxed">
             Denimique and lifestyle fashion designed for everyday confidence,
             comfort, and personal style.
           </p>
@@ -32,21 +32,21 @@ export default function Footer() {
         {/* Explore */}
 
         <div>
-          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-[#D7C39A]">
+          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-black">
             Shop
           </h3>
-          <ul className="space-y-4 text-[15px] text-white/65">
+          <ul className="space-y-4 text-[15px] text-black">
             {[
               { label: "New Arrivals", href: "/shop?sort=newest" },
               { label: "Best Sellers", href: "/shop?sort=rating" },
               { label: "Women", href: "/shop?gender=women" },
-              { label: "The Denim Edit", href: "/shop?search=denim" },
+              // { label: "The Denim Edit", href: "/shop?search=denim" },
               // { label: "Bulk Orders", href: "/shop" },
             ].map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#55779E] transition duration-300 hover:text-[#D7C39A] hover:after:w-full after:transition-all after:duration-300"
+                  className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#92764A] transition duration-300 hover:text-black hover:after:w-full after:transition-all after:duration-300"
                 >
                   {item.label}
                 </Link>
@@ -57,10 +57,10 @@ export default function Footer() {
 
         {/* Company */}
         <div>
-          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-[#D7C39A]">
+          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-black">
             The House
           </h3>
-          <ul className="space-y-4 text-[15px] text-white/65">
+          <ul className="space-y-4 text-[15px] text-black">
             {[
               { label: "About Us", href: "/about" },
               { label: "Style Guide", href: "/style-guide" },
@@ -70,7 +70,7 @@ export default function Footer() {
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#55779E] transition duration-300 hover:text-[#D7C39A] hover:after:w-full after:transition-all after:duration-300"
+                  className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#92764A] transition duration-300 hover:text-black hover:after:w-full after:transition-all after:duration-300"
                 >
                   {item.label}
                 </Link>
@@ -81,25 +81,25 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-[#D7C39A]">
+          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-black">
             Customer Care
           </h3>
-          <ul className="space-y-4 text-[15px] text-white/65">
+          <ul className="space-y-4 text-[15px] text-black">
             <li>
-              <Link href="/shipping-policy" className="hover:text-[#D7C39A]">
+              <Link href="/shipping-policy" className="hover:text-black">
                 Shipping
               </Link>
             </li>
             <li>
               <Link
                 href="/refund-and-cancellation-policy"
-                className="hover:text-[#D7C39A]"
+                className="hover:text-black"
               >
                 Returns &amp; exchanges
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-[#D7C39A]">
+              <Link href="/contact" className="hover:text-black">
                 Help &amp; contact
               </Link>
             </li>
@@ -107,21 +107,21 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-[#D7C39A]">
+          <h3 className="font-heading mb-7 text-sm font-bold uppercase tracking-[0.16em] text-black">
             Contact
           </h3>
-          <ul className="space-y-4 text-[13px] leading-relaxed text-white/65">
+          <ul className="space-y-4 text-[13px] leading-relaxed text-black">
             <li>
               <a
                 href="mailto:care@denimique.com"
-                className="hover:text-[#D7C39A]"
+                className="hover:text-black"
               >
                 care@denimique.com
               </a>
             </li>
             <li>
-              <a href="tel:+919625610749" className="hover:text-[#D7C39A]">
-                +91 9625610749
+            <a href="tel:+919625610749" className="hover:text-black">
+                +91 9213970893
               </a>
             </li>
             <li>
@@ -133,13 +133,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="relative flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-3 text-sm text-white/65 md:flex-row md:items-center">
+      <div className="relative flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-3 text-sm text-black md:flex-row md:items-center">
         <div className="flex items-center gap-3">
           <Link
             href="https://www.facebook.com/profile.php?id=61590298204029"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-transparent text-white/75 transition hover:border-[#D7C39A] hover:bg-white/10"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#211F1B]/20 bg-white/50 text-black transition hover:border-[#92764A] hover:bg-white"
             aria-label="Denimique on Facebook"
           >
             <Facebook className="h-4 w-4" />
@@ -148,37 +148,37 @@ export default function Footer() {
       </div>
 
       {/* ===== Bottom Bar ===== */}
-      <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 border-t border-white/10 px-6 py-6 text-[13px] text-white/65 md:flex-row md:items-center">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 border-t border-[#211F1B]/15 px-6 py-6 text-[13px] text-black md:flex-row md:items-center">
         <p>&copy; 2026 Denimique. All rights reserved.</p>
 
-        <div className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-2 font-medium text-white/65 md:justify-center">
+        <div className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-2 font-medium text-black md:justify-center">
           <Link
             href="/privacy-policy"
-            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#55779E] transition duration-300 hover:text-[#D7C39A] hover:after:w-full after:transition-all after:duration-300"
+            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#92764A] transition duration-300 hover:text-black hover:after:w-full after:transition-all after:duration-300"
           >
             Privacy Policy
           </Link>
           <Link
             href="/terms-of-service"
-            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#55779E] transition duration-300 hover:text-[#D7C39A] hover:after:w-full after:transition-all after:duration-300"
+            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#92764A] transition duration-300 hover:text-black hover:after:w-full after:transition-all after:duration-300"
           >
             Terms of Service
           </Link>
           <Link
             href="/refund-and-cancellation-policy"
-            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#55779E] transition duration-300 hover:text-[#D7C39A] hover:after:w-full after:transition-all after:duration-300"
+            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#92764A] transition duration-300 hover:text-black hover:after:w-full after:transition-all after:duration-300"
           >
             Refund & Cancellation
           </Link>
           <Link
             href="/shipping-policy"
-            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#55779E] transition duration-300 hover:text-[#D7C39A] hover:after:w-full after:transition-all after:duration-300"
+            className="relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#92764A] transition duration-300 hover:text-black hover:after:w-full after:transition-all after:duration-300"
           >
             Shipping Policy
           </Link>
         </div>
 
-        <p className="font-heading text-base font-semibold italic tracking-wide text-[#D7C39A]">
+        <p className="font-heading text-base font-semibold italic tracking-wide text-black">
           Denim &amp; Lifestyle Fashion.
         </p>
       </div>

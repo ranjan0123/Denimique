@@ -63,20 +63,20 @@ export default function AdminPromoCodesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-gray-800">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="w-full px-4 sm:px-6 lg:px-10">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-black">
               Promo Codes Management
             </h1>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-black">
               Create and maintain discount rules for checkout.
             </p>
           </div>
           <Link
             href="/admin/promocodes/add"
-            className="inline-flex items-center px-4 py-2 bg-[#7A3511] text-white rounded-md hover:bg-[#5A260F] transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-[#1B2E27] text-white rounded-md hover:bg-[#5A260F] transition-colors"
           >
             Add Promo Code
           </Link>
@@ -85,46 +85,46 @@ export default function AdminPromoCodesPage() {
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-[#FDFBF7]">
+              <thead className="bg-white">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Code
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Type
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Value
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Limits
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {promoCodes.map((promoCode) => (
-                  <tr key={promoCode._id} className="hover:bg-[#FDFBF7]">
+                  <tr key={promoCode._id} className="hover:bg-white">
                     <td className="px-6 py-4">
-                      <div className="font-medium text-gray-900">{promoCode.code}</div>
-                      <div className="text-sm text-gray-500">
+                      <div className="font-medium text-black">{promoCode.code}</div>
+                      <div className="text-sm text-black">
                         {promoCode.description || "No description"}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="px-6 py-4 text-sm text-black">
                       {promoCode.type}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="px-6 py-4 text-sm text-black">
                       {promoCode.type === "percentage"
                         ? `${promoCode.value}%`
                         : `Rs. ${promoCode.value}`}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="px-6 py-4 text-sm text-black">
                       <div>Min order: Rs. {promoCode.minOrderAmount || 0}</div>
                       <div>Per user: {promoCode.perUserLimit || "-"}</div>
                     </td>
@@ -132,8 +132,8 @@ export default function AdminPromoCodesPage() {
                       <span
                         className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
                           promoCode.isActive
-                            ? "bg-green-100 text-green-700"
-                            : "bg-gray-100 text-gray-600"
+                            ? "bg-green-100 text-black"
+                            : "bg-gray-100 text-black"
                         }`}
                       >
                         {promoCode.isActive ? "Active" : "Inactive"}
@@ -143,14 +143,14 @@ export default function AdminPromoCodesPage() {
                       <div className="flex gap-3">
                         <Link
                           href={`/admin/promocodes/edit/${promoCode._id}`}
-                          className="text-indigo-600 hover:text-indigo-900"
+                          className="text-black hover:text-black"
                         >
                           Edit
                         </Link>
                         <button
                           onClick={() => handleDelete(promoCode._id)}
                           disabled={isDeleting === promoCode._id}
-                          className="text-red-600 hover:text-red-900 disabled:opacity-50"
+                          className="text-black hover:text-black disabled:opacity-50"
                         >
                           {isDeleting === promoCode._id ? "Deleting..." : "Delete"}
                         </button>
@@ -163,7 +163,7 @@ export default function AdminPromoCodesPage() {
           </div>
 
           {promoCodes.length === 0 && (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-black">
               No promo codes created yet.
             </div>
           )}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BookOpen,
+  Bot,
   Boxes,
   FolderTree,
   LayoutDashboard,
@@ -42,6 +43,7 @@ const NAV_GROUPS: NavGroup[] = [
       { title: "Categories", href: "/admin/categories", icon: FolderTree },
       { title: "Subcategories", href: "/admin/subcategories", icon: Tags },
       { title: "Products", href: "/admin/products", icon: Boxes },
+      { title: "AI Knowledge", href: "/admin/ai-knowledge", icon: Bot },
     ],
   },
   {
@@ -100,18 +102,18 @@ export default function AdminSidebar({
       <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
         <Link
           href="/admin"
-          className="text-sm font-bold tracking-wide text-[#2B1206]"
+          className="text-sm font-bold tracking-wide text-black"
           onClick={onClose}
         >
           Denimique
-          <span className="ml-1.5 rounded-full bg-[#7A3511]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#7A3511]">
+          <span className="ml-1.5 rounded-full bg-[#1B2E27]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-black">
             Admin
           </span>
         </Link>
         <button
           type="button"
           onClick={onClose}
-          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 lg:hidden"
+          className="rounded-lg p-1.5 text-black hover:bg-slate-100 hover:text-black lg:hidden"
           aria-label="Close menu"
         >
           <X size={18} />
@@ -124,8 +126,8 @@ export default function AdminSidebar({
           onClick={onClose}
           className={`flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${
             pathname === "/admin"
-              ? "bg-[#7A3511] text-white"
-              : "text-slate-600 hover:bg-slate-100"
+              ? "bg-[#1B2E27] text-white"
+              : "text-black hover:bg-slate-100"
           }`}
         >
           <LayoutDashboard size={17} />
@@ -134,7 +136,7 @@ export default function AdminSidebar({
 
         {groups.map((group) => (
           <div key={group.title}>
-            <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+            <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-black">
               {group.title}
             </p>
             <div className="mt-2 space-y-0.5">
@@ -148,11 +150,11 @@ export default function AdminSidebar({
                     onClick={onClose}
                     className={`flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
                       active
-                        ? "bg-[#7A3511]/10 text-[#7A3511]"
-                        : "text-slate-600 hover:bg-slate-100"
+                        ? "bg-[#1B2E27]/10 text-black"
+                        : "text-black hover:bg-slate-100"
                     }`}
                   >
-                    <Icon size={16} className={active ? "text-[#7A3511]" : "text-slate-400"} />
+                    <Icon size={16} className={active ? "text-black" : "text-black"} />
                     {item.title}
                   </Link>
                 );

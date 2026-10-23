@@ -92,9 +92,9 @@ const cupSizeGuide = [
 
 export default function StyleGuideComponent({ edits }: StyleGuideComponentProps) {
   return (
-    <div className="bg-[#FDFBF7] text-[#1C2E26] overflow-hidden">
+    <div className="bg-white text-black overflow-hidden">
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#936965] via-[#5A260F] to-[#7A3511] px-6 py-24 text-center text-white md:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#936965] via-[#5A260F] to-[#1B2E27] px-6 py-24 text-center text-white md:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.2),transparent_35%)]" />
         <motion.div
           variants={fadeUp}
@@ -103,12 +103,12 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
           transition={{ duration: 0.8 }}
           className="relative z-10 mx-auto max-w-3xl"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37] backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black backdrop-blur">
             <Sparkles size={14} />
             Style Guide
           </span>
           <h1 className="font-heading mt-6 text-4xl font-bold leading-tight md:text-6xl">
-            Fit &amp; Style, <span className="text-[#D4AF37]">Your Way</span>
+            Fit &amp; Style, <span className="text-black">Your Way</span>
           </h1>
           <p className="mt-5 text-base leading-relaxed text-white/85 md:text-lg">
             Fit tips, fabric care, and a real size guide — everything you need
@@ -120,7 +120,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/90 backdrop-blur transition hover:border-[#D4AF37]/60 hover:bg-white/15 hover:text-[#D4AF37]"
+                className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/90 backdrop-blur transition hover:border-[#D4AF37]/60 hover:bg-white/15 hover:text-black"
               >
                 {link.label}
               </a>
@@ -140,10 +140,10 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
-            <h2 className="font-heading text-3xl font-bold text-[#4A230F] md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-black md:text-4xl">
               Shop by Category
             </h2>
-            <p className="mt-3 text-[#1C2E26]/70">
+            <p className="mt-3 text-black">
               Fit and styling tips for each collection, with real picks from the shop.
             </p>
           </motion.div>
@@ -157,7 +157,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                 whileInView="show"
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="group flex flex-col overflow-hidden rounded-3xl border border-[#7A3511]/10 bg-white shadow-[0_14px_34px_rgba(122,53,17,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_46px_rgba(122,53,17,0.16)]"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-[#1B2E27]/10 bg-white shadow-[0_14px_34px_rgba(122,53,17,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_46px_rgba(122,53,17,0.16)]"
               >
                 {edit.image && (
                   <div className="relative h-56 w-full overflow-hidden">
@@ -181,16 +181,16 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                 <div className="flex flex-1 flex-col p-6">
                   <ul className="space-y-3">
                     {edit.tips.map((tip) => (
-                      <li key={tip} className="flex items-start gap-2.5 text-sm text-[#1C2E26]/85">
-                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#D4AF37]" />
+                      <li key={tip} className="flex items-start gap-2.5 text-sm text-black">
+                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-black" />
                         {tip}
                       </li>
                     ))}
                   </ul>
 
                   {edit.products.length > 0 && (
-                    <div className="mt-5 border-t border-[#7A3511]/10 pt-5">
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#7A3511]/70">
+                    <div className="mt-5 border-t border-[#1B2E27]/10 pt-5">
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-black">
                         Shop the Edit
                       </p>
                       <div className="grid grid-cols-2 gap-3">
@@ -198,7 +198,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                           <Link
                             key={product.id}
                             href={`/products/${product.slug}`}
-                            className="group/product overflow-hidden rounded-xl border border-[#f0e4d7] bg-[#FDFBF7] p-2 transition hover:border-[#D4AF37]/50 hover:shadow-md"
+                            className="group/product overflow-hidden rounded-xl border border-[#f0e4d7] bg-white p-2 transition hover:border-[#D4AF37]/50 hover:shadow-md"
                           >
                             <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white">
                               <Image
@@ -209,15 +209,15 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                                 className="object-contain transition-transform duration-300 group-hover/product:scale-105"
                               />
                             </div>
-                            <p className="mt-2 line-clamp-2 text-[11px] font-medium text-[#1C2E26]">
+                            <p className="mt-2 line-clamp-2 text-[11px] font-medium text-black">
                               {product.name}
                             </p>
                             <div className="mt-1 flex items-center justify-between gap-1">
-                              <span className="text-xs font-bold text-[#7A3511]">
+                              <span className="text-xs font-bold text-black">
                                 ₹{product.price}
                               </span>
                               {product.rating ? (
-                                <span className="flex items-center gap-0.5 text-[10px] text-amber-500">
+                                <span className="flex items-center gap-0.5 text-[10px] text-black">
                                   <Star size={10} className="fill-current" />
                                   {product.rating.toFixed(1)}
                                 </span>
@@ -231,7 +231,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
 
                   <Link
                     href={edit.href}
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#7A3511] transition group-hover:gap-3"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-black transition group-hover:gap-3"
                   >
                     Shop the Edit
                     <ArrowUpRight size={15} />
@@ -244,7 +244,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
       )}
 
       {/* ================= FABRIC & CARE ================= */}
-      <section id="care" className="scroll-mt-24 bg-[#7A3511] px-6 py-20 text-white md:px-10">
+      <section id="care" className="scroll-mt-24 bg-[#1B2E27] px-6 py-20 text-white md:px-10">
         <div className="mx-auto max-w-6xl">
           <motion.div
             variants={fadeUp}
@@ -275,7 +275,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="rounded-2xl border border-white/15 bg-white/5 p-5 transition-colors duration-300 hover:bg-white/10"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-[#D4AF37]">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-black">
                     <Icon size={20} />
                   </span>
                   <h3 className="mt-4 font-heading text-lg font-bold">
@@ -297,9 +297,9 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 flex items-start gap-3 rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 p-5"
           >
-            <Layers size={20} className="mt-0.5 shrink-0 text-[#D4AF37]" />
+            <Layers size={20} className="mt-0.5 shrink-0 text-black" />
             <p className="text-sm leading-relaxed text-white/90">
-              <span className="font-semibold text-[#D4AF37]">Pro tip:</span>{" "}
+              <span className="font-semibold text-black">Pro tip:</span>{" "}
               Replace bras every 8-12 months of regular wear — stretched
               elastic and worn-out padding are the most common causes of a
               bra suddenly feeling like the &ldquo;wrong size.&rdquo;
@@ -318,14 +318,14 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
           transition={{ duration: 0.6 }}
           className="mb-10 text-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#7A3511]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#7A3511]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#1B2E27]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black">
             <Ruler size={14} />
             Size Guide
           </span>
-          <h2 className="font-heading mt-4 text-3xl font-bold text-[#4A230F] md:text-4xl">
+          <h2 className="font-heading mt-4 text-3xl font-bold text-black md:text-4xl">
             Find Your Fit
           </h2>
-          <p className="mt-3 text-[#1C2E26]/70">
+          <p className="mt-3 text-black">
             Measure snugly with a soft tape, in inches. Underbust gives your
             band; the difference between bust and underbust gives your cup.
           </p>
@@ -338,12 +338,12 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
             whileInView="show"
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="overflow-hidden rounded-2xl border border-[#7A3511]/10 bg-white shadow-[0_14px_34px_rgba(122,53,17,0.08)]"
+            className="overflow-hidden rounded-2xl border border-[#1B2E27]/10 bg-white shadow-[0_14px_34px_rgba(122,53,17,0.08)]"
           >
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="bg-[#FFF8EE] text-[#4A230F]">
+                  <tr className="bg-[#FFF8EE] text-black">
                     <th className="px-5 py-3 font-semibold">Band</th>
                     <th className="px-5 py-3 font-semibold">Underbust</th>
                   </tr>
@@ -352,10 +352,10 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                   {bandSizeGuide.map((row, index) => (
                     <tr
                       key={row.band}
-                      className={`transition-colors hover:bg-[#FFF8EE] ${index % 2 === 0 ? "bg-white" : "bg-[#FDFBF7]"}`}
+                      className={`transition-colors hover:bg-[#FFF8EE] ${index % 2 === 0 ? "bg-white" : "bg-white"}`}
                     >
-                      <td className="px-5 py-3 font-semibold text-[#7A3511]">{row.band}</td>
-                      <td className="px-5 py-3 text-[#1C2E26]/80">{row.underbust}</td>
+                      <td className="px-5 py-3 font-semibold text-black">{row.band}</td>
+                      <td className="px-5 py-3 text-black">{row.underbust}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -369,12 +369,12 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
             whileInView="show"
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="overflow-hidden rounded-2xl border border-[#7A3511]/10 bg-white shadow-[0_14px_34px_rgba(122,53,17,0.08)]"
+            className="overflow-hidden rounded-2xl border border-[#1B2E27]/10 bg-white shadow-[0_14px_34px_rgba(122,53,17,0.08)]"
           >
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="bg-[#FFF8EE] text-[#4A230F]">
+                  <tr className="bg-[#FFF8EE] text-black">
                     <th className="px-5 py-3 font-semibold">Cup</th>
                     <th className="px-5 py-3 font-semibold">Bust − Underbust</th>
                   </tr>
@@ -383,10 +383,10 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
                   {cupSizeGuide.map((row, index) => (
                     <tr
                       key={row.cup}
-                      className={`transition-colors hover:bg-[#FFF8EE] ${index % 2 === 0 ? "bg-white" : "bg-[#FDFBF7]"}`}
+                      className={`transition-colors hover:bg-[#FFF8EE] ${index % 2 === 0 ? "bg-white" : "bg-white"}`}
                     >
-                      <td className="px-5 py-3 font-semibold text-[#7A3511]">{row.cup}</td>
-                      <td className="px-5 py-3 text-[#1C2E26]/80">{row.diff}</td>
+                      <td className="px-5 py-3 font-semibold text-black">{row.cup}</td>
+                      <td className="px-5 py-3 text-black">{row.diff}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -395,14 +395,14 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
           </motion.div>
         </div>
 
-        <p className="mt-4 text-center text-sm text-[#1C2E26]/60">
+        <p className="mt-4 text-center text-sm text-black">
           Between two bands or cups? We recommend the larger band with a
           smaller cup for all-day comfort.
         </p>
       </section>
 
       {/* ================= FINAL CTA ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-[#936965] via-[#5A260F] to-[#7A3511] px-6 py-20 text-center text-white">
+      <section className="relative overflow-hidden bg-gradient-to-r from-[#936965] via-[#5A260F] to-[#1B2E27] px-6 py-20 text-center text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.18),transparent_38%)]" />
         <motion.div
           variants={fadeUp}
@@ -412,7 +412,7 @@ export default function StyleGuideComponent({ edits }: StyleGuideComponentProps)
           transition={{ duration: 0.6 }}
           className="relative mx-auto max-w-2xl"
         >
-          <Heart className="mx-auto mb-5 text-[#D4AF37]" size={32} />
+          <Heart className="mx-auto mb-5 text-black" size={32} />
           <h2 className="font-heading text-3xl font-bold md:text-4xl">
             Ready to Put It Into Practice?
           </h2>

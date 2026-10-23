@@ -73,7 +73,7 @@ function ChipBox({
 }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-      <p className="text-sm font-semibold text-slate-700">{title}</p>
+      <p className="text-sm font-semibold text-black">{title}</p>
       <div className="mt-2 flex gap-2">
         <input
           value={value}
@@ -94,7 +94,7 @@ function ChipBox({
             key={`${item}-${index}`}
             type="button"
             onClick={() => onRemoveItem(index)}
-            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600"
+            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-black"
           >
             {item} ×
           </button>
@@ -349,14 +349,14 @@ export default function AdminCityPages() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7]">
+    <div className="min-h-screen bg-white">
       <div className="bg-white border-b border-slate-200">
         <div className="w-full px-6 lg:px-10 py-6 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-950">City Location Pages</h1>
-            <p className="text-slate-600 mt-1">Unique local SEO data for each city page.</p>
+            <h1 className="text-3xl font-bold text-black">City Location Pages</h1>
+            <p className="text-black mt-1">Unique local SEO data for each city page.</p>
           </div>
-          <Link href="/admin" className="text-[#0B0F6B] hover:text-[#151b87]">{"<-"} Back to Admin</Link>
+          <Link href="/admin" className="text-black hover:text-black">{"<-"} Back to Admin</Link>
         </div>
       </div>
 
@@ -364,7 +364,7 @@ export default function AdminCityPages() {
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-semibold text-slate-900">{selected ? "Edit City Page" : "Create City Page"}</h2>
+              <h2 className="text-2xl font-semibold text-black">{selected ? "Edit City Page" : "Create City Page"}</h2>
               {selected && <button type="button" onClick={resetForm} className="rounded-full border border-slate-300 px-4 py-2 text-sm">Reset</button>}
             </div>
 
@@ -442,7 +442,7 @@ export default function AdminCityPages() {
                 <div key={i} className="grid sm:grid-cols-[1fr_1fr_auto] gap-2">
                   <input value={row.label} onChange={(e) => updateArrayObj<Timeline>("deliveryTimelines", i, "label", e.target.value)} placeholder="Label" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
                   <input value={row.estimate} onChange={(e) => updateArrayObj<Timeline>("deliveryTimelines", i, "estimate", e.target.value)} placeholder="Estimate (24-48 hours)" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  {formData.deliveryTimelines.length > 1 && <button type="button" onClick={() => removeObj("deliveryTimelines", i)} className="text-xs text-rose-600">Remove</button>}
+                  {formData.deliveryTimelines.length > 1 && <button type="button" onClick={() => removeObj("deliveryTimelines", i)} className="text-xs text-black">Remove</button>}
                 </div>
               ))}
               <button type="button" onClick={() => pushObj("deliveryTimelines")} className="rounded-xl border border-slate-300 px-3 py-2 text-sm">Add Timeline</button>
@@ -454,7 +454,7 @@ export default function AdminCityPages() {
                 <div key={i} className="space-y-2">
                   <input value={row.question} onChange={(e) => updateArrayObj<QA>("faqs", i, "question", e.target.value)} placeholder="Question" className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
                   <textarea value={row.answer} onChange={(e) => updateArrayObj<QA>("faqs", i, "answer", e.target.value)} placeholder="Answer" className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" rows={2} />
-                  {formData.faqs.length > 1 && <button type="button" onClick={() => removeObj("faqs", i)} className="text-xs text-rose-600">Remove</button>}
+                  {formData.faqs.length > 1 && <button type="button" onClick={() => removeObj("faqs", i)} className="text-xs text-black">Remove</button>}
                 </div>
               ))}
               <button type="button" onClick={() => pushObj("faqs")} className="rounded-xl border border-slate-300 px-3 py-2 text-sm">Add FAQ</button>
@@ -466,7 +466,7 @@ export default function AdminCityPages() {
                 <div key={i} className="space-y-2">
                   <input value={row.title} onChange={(e) => updateArrayObj<Section>("sections", i, "title", e.target.value)} placeholder="Section title" className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
                   <textarea value={row.body} onChange={(e) => updateArrayObj<Section>("sections", i, "body", e.target.value)} placeholder="Section body" className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" rows={3} />
-                  {formData.sections.length > 1 && <button type="button" onClick={() => removeObj("sections", i)} className="text-xs text-rose-600">Remove</button>}
+                  {formData.sections.length > 1 && <button type="button" onClick={() => removeObj("sections", i)} className="text-xs text-black">Remove</button>}
                 </div>
               ))}
               <button type="button" onClick={() => pushObj("sections")} className="rounded-xl border border-slate-300 px-3 py-2 text-sm">Add Section</button>
@@ -478,7 +478,7 @@ export default function AdminCityPages() {
                 <div key={i} className="grid sm:grid-cols-[1fr_1fr_auto] gap-2">
                   <input value={row.label} onChange={(e) => updateArrayObj<Pair>("stats", i, "label", e.target.value)} placeholder="Label" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
                   <input value={row.value} onChange={(e) => updateArrayObj<Pair>("stats", i, "value", e.target.value)} placeholder="Value" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  {formData.stats.length > 1 && <button type="button" onClick={() => removeObj("stats", i)} className="text-xs text-rose-600">Remove</button>}
+                  {formData.stats.length > 1 && <button type="button" onClick={() => removeObj("stats", i)} className="text-xs text-black">Remove</button>}
                 </div>
               ))}
               <button type="button" onClick={() => pushObj("stats")} className="rounded-xl border border-slate-300 px-3 py-2 text-sm">Add Stat</button>
@@ -513,7 +513,7 @@ export default function AdminCityPages() {
                 <div key={i} className="grid sm:grid-cols-[1fr_1fr_auto] gap-2">
                   <input value={row.label} onChange={(e) => updateArrayObj<LinkItem>("internalLinks", i, "label", e.target.value)} placeholder="Label" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
                   <input value={row.href} onChange={(e) => updateArrayObj<LinkItem>("internalLinks", i, "href", e.target.value)} placeholder="/path" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  {formData.internalLinks.length > 1 && <button type="button" onClick={() => removeObj("internalLinks", i)} className="text-xs text-rose-600">Remove</button>}
+                  {formData.internalLinks.length > 1 && <button type="button" onClick={() => removeObj("internalLinks", i)} className="text-xs text-black">Remove</button>}
                 </div>
               ))}
               <button type="button" onClick={() => pushObj("internalLinks")} className="rounded-xl border border-slate-300 px-3 py-2 text-sm">Add Link</button>
@@ -525,7 +525,7 @@ export default function AdminCityPages() {
                 <div key={i} className="grid sm:grid-cols-[1fr_1fr_auto] gap-2">
                   <input value={row.label} onChange={(e) => updateArrayObj<LinkItem>("nearbyCitiesLinks", i, "label", e.target.value)} placeholder="Label" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
                   <input value={row.href} onChange={(e) => updateArrayObj<LinkItem>("nearbyCitiesLinks", i, "href", e.target.value)} placeholder="/path" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  {formData.nearbyCitiesLinks.length > 1 && <button type="button" onClick={() => removeObj("nearbyCitiesLinks", i)} className="text-xs text-rose-600">Remove</button>}
+                  {formData.nearbyCitiesLinks.length > 1 && <button type="button" onClick={() => removeObj("nearbyCitiesLinks", i)} className="text-xs text-black">Remove</button>}
                 </div>
               ))}
               <button type="button" onClick={() => pushObj("nearbyCitiesLinks")} className="rounded-xl border border-slate-300 px-3 py-2 text-sm">Add Link</button>
@@ -554,7 +554,7 @@ export default function AdminCityPages() {
               />
             </div>
 
-            <label className="flex items-center gap-2 text-sm text-slate-600">
+            <label className="flex items-center gap-2 text-sm text-black">
               <input type="checkbox" name="isActive" checked={formData.isActive} onChange={onInput} />
               Publish this city page
             </label>
@@ -566,24 +566,24 @@ export default function AdminCityPages() {
         </div>
 
         <div className="rounded-3xl border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 px-6 py-4"><h2 className="text-xl font-semibold text-slate-900">City Pages</h2></div>
+          <div className="border-b border-slate-200 px-6 py-4"><h2 className="text-xl font-semibold text-black">City Pages</h2></div>
           {loading ? (
-            <div className="p-6 text-center text-slate-500">Loading...</div>
+            <div className="p-6 text-center text-black">Loading...</div>
           ) : pages.length === 0 ? (
-            <div className="p-6 text-center text-slate-500">No city pages created yet.</div>
+            <div className="p-6 text-center text-black">No city pages created yet.</div>
           ) : (
             <div className="divide-y divide-slate-200">
               {pages.map((page) => (
                 <div key={page._id} className="p-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-slate-900">{page.city}</h3>
-                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${page.isActive ? "bg-emerald-100 text-emerald-700" : "bg-rose-100 text-rose-700"}`}>{page.isActive ? "Published" : "Draft"}</span>
+                    <h3 className="text-lg font-semibold text-black">{page.city}</h3>
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${page.isActive ? "bg-emerald-100 text-black" : "bg-rose-100 text-black"}`}>{page.isActive ? "Published" : "Draft"}</span>
                   </div>
-                  <p className="text-sm text-slate-500 mt-1">/{page.slug}</p>
+                  <p className="text-sm text-black mt-1">/{page.slug}</p>
                   <div className="flex flex-wrap gap-2 pt-3">
-                    <button onClick={() => handleEdit(page)} className="rounded-full bg-[#0B0F6B]/10 px-4 py-2 text-xs font-semibold text-[#0B0F6B]">Edit</button>
-                    <button onClick={() => handleDelete(page._id)} className="rounded-full bg-rose-100 px-4 py-2 text-xs font-semibold text-rose-700">Delete</button>
-                    <Link href={`/${page.slug}`} className="rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700">View</Link>
+                    <button onClick={() => handleEdit(page)} className="rounded-full bg-[#0B0F6B]/10 px-4 py-2 text-xs font-semibold text-black">Edit</button>
+                    <button onClick={() => handleDelete(page._id)} className="rounded-full bg-rose-100 px-4 py-2 text-xs font-semibold text-black">Delete</button>
+                    <Link href={`/${page.slug}`} className="rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-black">View</Link>
                   </div>
                 </div>
               ))}

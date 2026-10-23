@@ -28,7 +28,7 @@ const badges = [
 
 export default function TrustBadgesBar() {
   return (
-    <section className="border-y border-[#191714]/10 bg-[#F8F6F1] py-7">
+    <section className="border-y border-[#191714]/10 bg-white py-7">
       <div className="max-w-7xl mx-auto px-5 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {badges.map((badge, index) => {
@@ -42,14 +42,14 @@ export default function TrustBadgesBar() {
                 viewport={{ once: true }}
                 className="flex items-start gap-3"
               >
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center border border-[#92764A]/40 text-[#92764A]">
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center border border-[#92764A]/40 text-black">
                   <Icon size={16} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#191714]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-black">
                     {badge.title}
                   </p>
-                  <p className="mt-1 text-[11px] leading-relaxed text-[#777166]">{badge.desc}</p>
+                  <p className="mt-1 text-[11px] leading-relaxed text-black">{badge.desc}</p>
                 </div>
               </motion.div>
             );

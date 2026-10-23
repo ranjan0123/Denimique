@@ -311,26 +311,26 @@ export default function AdminHeroPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7]">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="h-24 w-24 rounded-full border-4 border-slate-200 border-t-[#0B0F6B] animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-slate-900">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900">Hero Content</h1>
-            <p className="mt-2 text-sm text-slate-600">
+            <h1 className="text-3xl font-bold text-black">Hero Content</h1>
+            <p className="mt-2 text-sm text-black">
               Manage the storefront hero copy, badges, and slider visuals.
             </p>
           </div>
           <div className="flex items-center gap-3">
             <Link
               href="/admin"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-slate-50 transition-colors"
             >
               Back to dashboard
             </Link>
@@ -338,7 +338,7 @@ export default function AdminHeroPage() {
               <button
                 type="button"
                 onClick={handleDelete}
-                className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-semibold text-rose-700 hover:bg-rose-100 transition-colors"
+                className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-semibold text-black hover:bg-rose-100 transition-colors"
               >
                 Delete Hero
               </button>
@@ -347,7 +347,7 @@ export default function AdminHeroPage() {
         </div>
 
         {error && (
-          <div className="mb-6 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+          <div className="mb-6 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-black">
             {error}
           </div>
         )}
@@ -357,10 +357,10 @@ export default function AdminHeroPage() {
           className="rounded-[24px] border border-slate-200 bg-white p-6 md:p-8 shadow-sm space-y-8"
         >
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">Core Details</h2>
+            <h2 className="text-lg font-semibold text-black">Core Details</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Badge Text
                 </label>
                 <input
@@ -372,7 +372,7 @@ export default function AdminHeroPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Headline Prefix
                 </label>
                 <input
@@ -387,7 +387,7 @@ export default function AdminHeroPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Description
               </label>
               <textarea
@@ -401,7 +401,7 @@ export default function AdminHeroPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-lg font-semibold text-black">
               Headline Lines
             </h2>
             <div className="space-y-3">
@@ -411,7 +411,7 @@ export default function AdminHeroPage() {
                   className="grid grid-cols-1 md:grid-cols-[1.6fr_0.6fr_auto] gap-3 items-end rounded-xl border border-slate-200 bg-slate-50/70 p-4"
                 >
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">
+                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-black mb-2">
                       Text
                     </label>
                     <input
@@ -425,7 +425,7 @@ export default function AdminHeroPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">
+                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-black mb-2">
                       Color
                     </label>
                     <input
@@ -443,7 +443,7 @@ export default function AdminHeroPage() {
                       <button
                         type="button"
                         onClick={() => removeHeadlineLine(index)}
-                        className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-100"
+                        className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-black hover:bg-rose-100"
                       >
                         Remove
                       </button>
@@ -455,17 +455,17 @@ export default function AdminHeroPage() {
             <button
               type="button"
               onClick={addHeadlineLine}
-              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-slate-50"
             >
               Add Headline Line
             </button>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">CTA + Price</h2>
+            <h2 className="text-lg font-semibold text-black">CTA + Price</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Starting Price
                 </label>
                 <input
@@ -483,7 +483,7 @@ export default function AdminHeroPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   CTA Label
                 </label>
                 <input
@@ -495,7 +495,7 @@ export default function AdminHeroPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   CTA Href
                 </label>
                 <input
@@ -510,7 +510,7 @@ export default function AdminHeroPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-lg font-semibold text-black">
               Trust Items
             </h2>
             <div className="space-y-3">
@@ -520,7 +520,7 @@ export default function AdminHeroPage() {
                   className="grid grid-cols-1 md:grid-cols-[1.2fr_0.6fr_auto] gap-3 items-end rounded-xl border border-slate-200 bg-slate-50/70 p-4"
                 >
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">
+                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-black mb-2">
                       Label
                     </label>
                     <input
@@ -534,7 +534,7 @@ export default function AdminHeroPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">
+                    <label className="block text-xs font-semibold uppercase tracking-[0.16em] text-black mb-2">
                       Icon
                     </label>
                     <select
@@ -554,7 +554,7 @@ export default function AdminHeroPage() {
                       <button
                         type="button"
                         onClick={() => removeTrustItem(index)}
-                        className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-100"
+                        className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-black hover:bg-rose-100"
                       >
                         Remove
                       </button>
@@ -566,14 +566,14 @@ export default function AdminHeroPage() {
             <button
               type="button"
               onClick={addTrustItem}
-              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-slate-50"
             >
               Add Trust Item
             </button>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-lg font-semibold text-black">
               Slider Images
             </h2>
             <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center bg-slate-50/70">
@@ -589,19 +589,19 @@ export default function AdminHeroPage() {
                 htmlFor="hero-slider-images"
                 className="cursor-pointer flex flex-col items-center"
               >
-                <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500">
+                <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-black">
                   +
                 </div>
-                <p className="mt-3 text-sm font-medium text-slate-700">
+                <p className="mt-3 text-sm font-medium text-black">
                   Upload slider images
                 </p>
-                <p className="text-xs text-slate-500">PNG or JPG up to 10MB</p>
+                <p className="text-xs text-black">PNG or JPG up to 10MB</p>
               </label>
             </div>
 
             {imageFiles.length > 0 && (
               <div>
-                <h4 className="text-sm font-medium text-slate-700 mb-3">
+                <h4 className="text-sm font-medium text-black mb-3">
                   New Images ({imageFiles.length})
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -627,7 +627,7 @@ export default function AdminHeroPage() {
 
             {existingImages.length > 0 && (
               <div>
-                <h4 className="text-sm font-medium text-slate-700 mb-3">
+                <h4 className="text-sm font-medium text-black mb-3">
                   Current Images ({existingImages.length})
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -655,13 +655,13 @@ export default function AdminHeroPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">Status</h2>
-            <label className="inline-flex items-center gap-3 text-sm font-medium text-slate-700">
+            <h2 className="text-lg font-semibold text-black">Status</h2>
+            <label className="inline-flex items-center gap-3 text-sm font-medium text-black">
               <input
                 type="checkbox"
                 checked={formData.isActive}
                 onChange={(e) => handleInputChange("isActive", e.target.checked)}
-                className="rounded border-slate-300 text-slate-800 focus:ring-slate-500"
+                className="rounded border-slate-300 text-black focus:ring-slate-500"
               />
               Hero is active
             </label>
@@ -671,7 +671,7 @@ export default function AdminHeroPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-xl bg-[#7A3511] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#5A260F] disabled:opacity-60 disabled:cursor-not-allowed"
+              className="rounded-xl bg-[#1B2E27] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#5A260F] disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Saving..." : "Save Hero"}
             </button>

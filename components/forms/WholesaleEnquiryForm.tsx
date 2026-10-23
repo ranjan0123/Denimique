@@ -59,7 +59,7 @@ export default function WholesaleEnquiryForm() {
       onSubmit={handleSubmit}
       className="bg-white/90 backdrop-blur-xl shadow-2xl border border-emerald-900/10 p-6 md:p-8 shadow-xl"
     >
-      <h3 className="text-xl font-bold text-slate-900 mb-6">Send Enquiry</h3>
+      <h3 className="text-xl font-bold text-black mb-6">Send Enquiry</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
@@ -68,7 +68,7 @@ export default function WholesaleEnquiryForm() {
           placeholder="Full Name *"
           value={formData.name}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
           required
           aria-label="Full name"
         />
@@ -78,7 +78,7 @@ export default function WholesaleEnquiryForm() {
           placeholder="Business Name *"
           value={formData.businessName}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
           required
           aria-label="Business name"
         />
@@ -88,7 +88,7 @@ export default function WholesaleEnquiryForm() {
           placeholder="Phone Number *"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
           required
           aria-label="Phone number"
         />
@@ -98,7 +98,7 @@ export default function WholesaleEnquiryForm() {
           placeholder="Email Address *"
           value={formData.email}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
           required
           aria-label="Email address"
         />
@@ -108,7 +108,7 @@ export default function WholesaleEnquiryForm() {
           placeholder="City *"
           value={formData.city}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
           required
           aria-label="City"
         />
@@ -118,7 +118,7 @@ export default function WholesaleEnquiryForm() {
           placeholder="Approximate Monthly Requirement (kg)"
           value={formData.monthlyRequirement}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
           aria-label="Monthly requirement"
         />
       </div>
@@ -129,7 +129,7 @@ export default function WholesaleEnquiryForm() {
         rows={4}
         value={formData.message}
         onChange={handleChange}
-        className="mt-4 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 focus:border-[#7A3511] transition-all"
+        className="mt-4 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 focus:border-[#1B2E27] transition-all"
         required
         aria-label="Requirements"
       />
@@ -137,12 +137,12 @@ export default function WholesaleEnquiryForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-5 w-full bg-gradient-to-r from-[#7A3511] to-[#5A260F] text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7A3511]/40 disabled:opacity-70 disabled:cursor-not-allowed"
+        className="mt-5 w-full bg-gradient-to-r from-[#1B2E27] to-[#5A260F] text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/40 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {submitting ? "Sending..." : "Send Enquiry"}
       </button>
 
-      <p className="mt-3 text-xs text-center text-slate-500">
+      <p className="mt-3 text-xs text-center text-black">
         By submitting, you agree to our privacy policy and terms
       </p>
     </form>

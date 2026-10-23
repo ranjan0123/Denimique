@@ -77,13 +77,13 @@ export default function FaqSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#173F70]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black">
             Got Questions?
           </span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-[#102B50]">
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-black">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-gray-600 max-w-xl mx-auto">
+          <p className="mt-3 text-black max-w-xl mx-auto">
             Quick answers about sizing, fabric, delivery, and more.
           </p>
         </motion.div>
@@ -101,8 +101,8 @@ export default function FaqSection() {
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                 className={`w-full flex justify-between items-center px-5 py-4 text-left font-semibold transition-colors border ${
                   activeIndex === index
-                    ? "bg-[#EFF4F9] text-[#102B50] border-[#173F70]"
-                    : "bg-white text-[#102B50] border-[#173F70]/15 hover:bg-[#EFF4F9]"
+                    ? "bg-[#EFF4F9] text-black border-[#173F70]"
+                    : "bg-white text-black border-[#173F70]/15 hover:bg-[#EFF4F9]"
                 }`}
               >
                 {faq.question}
@@ -120,7 +120,7 @@ export default function FaqSection() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="px-5 pb-4 pt-3 bg-[#EFF4F9] text-[#102B50] border border-t-0 border-[#173F70]/15"
+                    className="px-5 pb-4 pt-3 bg-[#EFF4F9] text-black border border-t-0 border-[#173F70]/15"
                   >
                     {faq.answer}
                   </motion.div>

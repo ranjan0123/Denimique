@@ -58,10 +58,10 @@ export default function ShopByOccasion() {
       <div className="max-w-7xl mx-auto px-5 md:px-6">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#173F70]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black">
               Dress the Moment
             </span>
-            <h2 className="mt-4 text-3xl font-bold text-[#102B50] md:text-5xl">
+            <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
               Shop by Occasion
             </h2>
           </div>

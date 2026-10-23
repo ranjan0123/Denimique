@@ -83,14 +83,14 @@ export default function AdminMainCategoriesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-gray-800">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="w-full px-4 sm:px-6 lg:px-10">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-black">
               Main Categories Management
             </h1>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-black">
               Manage the top-level catalog hierarchy
             </p>
           </div>
@@ -118,28 +118,28 @@ export default function AdminMainCategoriesPage() {
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-[#FDFBF7]">
+              <thead className="bg-white">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Image
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Main Category Name
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Slug
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Created
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {mainCategories.map((mainCategory) => (
-                  <tr key={mainCategory._id} className="hover:bg-[#FDFBF7]">
+                  <tr key={mainCategory._id} className="hover:bg-white">
                     <td className="px-6 py-4 whitespace-nowrap">
                       {mainCategory.image ? (
                         <Image
@@ -150,23 +150,23 @@ export default function AdminMainCategoriesPage() {
                           className="h-12 w-12 rounded-lg object-cover border border-gray-200"
                         />
                       ) : (
-                        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-dashed border-gray-300 text-xs text-gray-400">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-dashed border-gray-300 text-xs text-black">
                           No image
                         </div>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">
+                      <div className="text-sm font-medium text-black">
                         {mainCategory.name}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-black">
                         {mainCategory.slug}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-black">
                         {mainCategory.createdAt
                           ? new Date(mainCategory.createdAt).toLocaleDateString()
                           : "-"}
@@ -176,14 +176,14 @@ export default function AdminMainCategoriesPage() {
                       <div className="flex space-x-2">
                         <Link
                           href={`/admin/main-categories/edit/${mainCategory._id}`}
-                          className="text-indigo-600 hover:text-indigo-900"
+                          className="text-black hover:text-black"
                         >
                           Edit
                         </Link>
                         <button
                           onClick={() => handleDelete(mainCategory._id)}
                           disabled={isDeleting === mainCategory._id}
-                          className="text-red-600 hover:text-red-900 disabled:opacity-50"
+                          className="text-black hover:text-black disabled:opacity-50"
                         >
                           {isDeleting === mainCategory._id
                             ? "Deleting..."
@@ -199,10 +199,10 @@ export default function AdminMainCategoriesPage() {
 
           {mainCategories.length === 0 && (
             <div className="text-center py-12">
-              <h3 className="mt-2 text-sm font-medium text-gray-900">
+              <h3 className="mt-2 text-sm font-medium text-black">
                 No main categories
               </h3>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-black">
                 Get started by adding a new main category.
               </p>
               <div className="mt-6">
@@ -220,7 +220,7 @@ export default function AdminMainCategoriesPage() {
         <div className="mt-6">
           <Link
             href="/admin"
-            className="inline-flex items-center text-gray-600 hover:text-gray-900"
+            className="inline-flex items-center text-black hover:text-black"
           >
             <svg
               className="w-5 h-5 mr-2"

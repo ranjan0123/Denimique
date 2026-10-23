@@ -205,7 +205,7 @@ export default function BlogEditor() {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               Title
             </label>
             <input
@@ -219,7 +219,7 @@ export default function BlogEditor() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               URL Slug (auto-generated, editable)
             </label>
             <input
@@ -237,7 +237,7 @@ export default function BlogEditor() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               Excerpt
             </label>
             <textarea
@@ -252,7 +252,7 @@ export default function BlogEditor() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-black mb-2">
                 Category
               </label>
               <select
@@ -276,7 +276,7 @@ export default function BlogEditor() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-black mb-2">
                 Tags (comma-separated)
               </label>
               <input
@@ -305,7 +305,7 @@ export default function BlogEditor() {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               Upload Image
             </label>
             <input
@@ -328,7 +328,7 @@ export default function BlogEditor() {
           )}
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               Image Alt Text
             </label>
             <input
@@ -351,7 +351,7 @@ export default function BlogEditor() {
 
         <div className="space-y-4 mb-6">
           {formData.content.length === 0 && (
-            <p className="text-gray-500 text-center py-8">
+            <p className="text-black text-center py-8">
               No content blocks added yet. Click below to add your first block!
             </p>
           )}
@@ -362,13 +362,13 @@ export default function BlogEditor() {
               className="border border-gray-200 rounded-lg p-4 bg-gray-50"
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="font-semibold text-gray-700">
+                <span className="font-semibold text-black">
                   {block.type.charAt(0).toUpperCase() + block.type.slice(1)} Block
                 </span>
                 <button
                   type="button"
                   onClick={() => removeContentBlock(index)}
-                  className="text-red-600 hover:text-red-700"
+                  className="text-black hover:text-black"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -424,10 +424,10 @@ export default function BlogEditor() {
               {block.type === "image" && (
                 <div className="space-y-2">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <label className="text-sm font-medium text-gray-700">
+                    <label className="text-sm font-medium text-black">
                       Upload image
                     </label>
-                    <label className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer">
+                    <label className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-black hover:bg-gray-50 cursor-pointer">
                       <Upload className="h-4 w-4" />
                       {uploadingIndex === index ? "Uploading..." : "Choose File"}
                       <input
@@ -535,7 +535,7 @@ export default function BlogEditor() {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               SEO Title
             </label>
             <input
@@ -549,13 +549,13 @@ export default function BlogEditor() {
               placeholder="Keep under 60 characters"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-black mt-1">
               {formData.seoTitle.length}/60 characters
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               Meta Description
             </label>
             <textarea
@@ -569,13 +569,13 @@ export default function BlogEditor() {
               placeholder="Keep under 160 characters"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-black mt-1">
               {formData.seoDescription.length}/160 characters
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               SEO Keywords (comma-separated)
             </label>
             <input
@@ -613,7 +613,7 @@ export default function BlogEditor() {
         <button
           type="button"
           onClick={() => router.push("/admin/blogs")}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors"
+          className="bg-gray-300 hover:bg-gray-400 text-black font-semibold py-3 px-6 rounded-lg transition-colors"
         >
           Cancel
         </button>

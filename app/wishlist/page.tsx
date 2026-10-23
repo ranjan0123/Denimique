@@ -41,15 +41,15 @@ export default function WishlistPage() {
   if (items.length === 0) {
     return (
       <div className="text-center py-24 max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-[#7A3511] mb-4">
+        <h1 className="text-4xl font-bold text-black mb-4">
           Your wishlist is empty
         </h1>
-        <p className="text-gray-500 mb-8">
+        <p className="text-black mb-8">
           Save products you love and revisit them later.
         </p>
         <Link
           href="/shop"
-          className="inline-block bg-[#7A3511] text-white px-8 py-3 rounded-xl hover:opacity-90 transition"
+          className="inline-block bg-[#1B2E27] text-white px-8 py-3 rounded-xl hover:opacity-90 transition"
         >
           Browse products
         </Link>
@@ -60,10 +60,10 @@ export default function WishlistPage() {
   return (
     <section className="py-16 px-6 max-w-6xl mx-auto">
       <div className="flex items-center justify-between mb-10 gap-4">
-        <h1 className="text-4xl font-bold text-[#7A3511]">Wishlist</h1>
+        <h1 className="text-4xl font-bold text-black">Wishlist</h1>
         <Link
           href="/shop"
-          className="text-sm font-semibold text-[#7A3511] hover:text-[#5A260F]"
+          className="text-sm font-semibold text-black hover:text-black"
         >
           Continue shopping
         </Link>
@@ -84,11 +84,11 @@ export default function WishlistPage() {
                 className="h-40 w-40 object-contain"
               />
             </div>
-            <h3 className="mt-4 text-lg font-semibold text-[#7A3511]">
+            <h3 className="mt-4 text-lg font-semibold text-black">
               {item.name}
             </h3>
             {item.price !== undefined && (
-              <p className="mt-1 text-sm text-[#8C7466] font-semibold">
+              <p className="mt-1 text-sm text-black font-semibold">
                 Rs. {item.price}
               </p>
             )}
@@ -103,7 +103,7 @@ export default function WishlistPage() {
                     toast.error("Unable to add to cart");
                   }
                 }}
-                className="flex-1 rounded-lg bg-[#102B50] text-white font-semibold py-2.5 px-4 hover:bg-[#0C2446] transition-all duration-300 shadow-sm hover:shadow-md text-sm"
+                className="flex-1 rounded-lg bg-[#233B32] text-white font-semibold py-2.5 px-4 hover:bg-[#1B2E27] transition-all duration-300 shadow-sm hover:shadow-md text-sm"
               >
                 Add to Cart
               </button>
@@ -117,7 +117,7 @@ export default function WishlistPage() {
                     toast.error("Unable to remove");
                   }
                 }}
-                className="rounded-full border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-semibold text-rose-700 hover:bg-rose-100"
+                className="rounded-full border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-semibold text-black hover:bg-rose-100"
               >
                 Remove
               </button>
@@ -125,7 +125,7 @@ export default function WishlistPage() {
             {item.slug && (
               <Link
                 href={`/products/${item.slug}`}
-                className="mt-3 inline-block text-xs font-semibold text-[#7A3511] hover:text-[#5A260F]"
+                className="mt-3 inline-block text-xs font-semibold text-black hover:text-black"
               >
                 View product
               </Link>

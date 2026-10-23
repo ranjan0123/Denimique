@@ -93,7 +93,7 @@ export default function WeekendComboOffer({
   }
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 md:py-20 text-[#2B1206]">
+    <section className="relative overflow-hidden bg-white py-16 md:py-20 text-black">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(23,63,112,0.06),transparent_55%)]" />
       {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 bottom-0 w-[35%] -translate-x-full animate-[header-shine_6s_ease-in-out_infinite] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.35),rgba(255,255,255,0.6),rgba(255,255,255,0.35),transparent)] blur-[2px]" />
@@ -106,16 +106,16 @@ export default function WeekendComboOffer({
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/15 bg-[#EFF4F9] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#173F70]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/15 bg-[#EFF4F9] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black">
             {combo.badgeText}
           </span>
 
-          <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-tight text-[#2B1206]">
+          <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-tight text-black">
             {combo.title}
-            <span className="text-[#55779E]"> {combo.highlightText}</span>
+            <span className="text-black"> {combo.highlightText}</span>
           </h2>
 
-          <p className="mt-6 text-base md:text-lg text-[#5E453B] max-w-xl">
+          <p className="mt-6 text-base md:text-lg text-black max-w-xl">
             {combo.description}
           </p>
 
@@ -136,10 +136,10 @@ export default function WeekendComboOffer({
                 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
                 className="flex min-w-[92px] flex-col items-center rounded-2xl border border-[#173F70]/15 bg-[#EFF4F9] px-5 py-4 shadow-sm"
               >
-                <span className="text-3xl font-bold text-[#173F70]">
+                <span className="text-3xl font-bold text-black">
                   {String(item.value).padStart(2, "0")}
                 </span>
-                <span className="text-xs uppercase tracking-wide text-[#7A5A4B]">
+                <span className="text-xs uppercase tracking-wide text-black">
                   {item.key}
                 </span>
               </motion.div>
@@ -154,7 +154,7 @@ export default function WeekendComboOffer({
             {combo.ctaLabel}
           </motion.a>
 
-          <p className="mt-4 text-sm text-[#6F564E]">
+          <p className="mt-4 text-sm text-black">
             {combo.stockNote || "Limited time offer"}
           </p>
         </motion.div>

@@ -33,7 +33,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="border-t border-black/10 bg-white py-16 text-[#191714] md:py-24">
+    <section className="border-t border-black/10 bg-white py-16 text-black md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,11 +41,11 @@ export default function Newsletter() {
         viewport={{ once: true }}
         className="relative mx-auto max-w-3xl px-5 text-center md:px-6"
       >
-        <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6E5A3D]">
+        <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-black">
           <Mail size={13} strokeWidth={1.5} />
           The Denimique letter
         </span>
-        <h2 className="mt-5 font-heading text-4xl font-medium leading-tight text-[#191714] sm:text-5xl md:text-6xl">
+        <h2 className="mt-5 font-heading text-4xl font-medium leading-tight text-black sm:text-5xl md:text-6xl">
           Join the world of Denimique.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-black/65 sm:text-base">
@@ -66,7 +66,7 @@ export default function Newsletter() {
             onChange={(event) => setEmail(event.target.value)}
             placeholder="Enter your email"
             disabled={isSubmitting}
-            className="w-full flex-1 border border-black/20 bg-white px-5 py-3.5 text-sm text-[#191714] placeholder-black/40 outline-none transition focus:border-[#6E5A3D] disabled:opacity-60"
+            className="w-full flex-1 border border-black/20 bg-white px-5 py-3.5 text-sm text-black placeholder-black/40 outline-none transition focus:border-[#6E5A3D] disabled:opacity-60"
           />
           <button
             type="submit"

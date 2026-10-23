@@ -26,7 +26,8 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Shop Fashion | Denimique",
-    description: "Explore denim, contemporary fashion, and everyday essentials from Denimique.",
+    description:
+      "Explore denim, contemporary fashion, and everyday essentials from Denimique.",
     url: "/shop",
     type: "website",
     images: [

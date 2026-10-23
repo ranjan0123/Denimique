@@ -51,30 +51,30 @@ export default function VerifyEmailPage({ params }: VerifyEmailPageProps) {
   const getStatusIcon = () => {
     switch (verificationStatus) {
       case "loading":
-        return <Loader2 className="w-12 h-12 text-[#7A3511] animate-spin" />;
+        return <Loader2 className="w-12 h-12 text-black animate-spin" />;
       case "success":
-        return <CheckCircle className="w-12 h-12 text-[#4A230F]" />;
+        return <CheckCircle className="w-12 h-12 text-black" />;
       case "error":
-        return <XCircle className="w-12 h-12 text-red-500" />;
+        return <XCircle className="w-12 h-12 text-black" />;
     }
   };
 
   const getStatusColor = () => {
     switch (verificationStatus) {
       case "loading":
-        return "text-[#7A3511]";
+        return "text-black";
       case "success":
-        return "text-[#4A230F]";
+        return "text-black";
       case "error":
-        return "text-red-600";
+        return "text-black";
     }
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#FDFBF7] via-white to-white flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#7A3511] opacity-10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#1B2E27] opacity-10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#4A230F] opacity-5 rounded-full blur-3xl"></div>
       </div>
 
@@ -92,12 +92,12 @@ export default function VerifyEmailPage({ params }: VerifyEmailPageProps) {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center justify-center w-16 h-16 bg-[#4A230F] rounded-full mb-4"
           >
-            <Mail className="w-8 h-8 text-[#7A3511]" />
+            <Mail className="w-8 h-8 text-black" />
           </motion.div>
-          <h1 className="text-3xl font-bold text-[#4A230F] mb-2">
+          <h1 className="text-3xl font-bold text-black mb-2">
             Email Verification
           </h1>
-          <p className="text-gray-600">Verifying your email address...</p>
+          <p className="text-black">Verifying your email address...</p>
         </div>
 
         {/* Status Card */}
@@ -117,14 +117,14 @@ export default function VerifyEmailPage({ params }: VerifyEmailPageProps) {
               {verificationStatus === "success" && "Email Verified!"}
               {verificationStatus === "error" && "Verification Failed"}
             </h2>
-            <p className="text-gray-600 text-sm leading-relaxed">{message}</p>
+            <p className="text-black text-sm leading-relaxed">{message}</p>
           </div>
 
           {/* Actions */}
           <div className="space-y-3">
             {verificationStatus === "success" && (
               <>
-                <p className="text-sm text-gray-500 mb-4">
+                <p className="text-sm text-black mb-4">
                   Redirecting to sign in page in a few seconds...
                 </p>
                 <Link
@@ -147,7 +147,7 @@ export default function VerifyEmailPage({ params }: VerifyEmailPageProps) {
                 </Link>
                 <Link
                   href="/login"
-                  className="block text-sm text-[#4A230F] hover:text-[#7A3511] transition-colors duration-200"
+                  className="block text-sm text-black hover:text-black transition-colors duration-200"
                 >
                   Back to Sign In
                 </Link>
@@ -156,7 +156,7 @@ export default function VerifyEmailPage({ params }: VerifyEmailPageProps) {
 
             {verificationStatus === "loading" && (
               <div className="flex justify-center">
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-black">
                   Please wait while we verify your email...
                 </div>
               </div>
@@ -169,10 +169,10 @@ export default function VerifyEmailPage({ params }: VerifyEmailPageProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-center text-xs text-gray-500 mt-6"
+          className="text-center text-xs text-black mt-6"
         >
           Need help?{" "}
-          <Link href="/contact" className="text-[#4A230F] hover:underline">
+          <Link href="/contact" className="text-black hover:underline">
             Contact Support
           </Link>
         </motion.p>

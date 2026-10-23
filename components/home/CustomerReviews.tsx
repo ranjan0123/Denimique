@@ -27,7 +27,7 @@ type ReviewCardData = {
 function ReviewCard({ review }: { review: ReviewCardData }) {
   return (
     <article className="relative flex h-full flex-col border border-[#191714]/10 bg-white p-6 text-left">
-      <Quote className="absolute right-6 top-6 h-9 w-9 text-[#92764A]/15" fill="currentColor" />
+      <Quote className="absolute right-6 top-6 h-9 w-9 text-black" fill="currentColor" />
 
       <div className="relative flex items-center gap-3">
         {review.avatarUrl ? (
@@ -39,34 +39,34 @@ function ReviewCard({ review }: { review: ReviewCardData }) {
           />
         ) : (
           <div
-            className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#92764A]/35 text-sm font-semibold text-[#92764A]"
-            style={{ backgroundColor: review.avatarColor || "#F1EDE4" }}
+            className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#92764A]/35 text-sm font-semibold text-black"
+            style={{ backgroundColor: review.avatarColor || "#FFFFFF" }}
           >
             {review.name.charAt(0)}
           </div>
         )}
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold leading-tight text-[#191714]">
+          <p className="truncate text-sm font-semibold leading-tight text-black">
             {review.name}
           </p>
-          <p className="truncate text-xs text-gray-500">{review.subtitle}</p>
+          <p className="truncate text-xs text-black">{review.subtitle}</p>
         </div>
       </div>
 
       <div className="relative mt-4 flex items-center justify-between gap-2">
-        <div className="flex gap-0.5 text-[#92764A]">
+        <div className="flex gap-0.5 text-black">
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={15} fill={i < review.rating ? "currentColor" : "none"} strokeWidth={1.5} />
           ))}
         </div>
         {review.badge && (
-          <span className="whitespace-nowrap border border-[#92764A]/35 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#92764A]">
+          <span className="whitespace-nowrap border border-[#92764A]/35 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-black">
             {review.badge}
           </span>
         )}
       </div>
 
-      <p className="relative mt-4 flex-1 font-heading text-xl leading-relaxed text-[#292722]">
+      <p className="relative mt-4 flex-1 font-heading text-xl leading-relaxed text-black">
         &quot;{review.text}&quot;
       </p>
     </article>
@@ -137,14 +137,14 @@ export default function CustomerReviews({
   if (combined.length === 0) return null;
 
   return (
-    <section className="overflow-hidden bg-[#F1EDE4] py-16 md:py-24">
+    <section className="overflow-hidden bg-white py-16 md:py-24">
       <div className="relative max-w-6xl mx-auto px-5 md:px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#92764A]"
+          className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-black"
         >
           Notes from the fitting room
         </motion.span>
@@ -154,7 +154,7 @@ export default function CustomerReviews({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mt-4 font-heading text-4xl font-medium text-[#191714] md:text-6xl"
+          className="mt-4 font-heading text-4xl font-medium text-black md:text-6xl"
         >
           In their own words.
         </motion.h2>
@@ -164,7 +164,7 @@ export default function CustomerReviews({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
           viewport={{ once: true }}
-          className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#625C51] md:text-base"
+          className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-black md:text-base"
         >
           Recent reviews from Denimique customers.
         </motion.p>
@@ -177,7 +177,7 @@ export default function CustomerReviews({
           className="mt-6 flex flex-wrap justify-center gap-3"
         >
           {averageRating && (
-            <span className="inline-flex items-center gap-2 border border-[#92764A]/30 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#92764A]">
+            <span className="inline-flex items-center gap-2 border border-[#92764A]/30 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-black">
               <Star size={13} fill="currentColor" />
               {averageRating} / 5 · Google reviews
             </span>
@@ -211,7 +211,7 @@ export default function CustomerReviews({
               type="button"
               onClick={() => goTo(-1)}
               aria-label="Previous review"
-              className="flex h-10 w-10 items-center justify-center border border-[#191714]/20 bg-transparent text-[#191714] transition hover:bg-[#191714] hover:text-white"
+              className="flex h-10 w-10 items-center justify-center border border-[#191714]/20 bg-transparent text-black transition hover:bg-[#191714] hover:text-white"
             >
               <ChevronLeft size={18} />
             </button>
@@ -231,7 +231,7 @@ export default function CustomerReviews({
               type="button"
               onClick={() => goTo(1)}
               aria-label="Next review"
-              className="flex h-10 w-10 items-center justify-center border border-[#191714]/20 bg-transparent text-[#191714] transition hover:bg-[#191714] hover:text-white"
+              className="flex h-10 w-10 items-center justify-center border border-[#191714]/20 bg-transparent text-black transition hover:bg-[#191714] hover:text-white"
             >
               <ChevronRight size={18} />
             </button>
@@ -259,7 +259,7 @@ export default function CustomerReviews({
               href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-[#191714]/25 px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#191714] transition-colors hover:border-[#92764A] hover:text-[#92764A]"
+              className="inline-flex items-center gap-2 border border-[#191714]/25 px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-black transition-colors hover:border-[#92764A] hover:text-black"
             >
               See All Google Reviews
             </a>

@@ -86,7 +86,7 @@ export default function BlogSidebar() {
     <aside className="bg-white rounded-lg shadow-md p-6 h-fit sticky top-24">
       {/* Search */}
       <div className="mb-6">
-        <h3 className="font-bold text-gray-900 mb-3">Search</h3>
+        <h3 className="font-bold text-black mb-3">Search</h3>
         <input
           type="text"
           placeholder="Search blogs..."
@@ -114,7 +114,7 @@ export default function BlogSidebar() {
               categories: !prev.categories,
             }))
           }
-          className="w-full flex items-center justify-between font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors"
+          className="w-full flex items-center justify-between font-bold text-black mb-3 hover:text-black transition-colors"
         >
           Categories
           <ChevronDown
@@ -129,17 +129,17 @@ export default function BlogSidebar() {
             {categories.map((category) => (
               <label
                 key={category.name}
-                className="flex items-center cursor-pointer hover:text-blue-600 transition-colors"
+                className="flex items-center cursor-pointer hover:text-black transition-colors"
               >
                 <input
                   type="checkbox"
                   checked={activeCategory === category.name}
                   onChange={() => handleCategoryClick(category.name)}
-                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 mr-3"
+                  className="rounded border-gray-300 text-black focus:ring-blue-500 mr-3"
                 />
-                <span className="text-gray-700">
+                <span className="text-black">
                   {category.name}
-                  <span className="text-gray-400 text-sm ml-2">
+                  <span className="text-black text-sm ml-2">
                     ({category.count})
                   </span>
                 </span>
@@ -158,7 +158,7 @@ export default function BlogSidebar() {
               tags: !prev.tags,
             }))
           }
-          className="w-full flex items-center justify-between font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors"
+          className="w-full flex items-center justify-between font-bold text-black mb-3 hover:text-black transition-colors"
         >
           Tags
           <ChevronDown
@@ -177,7 +177,7 @@ export default function BlogSidebar() {
                 className={`px-3 py-1 rounded-full text-sm transition-all ${
                   activeTags.includes(tag.name)
                     ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-gray-100 text-black hover:bg-gray-200"
                 }`}
               >
                 #{tag.name}
@@ -191,7 +191,7 @@ export default function BlogSidebar() {
       {hasActiveFilters && (
         <button
           onClick={handleClearFilters}
-          className="w-full bg-red-100 hover:bg-red-200 text-red-700 font-semibold py-2 px-4 rounded-lg transition-colors"
+          className="w-full bg-red-100 hover:bg-red-200 text-black font-semibold py-2 px-4 rounded-lg transition-colors"
         >
           Clear Filters
         </button>

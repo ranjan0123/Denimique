@@ -235,16 +235,16 @@ export default function AdminHotProductPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7]">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-white shadow">
         <div className="w-full px-4 sm:px-6 lg:px-10 py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Hot Product</h1>
-              <p className="text-gray-600 mt-1">Manage featured hot offers</p>
+              <h1 className="text-3xl font-bold text-black">Hot Product</h1>
+              <p className="text-black mt-1">Manage featured hot offers</p>
             </div>
-            <Link href="/admin" className="text-[#7A3511] hover:text-[#5A260F]">
+            <Link href="/admin" className="text-black hover:text-black">
               ← Back to Admin
             </Link>
           </div>
@@ -256,21 +256,21 @@ export default function AdminHotProductPage() {
           {/* Form */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-black mb-6">
                 {selectedProduct ? "Edit Hot Product" : "Create Hot Product"}
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Product Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Product *
                   </label>
                   <select
                     name="productId"
                     value={formData.productId}
                     onChange={(e) => handleSelectProduct(e.target.value)}
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                     required
                   >
                     <option value="">Select a product</option>
@@ -284,7 +284,7 @@ export default function AdminHotProductPage() {
 
                 {/* Original Price */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Original Price *
                   </label>
                   <input
@@ -293,14 +293,14 @@ export default function AdminHotProductPage() {
                     value={formData.originalPrice}
                     onChange={handleInputChange}
                     step="0.01"
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                     required
                   />
                 </div>
 
                 {/* Discounted Price */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Discounted Price *
                   </label>
                   <input
@@ -309,13 +309,13 @@ export default function AdminHotProductPage() {
                     value={formData.discountedPrice}
                     onChange={handleInputChange}
                     step="0.01"
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                     required
                   />
                   <button
                     type="button"
                     onClick={calculateDiscount}
-                    className="text-xs text-[#7A3511] hover:text-[#5A260F] mt-2"
+                    className="text-xs text-black hover:text-black mt-2"
                   >
                     Calculate discount %
                   </button>
@@ -323,7 +323,7 @@ export default function AdminHotProductPage() {
 
                 {/* Discount Percentage */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Discount Percentage (%)
                   </label>
                   <input
@@ -334,13 +334,13 @@ export default function AdminHotProductPage() {
                     min="0"
                     max="100"
                     step="1"
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                   />
                 </div>
 
                 {/* Progress Percentage */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Progress Bar (%)
                   </label>
                   <input
@@ -351,13 +351,13 @@ export default function AdminHotProductPage() {
                     min="0"
                     max="100"
                     step="1"
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                   />
                 </div>
 
                 {/* Coupon Code */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Coupon Code
                   </label>
                   <input
@@ -366,13 +366,13 @@ export default function AdminHotProductPage() {
                     value={formData.couponCode}
                     onChange={handleInputChange}
                     placeholder="e.g., STYLE25"
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                   />
                 </div>
 
                 {/* Coupon Description */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Coupon Description
                   </label>
                   <textarea
@@ -381,13 +381,13 @@ export default function AdminHotProductPage() {
                     onChange={handleInputChange}
                     placeholder="e.g., Extra discount for your first purchase"
                     rows={2}
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                   />
                 </div>
 
                 {/* Display Start Date */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Display Start Date
                   </label>
                   <input
@@ -395,13 +395,13 @@ export default function AdminHotProductPage() {
                     name="startDate"
                     value={formData.startDate}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                   />
                 </div>
 
                 {/* Display End Date */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-black">
                     Display End Date
                   </label>
                   <input
@@ -409,7 +409,7 @@ export default function AdminHotProductPage() {
                     name="endDate"
                     value={formData.endDate}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#7A3511] focus:border-[#7A3511]"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1B2E27] focus:border-[#1B2E27]"
                   />
                 </div>
 
@@ -425,9 +425,9 @@ export default function AdminHotProductPage() {
                         isEnabled: e.target.checked,
                       }))
                     }
-                    className="h-4 w-4 text-[#7A3511] focus:ring-[#7A3511] border-gray-300 rounded"
+                    className="h-4 w-4 text-black focus:ring-[#1B2E27] border-gray-300 rounded"
                   />
-                  <label className="ml-2 block text-sm text-gray-700">
+                  <label className="ml-2 block text-sm text-black">
                     Enable this hot product
                   </label>
                 </div>
@@ -437,7 +437,7 @@ export default function AdminHotProductPage() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="flex-1 bg-[#7A3511] text-white py-2 rounded-lg hover:bg-[#5A260F] disabled:bg-gray-400"
+                    className="flex-1 bg-[#1B2E27] text-white py-2 rounded-lg hover:bg-[#5A260F] disabled:bg-gray-400"
                   >
                     {submitting
                       ? "Processing..."
@@ -449,7 +449,7 @@ export default function AdminHotProductPage() {
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="flex-1 bg-gray-300 text-gray-900 py-2 rounded-lg hover:bg-gray-400"
+                      className="flex-1 bg-gray-300 text-black py-2 rounded-lg hover:bg-gray-400"
                     >
                       Cancel
                     </button>
@@ -463,15 +463,15 @@ export default function AdminHotProductPage() {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-200">
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-2xl font-bold text-black">
                   Hot Products
                 </h2>
               </div>
 
               {loading ? (
-                <div className="p-6 text-center text-gray-500">Loading...</div>
+                <div className="p-6 text-center text-black">Loading...</div>
               ) : hotProducts.length === 0 ? (
-                <div className="p-6 text-center text-gray-500">
+                <div className="p-6 text-center text-black">
                   No hot products created yet
                 </div>
               ) : (
@@ -479,7 +479,7 @@ export default function AdminHotProductPage() {
                   {hotProducts.map((product) => (
                     <div
                       key={product._id}
-                      className="p-6 hover:bg-[#FDFBF7] transition"
+                      className="p-6 hover:bg-white transition"
                     >
                       <div className="flex gap-4">
                         {/* Image */}
@@ -495,21 +495,21 @@ export default function AdminHotProductPage() {
 
                         {/* Details */}
                         <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900">
+                          <h3 className="font-semibold text-black">
                             {product.productName}
                           </h3>
-                          <p className="text-sm text-gray-600 mt-1">
+                          <p className="text-sm text-black mt-1">
                             ₹{product.originalPrice} →{" "}
-                            <span className="text-green-600 font-semibold">
+                            <span className="text-black font-semibold">
                               ₹{product.discountedPrice}
                             </span>{" "}
                             ({product.discountPercentage}% off)
                           </p>
-                          <p className="text-xs text-gray-500 mt-2">
+                          <p className="text-xs text-black mt-2">
                             Progress: {product.progressPercentage}% | Coupon:{" "}
                             {product.couponCode}
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-black">
                             {new Date(
                               product.displayDuration.startDate,
                             ).toLocaleDateString()}{" "}
@@ -522,8 +522,8 @@ export default function AdminHotProductPage() {
                             <span
                               className={`text-xs px-2 py-1 rounded-full ${
                                 product.isEnabled
-                                  ? "bg-green-100 text-green-800"
-                                  : "bg-red-100 text-red-800"
+                                  ? "bg-green-100 text-black"
+                                  : "bg-red-100 text-black"
                               }`}
                             >
                               {product.isEnabled ? "Enabled" : "Disabled"}
@@ -535,19 +535,19 @@ export default function AdminHotProductPage() {
                         <div className="flex flex-col gap-2">
                           <button
                             onClick={() => handleEdit(product)}
-                            className="px-4 py-2 bg-[#7A3511]/10 text-[#7A3511] rounded hover:bg-[#7A3511]/20 text-sm"
+                            className="px-4 py-2 bg-[#1B2E27]/10 text-black rounded hover:bg-[#1B2E27]/20 text-sm"
                           >
                             Edit
                           </button>
                           <button
                             onClick={() => handleToggleStatus(product._id)}
-                            className="px-4 py-2 bg-yellow-100 text-yellow-600 rounded hover:bg-yellow-200 text-sm"
+                            className="px-4 py-2 bg-yellow-100 text-black rounded hover:bg-yellow-200 text-sm"
                           >
                             Toggle
                           </button>
                           <button
                             onClick={() => handleDelete(product._id)}
-                            className="px-4 py-2 bg-red-100 text-red-600 rounded hover:bg-red-200 text-sm"
+                            className="px-4 py-2 bg-red-100 text-black rounded hover:bg-red-200 text-sm"
                           >
                             Delete
                           </button>

@@ -60,10 +60,10 @@ function Section({
       id={id}
       className="scroll-mt-[120px] rounded-2xl border border-slate-100 bg-white p-4 md:p-6 shadow-[0_12px_34px_rgba(15,23,42,0.06)]"
     >
-      <h2 className="text-lg md:text-xl font-extrabold text-[#102B50] tracking-tight">
+      <h2 className="text-lg md:text-xl font-extrabold text-black tracking-tight">
         {title}
       </h2>
-      <div className="mt-2 space-y-2 text-sm leading-normal text-slate-700">
+      <div className="mt-2 space-y-2 text-sm leading-normal text-black">
         {children}
       </div>
     </section>
@@ -101,7 +101,7 @@ export default function PrivacyPolicyPage() {
   };
 
   return (
-    <main className="bg-[#FDFBF7] text-gray-800">
+    <main className="bg-white text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -119,15 +119,15 @@ export default function PrivacyPolicyPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-8 md:py-10">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-[#102B50] backdrop-blur">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-black backdrop-blur">
                 Legal • Privacy
                 <span className="h-1 w-1 rounded-full bg-[#102B50]" />
                 Last updated {LAST_UPDATED}
               </p>
-              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-[#102B50]">
+              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-black">
                 Privacy Policy
               </h1>
-              <p className="mt-2 max-w-2xl text-slate-700 text-sm md:text-base leading-normal">
+              <p className="mt-2 max-w-2xl text-black text-sm md:text-base leading-normal">
                 This Privacy Policy explains how Denimique collects, uses,
                 shares, and protects your personal information when you visit
                 our website, create an account, or place an order.
@@ -158,15 +158,15 @@ export default function PrivacyPolicyPage() {
                 key={card.title}
                 className="rounded-xl border border-slate-100 bg-white/80 p-3 shadow-sm backdrop-blur"
               >
-                <p className="text-sm font-bold text-[#102B50]">{card.title}</p>
-                <p className="mt-1 text-sm leading-normal text-slate-600">
+                <p className="text-sm font-bold text-black">{card.title}</p>
+                <p className="mt-1 text-sm leading-normal text-black">
                   {card.body}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-4 rounded-xl border border-[#102B50]/15 bg-[#F1F4F8] p-3 text-sm text-[#102B50]">
+          <div className="mt-4 rounded-xl border border-[#102B50]/15 bg-[#F1F4F8] p-3 text-sm text-black">
             <p className="font-semibold">Important note</p>
             <p className="mt-1 leading-normal">
               This page is provided for transparency and customer trust. It is
@@ -202,7 +202,7 @@ export default function PrivacyPolicyPage() {
                 when you use our services, and limited information from cookies
                 and similar technologies.
               </p>
-              <h3 className="text-lg font-extrabold text-slate-900">
+              <h3 className="text-lg font-extrabold text-black">
                 Information you provide
               </h3>
               <BulletList
@@ -214,7 +214,7 @@ export default function PrivacyPolicyPage() {
                   "Business enquiry details for wholesale/bulk requests (e.g., business name, requirements).",
                 ]}
               />
-              <h3 className="text-lg font-extrabold text-slate-900">
+              <h3 className="text-lg font-extrabold text-black">
                 Information collected automatically
               </h3>
               <BulletList
@@ -224,7 +224,7 @@ export default function PrivacyPolicyPage() {
                   "Cookie identifiers and preference data (see Cookies & Tracking below).",
                 ]}
               />
-              <h3 className="text-lg font-extrabold text-slate-900">
+              <h3 className="text-lg font-extrabold text-black">
                 Payment information
               </h3>
               <p>
@@ -277,7 +277,7 @@ export default function PrivacyPolicyPage() {
                 Cookies and similar technologies help us keep the site working,
                 remember preferences, and understand how the site is used.
               </p>
-              <h3 className="text-lg font-extrabold text-slate-900">
+              <h3 className="text-lg font-extrabold text-black">
                 Types of cookies we may use
               </h3>
               <BulletList
@@ -361,7 +361,7 @@ export default function PrivacyPolicyPage() {
               />
               <p>
                 To make a request, contact us using the details in the{" "}
-                <a href="#contact" className="text-[#102B50] hover:underline">
+                <a href="#contact" className="text-black hover:underline">
                   Contact Us
                 </a>{" "}
                 section. We may need to verify your identity before responding.
@@ -406,11 +406,11 @@ export default function PrivacyPolicyPage() {
                 contact:
               </p>
               <div className="rounded-xl border border-slate-100 bg-[#FFF8EE]/60 p-3">
-                <p className="font-bold text-slate-900">Denimique</p>
-                <p className="mt-1 text-slate-700">
+                <p className="font-bold text-black">Denimique</p>
+                <p className="mt-1 text-black">
                   Email:{" "}
                   <a
-                    className="font-semibold text-[#102B50] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="mailto:care@denimique.com"
                   >
                     Care@denimique.com
@@ -418,7 +418,7 @@ export default function PrivacyPolicyPage() {
                   <br />
                   Phone:{" "}
                   <a
-                    className="font-semibold text-[#102B50] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="tel:+919625610749"
                   >
                     +91 96256 10749
@@ -427,11 +427,11 @@ export default function PrivacyPolicyPage() {
                   Address: H-63, Sector 62, Noida, Uttar Pradesh 201301, India
                 </p>
               </div>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-black">
                 Prefer the quick route? Use our{" "}
                 <Link
                   href="/contact"
-                  className="text-[#102B50] hover:underline"
+                  className="text-black hover:underline"
                 >
                   Contact page
                 </Link>{" "}

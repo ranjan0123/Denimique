@@ -158,7 +158,7 @@ export default function AdminUsersPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7]">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="h-24 w-24 rounded-full border-4 border-slate-200 border-t-[#0B0F6B] animate-spin" />
       </div>
     );
@@ -166,15 +166,15 @@ export default function AdminUsersPage() {
 
   if (accessDenied) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7] px-4">
+      <div className="min-h-screen flex items-center justify-center bg-white px-4">
         <div className="max-w-lg rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-black">
             <Shield className="h-6 w-6" />
           </div>
-          <h1 className="mt-4 text-2xl font-semibold text-slate-900">
+          <h1 className="mt-4 text-2xl font-semibold text-black">
             Super admin access only
           </h1>
-          <p className="mt-2 text-sm text-slate-600">
+          <p className="mt-2 text-sm text-black">
             You don&apos;t have permission to manage users. Please contact the
             primary administrator if you need access.
           </p>
@@ -190,25 +190,25 @@ export default function AdminUsersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-slate-900">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="w-full px-4 sm:px-6 lg:px-10 space-y-6">
         <section className="rounded-[28px] border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-black">
                 Super Admin
               </p>
-              <h1 className="mt-4 text-3xl font-semibold text-slate-950">
+              <h1 className="mt-4 text-3xl font-semibold text-black">
                 User Management
               </h1>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-sm text-black">
                 Search users, manage roles, and keep access under control.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-black" size={18} />
                 <input
                   value={search}
                   onChange={(event) => {
@@ -216,11 +216,11 @@ export default function AdminUsersPage() {
                     setPage(1);
                   }}
                   placeholder="Search users..."
-                  className="w-full min-w-[220px] rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-700 focus:border-[#0B0F6B] focus:outline-none focus:ring-2 focus:ring-[#0B0F6B]/10"
+                  className="w-full min-w-[220px] rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-black focus:border-[#0B0F6B] focus:outline-none focus:ring-2 focus:ring-[#0B0F6B]/10"
                 />
               </div>
-              <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-600">
-                <UserPlus className="h-4 w-4 text-[#0B0F6B]" />
+              <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-black">
+                <UserPlus className="h-4 w-4 text-black" />
                 {summaryLabel}
               </div>
             </div>
@@ -230,7 +230,7 @@ export default function AdminUsersPage() {
         <section className="rounded-[24px] border border-slate-200 bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
-              <thead className="bg-slate-50 text-left text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              <thead className="bg-slate-50 text-left text-xs font-semibold uppercase tracking-[0.18em] text-black">
                 <tr>
                   <th className="px-6 py-4">Name</th>
                   <th className="px-6 py-4">Email</th>
@@ -245,12 +245,12 @@ export default function AdminUsersPage() {
                     <td className="px-6 py-4">
                       <Link
                         href={`/admin/users/${user._id}`}
-                        className="font-semibold text-slate-900 hover:text-[#0B0F6B]"
+                        className="font-semibold text-black hover:text-black"
                       >
                         {user.name || "Unnamed"}
                       </Link>
                     </td>
-                    <td className="px-6 py-4 text-slate-600">{user.email}</td>
+                    <td className="px-6 py-4 text-black">{user.email}</td>
                     <td className="px-6 py-4">
                       <select
                         value={user.role}
@@ -258,7 +258,7 @@ export default function AdminUsersPage() {
                           handleRoleChange(user._id, event.target.value as AdminRole)
                         }
                         disabled={isUpdatingId === user._id}
-                        className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 focus:border-[#0B0F6B] focus:outline-none focus:ring-2 focus:ring-[#0B0F6B]/10 disabled:opacity-60"
+                        className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-black focus:border-[#0B0F6B] focus:outline-none focus:ring-2 focus:ring-[#0B0F6B]/10 disabled:opacity-60"
                       >
                         {ROLE_OPTIONS.map((role) => (
                           <option key={role} value={role}>
@@ -267,12 +267,12 @@ export default function AdminUsersPage() {
                         ))}
                       </select>
                     </td>
-                    <td className="px-6 py-4 text-slate-500">{formatDate(user.createdAt)}</td>
+                    <td className="px-6 py-4 text-black">{formatDate(user.createdAt)}</td>
                     <td className="px-6 py-4">
                       <div className="flex justify-end gap-2">
                         <Link
                           href={`/admin/users/${user._id}`}
-                          className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+                          className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-black hover:bg-slate-50"
                         >
                           <ExternalLink className="h-4 w-4" />
                           View
@@ -280,7 +280,7 @@ export default function AdminUsersPage() {
                         <button
                           onClick={() => handleDelete(user._id)}
                           disabled={isDeletingId === user._id}
-                          className="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-100 disabled:opacity-60"
+                          className="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-semibold text-black hover:bg-red-100 disabled:opacity-60"
                         >
                           <Trash2 className="h-4 w-4" />
                           {isDeletingId === user._id ? "Deleting..." : "Delete"}
@@ -291,7 +291,7 @@ export default function AdminUsersPage() {
                 ))}
                 {users.length === 0 && (
                   <tr>
-                    <td colSpan={5} className="px-6 py-10 text-center text-slate-500">
+                    <td colSpan={5} className="px-6 py-10 text-center text-black">
                       {error || "No users found for this search."}
                     </td>
                   </tr>
@@ -301,21 +301,21 @@ export default function AdminUsersPage() {
           </div>
 
           <div className="flex flex-col gap-4 border-t border-slate-100 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-black">
               Page {page} of {totalPages}
             </p>
             <div className="flex gap-3">
               <button
                 onClick={() => setPage((prev) => Math.max(1, prev - 1))}
                 disabled={!canGoPrev}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
               >
                 Previous
               </button>
               <button
                 onClick={() => setPage((prev) => prev + 1)}
                 disabled={!canGoNext}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
               >
                 Next
               </button>

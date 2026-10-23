@@ -32,17 +32,17 @@ export default function WhyChooseDenimique() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-20">
-          <span className="text-[#55779E] font-semibold uppercase tracking-widest text-sm">
+          <span className="text-black font-semibold uppercase tracking-widest text-sm">
             Why Choose Denimique
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-[#102B50] mt-4 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mt-4 leading-tight">
             Style Made Smarter,
             <br className="hidden md:block" />
             Comfortable & Timeless
           </h2>
 
-          <p className="text-gray-500 mt-6 max-w-2xl mx-auto">
+          <p className="text-black mt-6 max-w-2xl mx-auto">
             We combine craftsmanship, comfort, and premium fabrics to give you
             effortless style with complete confidence.
           </p>
@@ -66,17 +66,17 @@ export default function WhyChooseDenimique() {
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#55779E] transition-all duration-500"></div>
 
                 {/* Icon */}
-                <div className="w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#F4E5D6] to-[#B69A86] text-[#55779E] mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#F4E5D6] to-[#B69A86] text-black mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
                   <Icon size={28} />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-[#102B50] mb-4">
+                <h3 className="text-xl font-bold text-black mb-4">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-black text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>

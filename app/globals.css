@@ -2,12 +2,12 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
   --storefront-sage: #6f8a45;
 
-  /* Manrope for body/UI text, Fraunces for headings */
-  --font-sans: var(--font-manrope), "Segoe UI", sans-serif;
-  --font-heading: var(--font-display), Georgia, "Times New Roman", serif;
+  /* DM Sans for clear storefront UI, Cormorant Garamond for editorial headings */
+  --font-sans: var(--font-dm-sans), "Segoe UI", sans-serif;
+  --font-heading: var(--font-cormorant), Georgia, "Times New Roman", serif;
 }
 
 @theme inline {
@@ -86,7 +86,7 @@ select {
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #2f2018;
+  -webkit-text-fill-color: #000000;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
   box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;
@@ -95,9 +95,9 @@ input:-webkit-autofill:focus {
 .storefront-theme {
   /* Shared storefront baseline outside the Denimique homepage treatment. */
   --background: #ffffff;
-  --foreground: #102b50;
+  --foreground: #000000;
   --storefront-page: #ffffff;
-  --storefront-ink: #102b50;
+  --storefront-ink: #000000;
   --storefront-brown: #55779e;
   --storefront-brown-deep: #0c2446;
   --storefront-gold: #8da9c9;
@@ -111,11 +111,23 @@ input:-webkit-autofill:focus {
 }
 
 .denimique-home-theme {
-  --denimique-paper: #f8f6f1;
-  --denimique-ink: #191714;
+  --denimique-paper: #ffffff;
+  --denimique-ink: #000000;
   --denimique-champagne: #92764a;
-  background: var(--denimique-paper);
+  background: #ffffff;
   color: var(--denimique-ink);
+}
+
+.denimique-home-theme > section {
+  background-color: #ffffff !important;
+}
+
+.home-product-rail {
+  scrollbar-width: none;
+}
+
+.home-product-rail::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes bulb-travel {

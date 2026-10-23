@@ -104,11 +104,11 @@ export default function AdminOrdersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-gray-800">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="w-full px-4 sm:px-6 lg:px-10">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Orders Management</h1>
-          <p className="mt-2 text-gray-600">
+          <h1 className="text-3xl font-bold text-black">Orders Management</h1>
+          <p className="mt-2 text-black">
             Review customer orders and update payment or fulfillment state.
           </p>
         </div>
@@ -122,18 +122,18 @@ export default function AdminOrdersPage() {
               <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-6">
                 <div className="space-y-2">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.18em] text-gray-400">
+                    <p className="text-xs uppercase tracking-[0.18em] text-black">
                       Order Number
                     </p>
-                    <h2 className="text-xl font-semibold text-[#0B0F6B]">
+                    <h2 className="text-xl font-semibold text-black">
                       {order.orderNumber}
                     </h2>
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-black">
                     <p>{order.user?.name || order.shippingAddress.fullName}</p>
                     <p>{order.user?.email || order.shippingAddress.email}</p>
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-black">
                     <p>{order.items.length} items</p>
                     <p>Promo: {order.promoCode || "None"}</p>
                     <p>Total: Rs. {order.total}</p>
@@ -142,7 +142,7 @@ export default function AdminOrdersPage() {
 
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-[180px_180px_120px]">
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-[0.16em] text-gray-400 mb-2">
+                    <label className="block text-xs font-medium uppercase tracking-[0.16em] text-black mb-2">
                       Order Status
                     </label>
                     <select
@@ -161,7 +161,7 @@ export default function AdminOrdersPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-[0.16em] text-gray-400 mb-2">
+                    <label className="block text-xs font-medium uppercase tracking-[0.16em] text-black mb-2">
                       Payment Status
                     </label>
                     <select
@@ -183,7 +183,7 @@ export default function AdminOrdersPage() {
                     <button
                       onClick={() => handleSave(order)}
                       disabled={isSaving === order._id}
-                      className="w-full rounded-xl bg-[#7A3511] px-4 py-2 text-white disabled:opacity-50"
+                      className="w-full rounded-xl bg-[#1B2E27] px-4 py-2 text-white disabled:opacity-50"
                     >
                       {isSaving === order._id ? "Saving..." : "Save"}
                     </button>
@@ -194,7 +194,7 @@ export default function AdminOrdersPage() {
           ))}
 
           {orders.length === 0 && (
-            <div className="rounded-2xl border border-dashed border-gray-300 bg-white p-10 text-center text-gray-500">
+            <div className="rounded-2xl border border-dashed border-gray-300 bg-white p-10 text-center text-black">
               No orders yet.
             </div>
           )}

@@ -23,18 +23,18 @@ export default function ProductInfo({
 }) {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-[#4A230F] mb-4">{product.name}</h1>
+      <h1 className="text-4xl font-bold text-black mb-4">{product.name}</h1>
 
       <div className="flex items-center gap-2 mb-4">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} size={18} className="fill-[#7A3511] text-[#7A3511]" />
+          <Star key={i} size={18} className="fill-[#1B2E27] text-black" />
         ))}
-        <span className="text-gray-500 text-sm">
+        <span className="text-black text-sm">
           ({product.reviewCount} reviews)
         </span>
       </div>
 
-      <p className="text-3xl font-bold text-[#8C7466] mb-6">₹{finalPrice}</p>
+      <p className="text-3xl font-bold text-black mb-6">₹{finalPrice}</p>
 
       {/* Variants */}
       {product.variants && (
@@ -73,7 +73,7 @@ export default function ProductInfo({
 
       <button
         onClick={onAddToCart}
-        className="w-full bg-[#102B50] text-white font-medium py-2.5 px-4 rounded-lg hover:bg-[#0C2446] transition-all duration-300 shadow-sm hover:shadow-md flex justify-center gap-2"
+        className="w-full bg-[#233B32] text-white font-medium py-2.5 px-4 rounded-lg hover:bg-[#1B2E27] transition-all duration-300 shadow-sm hover:shadow-md flex justify-center gap-2"
       >
         <ShoppingBag size={18} />
         Add to Cart

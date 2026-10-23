@@ -144,7 +144,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#FDFBF7] via-white to-white flex items-center justify-center px-4 py-12 text-gray-800">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12 text-black">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#F4B223] opacity-10 rounded-full blur-3xl"></div>
@@ -163,14 +163,14 @@ export default function SignupPage() {
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-[#7A3511] rounded-full mb-4"
+            className="inline-flex items-center justify-center w-16 h-16 bg-[#1B2E27] rounded-full mb-4"
           >
-            <CheckCircle className="w-8 h-8 text-[#F4B223]" />
+            <CheckCircle className="w-8 h-8 text-black" />
           </motion.div>
-          <h1 className="text-3xl font-bold text-[#7A3511] mb-2">
+          <h1 className="text-3xl font-bold text-black mb-2">
             Join Denimique
           </h1>
-          <p className="text-gray-600">
+          <p className="text-black">
             Create your account and start your style journey
           </p>
         </div>
@@ -211,7 +211,7 @@ export default function SignupPage() {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-gray-500 font-medium">
+              <span className="px-4 bg-white text-black font-medium">
                 Or continue with email
               </span>
             </div>
@@ -222,12 +222,12 @@ export default function SignupPage() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-black mb-2"
               >
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black" />
                 <input
                   id="name"
                   type="text"
@@ -243,7 +243,7 @@ export default function SignupPage() {
                 />
               </div>
               {formErrors.name && (
-                <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>
+                <p className="mt-1 text-sm text-black">{formErrors.name}</p>
               )}
             </div>
 
@@ -251,12 +251,12 @@ export default function SignupPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-black mb-2"
               >
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black" />
                 <input
                   id="email"
                   type="email"
@@ -272,7 +272,7 @@ export default function SignupPage() {
                 />
               </div>
               {formErrors.email && (
-                <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>
+                <p className="mt-1 text-sm text-black">{formErrors.email}</p>
               )}
             </div>
 
@@ -280,12 +280,12 @@ export default function SignupPage() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-black mb-2"
               >
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black" />
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -304,7 +304,7 @@ export default function SignupPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-black hover:text-black"
                   disabled={isLoading}
                 >
                   {showPassword ? (
@@ -315,7 +315,7 @@ export default function SignupPage() {
                 </button>
               </div>
               {formErrors.password && (
-                <p className="mt-1 text-sm text-red-600">
+                <p className="mt-1 text-sm text-black">
                   {formErrors.password}
                 </p>
               )}
@@ -325,12 +325,12 @@ export default function SignupPage() {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-black mb-2"
               >
                 Confirm Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black" />
                 <input
                   id="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
@@ -349,7 +349,7 @@ export default function SignupPage() {
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-black hover:text-black"
                   disabled={isLoading}
                 >
                   {showConfirmPassword ? (
@@ -360,7 +360,7 @@ export default function SignupPage() {
                 </button>
               </div>
               {formErrors.confirmPassword && (
-                <p className="mt-1 text-sm text-red-600">
+                <p className="mt-1 text-sm text-black">
                   {formErrors.confirmPassword}
                 </p>
               )}
@@ -373,7 +373,7 @@ export default function SignupPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="p-3 bg-red-50 border border-red-200 rounded-lg"
               >
-                <p className="text-sm text-red-600">{error.message}</p>
+                <p className="text-sm text-black">{error.message}</p>
               </motion.div>
             )}
 
@@ -383,7 +383,7 @@ export default function SignupPage() {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isLoading}
-              className="w-full bg-[#7A3511] hover:bg-[#5A260F] text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-[#1B2E27] hover:bg-[#5A260F] text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
@@ -400,11 +400,11 @@ export default function SignupPage() {
           </form>
 
           {/* Login Link */}
-          <p className="mt-6 text-center text-sm text-gray-600">
+          <p className="mt-6 text-center text-sm text-black">
             Already have an account?{" "}
             <Link
               href="/login"
-              className="font-semibold text-[#7A3511] hover:text-[#F4B223] transition-colors duration-200"
+              className="font-semibold text-black hover:text-black transition-colors duration-200"
             >
               Sign in here
             </Link>
@@ -416,19 +416,19 @@ export default function SignupPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-center text-xs text-gray-500 mt-6"
+          className="text-center text-xs text-black mt-6"
         >
           By signing up, you agree to our{" "}
           <Link
             href="/terms-of-service"
-            className="text-[#7A3511] hover:underline"
+            className="text-black hover:underline"
           >
             Terms of Service
           </Link>{" "}
           and{" "}
           <Link
             href="/privacy-policy"
-            className="text-[#7A3511] hover:underline"
+            className="text-black hover:underline"
           >
             Privacy Policy
           </Link>

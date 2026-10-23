@@ -61,8 +61,8 @@ export default function AdminLayout({
 
   if (!hasInitialized || isLoading) {
     return (
-      <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center">
-        <div className="h-12 w-12 rounded-full border-4 border-[#7A3511] border-t-transparent animate-spin" />
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="h-12 w-12 rounded-full border-4 border-[#1B2E27] border-t-transparent animate-spin" />
       </div>
     );
   }
@@ -82,7 +82,7 @@ export default function AdminLayout({
   };
 
   return (
-    <div className="admin-panel-theme flex min-h-screen bg-slate-50">
+    <div className="admin-panel-theme flex min-h-screen bg-white">
       <AdminSidebar
         isSuperAdmin={user?.role === "superadmin"}
         mobileOpen={mobileNavOpen}
@@ -95,31 +95,31 @@ export default function AdminLayout({
             <button
               type="button"
               onClick={() => setMobileNavOpen(true)}
-              className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 lg:hidden"
+              className="rounded-lg p-2 text-black hover:bg-slate-100 lg:hidden"
               aria-label="Open menu"
             >
               <Menu size={20} />
             </button>
-            <Link href="/admin" className="text-sm font-semibold text-slate-900 lg:hidden">
+            <Link href="/admin" className="text-sm font-semibold text-black lg:hidden">
               Denimique Admin
             </Link>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="hidden text-right sm:block">
-              <p className="text-sm font-medium text-slate-900">
+              <p className="text-sm font-medium text-black">
                 {user?.name || user?.email}
               </p>
-              <p className="text-xs capitalize text-slate-500">{user?.role}</p>
+              <p className="text-xs capitalize text-black">{user?.role}</p>
             </div>
-            <div className="hidden h-9 w-9 items-center justify-center rounded-full bg-[#7A3511]/10 text-sm font-semibold text-[#7A3511] sm:flex">
+            <div className="hidden h-9 w-9 items-center justify-center rounded-full bg-[#1B2E27]/10 text-sm font-semibold text-black sm:flex">
               {(user?.name || user?.email || "?").charAt(0).toUpperCase()}
             </div>
             <button
               type="button"
               onClick={handleLogout}
               disabled={isLoggingOut}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 transition-colors hover:bg-slate-50 disabled:opacity-60"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-black transition-colors hover:bg-slate-50 disabled:opacity-60"
             >
               <LogOut size={14} />
               {isLoggingOut ? "Logging out..." : "Logout"}

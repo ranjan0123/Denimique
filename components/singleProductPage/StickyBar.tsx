@@ -32,11 +32,11 @@ export default function StickyBar({
   };
 
   return (
-    <div className="hidden md:flex fixed bottom-0 left-0 right-0 bg-white/90 border-t border-[#7A3511]/10 shadow-[0_-10px_30px_rgba(11,77,59,0.18)] px-8 py-4 justify-between items-center z-50 backdrop-blur-md">
+    <div className="hidden md:flex fixed bottom-0 left-0 right-0 bg-white/90 border-t border-[#1B2E27]/10 shadow-[0_-10px_30px_rgba(11,77,59,0.18)] px-8 py-4 justify-between items-center z-50 backdrop-blur-md">
       {/* Product Info Section */}
       <div className="flex items-center gap-6 flex-1">
         {/* Product Image */}
-        <div className="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-white shadow-md border border-[#7A3511]/10">
+        <div className="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-white shadow-md border border-[#1B2E27]/10">
           <Image
             src={productImage}
             alt={product.name}
@@ -48,18 +48,18 @@ export default function StickyBar({
 
         {/* Product Details */}
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-bold text-[#4A230F] truncate">
+          <h3 className="text-lg font-bold text-black truncate">
             {product.name}
           </h3>
-          <p className="text-sm text-gray-600 line-clamp-2 mt-1">
+          <p className="text-sm text-black line-clamp-2 mt-1">
             {product.shortDescription}
           </p>
           <div className="flex items-center gap-4 mt-3">
-            <span className="text-2xl font-bold text-[#7A3511]">
+            <span className="text-2xl font-bold text-black">
               ₹{finalPrice}
             </span>
             {product.discountPrice && (
-              <span className="text-sm font-semibold text-[#7A3511] bg-white px-3 py-1 rounded-full border border-[#7A3511]/20">
+              <span className="text-sm font-semibold text-black bg-white px-3 py-1 rounded-full border border-[#1B2E27]/20">
                 {Math.round(
                   ((product.basePrice - product.discountPrice) /
                     product.basePrice) *
@@ -76,7 +76,7 @@ export default function StickyBar({
       <button
         onClick={onAddToCartClick}
         disabled={isLoading}
-        className="flex-shrink-0 flex items-center gap-2 bg-[#102B50] text-white font-bold px-8 py-3.5 rounded-xl hover:bg-[#0C2446] disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap ml-6"
+        className="flex-shrink-0 flex items-center gap-2 bg-[#233B32] text-white font-bold px-8 py-3.5 rounded-xl hover:bg-[#1B2E27] disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap ml-6"
       >
         <ShoppingBag size={20} />
         {isLoading ? "Adding..." : "Add to Cart"}

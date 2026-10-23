@@ -88,16 +88,16 @@ export default function Breadcrumbs() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-3">
-        <nav className="flex items-center gap-2 text-sm text-slate-500">
+        <nav className="flex items-center gap-2 text-sm text-black">
           <Link
             href="/"
-            className="inline-flex items-center gap-1 text-[#4A230F] font-semibold hover:text-[#5A260F] transition-colors"
+            className="inline-flex items-center gap-1 text-black font-semibold hover:text-black transition-colors"
           >
             <Home className="h-4 w-4" />
             Home
           </Link>
           {crumbs.length > 0 && (
-            <ChevronRight className="h-4 w-4 text-slate-400" />
+            <ChevronRight className="h-4 w-4 text-black" />
           )}
           {crumbs.map((crumb, index) => (
             <span key={crumb.href} className="inline-flex items-center gap-2">
@@ -105,14 +105,14 @@ export default function Breadcrumbs() {
                 <>
                   <Link
                     href={crumb.href}
-                    className="text-slate-600 hover:text-[#4A230F] transition-colors"
+                    className="text-black hover:text-black transition-colors"
                   >
                     {crumb.label}
                   </Link>
-                  <ChevronRight className="h-4 w-4 text-slate-400" />
+                  <ChevronRight className="h-4 w-4 text-black" />
                 </>
               ) : (
-                <span className="text-slate-700 font-semibold">
+                <span className="text-black font-semibold">
                   {crumb.label}
                 </span>
               )}

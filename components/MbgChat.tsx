@@ -10,7 +10,7 @@ export default function MbgChat() {
         window.ktt10.setup({
           id: "Ltdr8d8cHRJMgAVjZ",
           accountId: "1798182",
-          color: "#7A3511",
+          color: "#1B2E27",
         });
         clearInterval(interval);
       }

@@ -19,10 +19,10 @@ export default function StyleGallery({ products }: StyleGalleryProps) {
     <section className="bg-white py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-5 md:px-6">
         <div className="mb-10 flex flex-col items-center text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#173F70]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black">
             Style Gallery
           </span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-[#102B50]">
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-black">
             Explore the Collection
           </h2>
         </div>

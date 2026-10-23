@@ -44,9 +44,9 @@ export default function TopLoader() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[100] h-[3px] pointer-events-none">
-      <div className="absolute inset-0 bg-[#7A3511]/8" />
+      <div className="absolute inset-0 bg-[#1B2E27]/8" />
       <div
-        className="relative h-full bg-gradient-to-r from-[#D4AF37] via-[#7A3511] to-[#2B1206] transition-[width] duration-150 ease-out"
+        className="relative h-full bg-gradient-to-r from-[#D4AF37] via-[#1B2E27] to-[#2B1206] transition-[width] duration-150 ease-out"
         style={{ width: `${progress}%` }}
       >
         {progress > 0 && (

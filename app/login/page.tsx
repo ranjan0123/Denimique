@@ -21,6 +21,7 @@ function LoginContent() {
     clearError,
     isAuthenticated,
     hasInitialized,
+    user,
   } = useAuthStore();
 
   const [formData, setFormData] = useState({
@@ -37,9 +38,18 @@ function LoginContent() {
   const isSubmittingRef = useRef(false);
 
   const redirectValue = searchParams.get("redirect");
-
-  const redirectPath =
-    redirectValue && redirectValue.startsWith("/") ? redirectValue : "/";
+  const requestedRedirect =
+    redirectValue?.startsWith("/") && !redirectValue.startsWith("//")
+      ? redirectValue
+      : null;
+  const getRedirectPath = (role?: string) => {
+    const isAdmin = role === "admin" || role === "superadmin";
+    const adminDestination =
+      requestedRedirect === "/admin" || requestedRedirect?.startsWith("/admin/");
+    if (adminDestination && !isAdmin) return "/";
+    return requestedRedirect || (isAdmin ? "/admin" : "/");
+  };
+  const redirectPath = getRedirectPath(user?.role);
 
   useEffect(() => {
     if (!hasInitialized) return;
@@ -144,13 +154,16 @@ function LoginContent() {
 
       await login(normalizedEmail, formData.password);
 
+      const currentUser = useAuthStore.getState().user;
+      const destination = getRedirectPath(currentUser?.role);
+
       console.log("[LOGIN] Login function completed successfully");
 
       toast.success("Welcome back to Denimique!");
 
-      console.log("[LOGIN] Redirecting to:", redirectPath);
+      console.log("[LOGIN] Redirecting to:", destination);
 
-      router.replace(redirectPath);
+      router.replace(destination);
     } catch (err) {
       // Expected auth failures (wrong password, unverified email, etc.) are
       // already surfaced via toast and the error banner below; console.warn
@@ -211,11 +224,14 @@ function LoginContent() {
 
       await googleLogin(credential);
 
+      const currentUser = useAuthStore.getState().user;
+      const destination = getRedirectPath(currentUser?.role);
+
       console.log("[GOOGLE LOGIN] Success");
 
       toast.success("Welcome back to Denimique!");
 
-      router.replace(redirectPath);
+      router.replace(destination);
     } catch (err) {
       console.warn("[GOOGLE LOGIN] Sign-in failed:", err);
 
@@ -247,11 +263,11 @@ function LoginContent() {
   // ===============================
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-[#FDFBF7] via-white to-[#F8F3F0] px-4 py-12 text-gray-800">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-4 py-12 text-black">
       {/* Decorative Background */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-[#7A3511] opacity-[0.06] blur-3xl" />
+        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-[#1B2E27] opacity-[0.06] blur-3xl" />
 
         <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#F4B223] opacity-[0.05] blur-3xl" />
       </div>
@@ -284,16 +300,16 @@ function LoginContent() {
               delay: 0.2,
               duration: 0.5,
             }}
-            className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#7A3511] to-[#5A260F] shadow-[0_10px_30px_rgba(122,53,17,0.2)]"
+            className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#1B2E27] to-[#5A260F] shadow-[0_10px_30px_rgba(122,53,17,0.2)]"
           >
-            <LogIn className="h-7 w-7 text-[#F4B223]" />
+            <LogIn className="h-7 w-7 text-black" />
           </motion.div>
 
-          <h1 className="mb-2 text-3xl font-bold tracking-tight text-[#7A3511]">
+          <h1 className="mb-2 text-3xl font-bold tracking-tight text-black">
             Welcome Back
           </h1>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-black">
             Sign in to continue your style journey
           </p>
         </div>
@@ -313,7 +329,7 @@ function LoginContent() {
             delay: 0.3,
             duration: 0.6,
           }}
-          className="rounded-2xl border border-[#eadfd8] bg-white p-6 shadow-xl shadow-[#7A3511]/5 sm:p-8"
+          className="rounded-2xl border border-[#eadfd8] bg-white p-6 shadow-xl shadow-[#1B2E27]/5 sm:p-8"
         >
           {/* GOOGLE LOGIN */}
 
@@ -362,7 +378,7 @@ function LoginContent() {
             </div>
 
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-4 font-medium text-gray-500">
+              <span className="bg-white px-4 font-medium text-black">
                 Or continue with email
               </span>
             </div>
@@ -376,13 +392,13 @@ function LoginContent() {
             <div>
               <label
                 htmlFor="email"
-                className="mb-2 block text-sm font-medium text-gray-700"
+                className="mb-2 block text-sm font-medium text-black"
               >
                 Email Address
               </label>
 
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-black" />
 
                 <input
                   id="email"
@@ -405,18 +421,18 @@ function LoginContent() {
                     transition-all
                     duration-200
                     focus:ring-2
-                    focus:ring-[#7A3511]/20
+                    focus:ring-[#1B2E27]/20
                     ${
                       formErrors.email
                         ? "border-red-400 bg-red-50"
-                        : "border-gray-300 focus:border-[#7A3511]"
+                        : "border-gray-300 focus:border-[#1B2E27]"
                     }
                   `}
                 />
               </div>
 
               {formErrors.email && (
-                <p className="mt-2 text-sm text-red-600">{formErrors.email}</p>
+                <p className="mt-2 text-sm text-black">{formErrors.email}</p>
               )}
             </div>
 
@@ -425,13 +441,13 @@ function LoginContent() {
             <div>
               <label
                 htmlFor="password"
-                className="mb-2 block text-sm font-medium text-gray-700"
+                className="mb-2 block text-sm font-medium text-black"
               >
                 Password
               </label>
 
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-black" />
 
                 <input
                   id="password"
@@ -456,11 +472,11 @@ function LoginContent() {
                     transition-all
                     duration-200
                     focus:ring-2
-                    focus:ring-[#7A3511]/20
+                    focus:ring-[#1B2E27]/20
                     ${
                       formErrors.password
                         ? "border-red-400 bg-red-50"
-                        : "border-gray-300 focus:border-[#7A3511]"
+                        : "border-gray-300 focus:border-[#1B2E27]"
                     }
                   `}
                 />
@@ -470,7 +486,7 @@ function LoginContent() {
                   onClick={() => setShowPassword((prev) => !prev)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   disabled={isLoading || googleLoading}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-400 transition-colors hover:text-[#7A3511]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-black transition-colors hover:text-black"
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5" />
@@ -481,7 +497,7 @@ function LoginContent() {
               </div>
 
               {formErrors.password && (
-                <p className="mt-2 text-sm text-red-600">
+                <p className="mt-2 text-sm text-black">
                   {formErrors.password}
                 </p>
               )}
@@ -492,7 +508,7 @@ function LoginContent() {
             <div className="flex justify-end">
               <Link
                 href="/forgot-password"
-                className="text-sm font-medium text-[#7A3511] transition-colors hover:text-[#5A260F]"
+                className="text-sm font-medium text-black transition-colors hover:text-black"
               >
                 Forgot your password?
               </Link>
@@ -512,7 +528,7 @@ function LoginContent() {
                 }}
                 className="rounded-xl border border-red-200 bg-red-50 p-3"
               >
-                <p className="text-sm text-red-600">
+                <p className="text-sm text-black">
                   {error.message || "Login failed. Please try again."}
                 </p>
               </motion.div>
@@ -537,7 +553,7 @@ function LoginContent() {
                 gap-2
                 rounded-xl
                 bg-gradient-to-r
-                from-[#7A3511]
+                from-[#1B2E27]
                 to-[#5A260F]
                 px-4
                 py-3.5
@@ -569,11 +585,11 @@ function LoginContent() {
 
           {/* SIGNUP */}
 
-          <p className="mt-6 text-center text-sm text-gray-600">
+          <p className="mt-6 text-center text-sm text-black">
             Don&apos;t have an account?{" "}
             <Link
               href="/signup"
-              className="font-semibold text-[#7A3511] transition-colors hover:text-[#5A260F]"
+              className="font-semibold text-black transition-colors hover:text-black"
             >
               Create one here
             </Link>
@@ -593,19 +609,19 @@ function LoginContent() {
             delay: 0.5,
             duration: 0.6,
           }}
-          className="mt-6 text-center text-xs text-gray-500"
+          className="mt-6 text-center text-xs text-black"
         >
           By signing in, you agree to our{" "}
           <Link
             href="/terms-of-service"
-            className="text-[#7A3511] hover:underline"
+            className="text-black hover:underline"
           >
             Terms of Service
           </Link>{" "}
           and{" "}
           <Link
             href="/privacy-policy"
-            className="text-[#7A3511] hover:underline"
+            className="text-black hover:underline"
           >
             Privacy Policy
           </Link>
@@ -619,8 +635,8 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#FDFBF7] via-white to-[#F8F3F0] px-4">
-          <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#7A3511] border-t-transparent" />
+        <div className="flex min-h-screen items-center justify-center bg-white px-4">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#1B2E27] border-t-transparent" />
         </div>
       }
     >

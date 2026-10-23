@@ -120,10 +120,10 @@ export default function FeaturedFlavors({
       <div className="max-w-7xl mx-auto px-5 md:px-6 relative z-10">
         <div className="flex items-start justify-between mb-10 md:mb-12 gap-4">
           <div className="max-w-[75%]">
-            <h2 className="text-2xl md:text-4xl font-bold text-[#102B50]">
+            <h2 className="text-2xl md:text-4xl font-bold text-black">
               Featured Styles
             </h2>
-            <p className="text-gray-600 mt-2 text-sm md:text-base">
+            <p className="text-black mt-2 text-sm md:text-base">
               Curated picks with a bold, premium fashion profile.
             </p>
           </div>
@@ -187,12 +187,12 @@ export default function FeaturedFlavors({
 
                     <div className="absolute right-2 top-2 z-20 flex flex-wrap gap-2 md:right-3 md:top-3">
                       {isSoldOut && (
-                        <span className="bg-gray-200 text-gray-700 text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                        <span className="bg-gray-200 text-black text-[11px] font-semibold px-2.5 py-1 rounded-md">
                           Sold out
                         </span>
                       )}
                       {(discount ?? 0) > 0 && !isSoldOut && (
-                        <span className="border border-[#173F70]/30 bg-white text-[#173F70] text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                        <span className="border border-[#173F70]/30 bg-white text-black text-[11px] font-semibold px-2.5 py-1 rounded-md">
                           On sale
                         </span>
                       )}
@@ -206,15 +206,15 @@ export default function FeaturedFlavors({
                         size={16}
                         className={`transition-all duration-300 ${
                           isWishlisted
-                            ? "fill-[#173F70] text-[#173F70]"
-                            : "text-[#102B50]"
+                            ? "fill-[#173F70] text-black"
+                            : "text-black"
                         }`}
                       />
                     </button>
                   </div>
 
                   <div className="flex flex-1 flex-col">
-                    <h3 className="mb-2 min-h-[40px] text-[13px] font-semibold text-[#102B50] md:min-h-[44px] md:text-sm">
+                    <h3 className="mb-2 min-h-[40px] text-[13px] font-semibold text-black md:min-h-[44px] md:text-sm">
                       {product.name}
                     </h3>
 
@@ -227,36 +227,36 @@ export default function FeaturedFlavors({
                               size={14}
                               className={`${
                                 i < Math.round(product.rating || 0)
-                                  ? "fill-[#55779E] text-[#55779E]"
-                                  : "text-gray-300"
+                                  ? "fill-[#55779E] text-black"
+                                  : "text-black"
                               }`}
                             />
                           ))}
-                          <span className="ml-1 text-xs text-gray-500">
+                          <span className="ml-1 text-xs text-black">
                             {product.reviewCount || 0} | Ratings
                           </span>
                         </>
                       ) : null}
                     </div>
 
-                    <div className="mb-3 rounded-lg border border-[#173F70]/15 bg-white px-3 py-2 text-center text-xs text-gray-700 md:text-sm">
+                    <div className="mb-3 rounded-lg border border-[#173F70]/15 bg-white px-3 py-2 text-center text-xs text-black md:text-sm">
                       {primaryVariant?.label ? `${primaryVariant.label} - ` : ""}
                       {"\u20B9"} {primaryVariant?.discountPrice || primaryVariant?.price || price}
                     </div>
 
                     <div className="mb-3 flex items-center justify-between gap-2">
                       <div className="flex min-w-0 items-center gap-2">
-                        <div className="whitespace-nowrap text-[13px] font-semibold text-[#173F70] md:text-sm">
+                        <div className="whitespace-nowrap text-[13px] font-semibold text-black md:text-sm">
                           {"\u20B9"} {price}
                         </div>
                         {product.discountPrice && (
-                          <div className="whitespace-nowrap text-[11px] text-gray-400 line-through md:text-xs">
+                          <div className="whitespace-nowrap text-[11px] text-black line-through md:text-xs">
                             MRP {"\u20B9"} {product.basePrice}
                           </div>
                         )}
                       </div>
                       {product.rating ? (
-                        <div className="whitespace-nowrap text-[11px] text-gray-600 md:text-xs">
+                        <div className="whitespace-nowrap text-[11px] text-black md:text-xs">
                           {product.rating.toFixed(1)} {"\u2605"}
                         </div>
                       ) : null}
@@ -267,8 +267,8 @@ export default function FeaturedFlavors({
                       disabled={isSoldOut}
                       className={`mt-auto flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold transition-all duration-300 ${
                         isSoldOut
-                          ? "cursor-not-allowed bg-gray-200 text-gray-500"
-                          : "bg-[#102B50] text-white hover:bg-[#0C2446]"
+                          ? "cursor-not-allowed bg-gray-200 text-black"
+                          : "bg-[#233B32] text-white hover:bg-[#1B2E27]"
                       }`}
                     >
                       {isSoldOut ? "Sold Out" : "Add to Cart"}

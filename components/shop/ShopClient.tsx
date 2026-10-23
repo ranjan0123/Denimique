@@ -630,11 +630,11 @@ export default function ShopClient({
       <div className="min-h-screen bg-gradient-to-b from-[#F6F1EC] to-white">
         <div className="max-w-3xl mx-auto px-6 py-24 text-center">
           <div className="bg-white border border-gray-100 rounded-3xl p-10 shadow-sm">
-            <h2 className="text-2xl font-semibold text-gray-900">Shop unavailable</h2>
-            <p className="mt-3 text-gray-600">{error}</p>
+            <h2 className="text-2xl font-semibold text-black">Shop unavailable</h2>
+            <p className="mt-3 text-black">{error}</p>
             <button
               onClick={() => window.location.reload()}
-              className="mt-6 inline-flex items-center gap-2 bg-[#7A3511] text-white px-6 py-3 rounded-xl hover:bg-[#5A260F] transition-colors"
+              className="mt-6 inline-flex items-center gap-2 bg-[#1B2E27] text-white px-6 py-3 rounded-xl hover:bg-[#5A260F] transition-colors"
             >
               Try again
             </button>
@@ -649,7 +649,7 @@ export default function ShopClient({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {activeFilters.length > 0 && (
           <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
-            <span className="text-sm font-semibold text-gray-600">Active filters:</span>
+            <span className="text-sm font-semibold text-black">Active filters:</span>
             <div className="flex flex-wrap items-center gap-2">
               {activeFilters.map((filter) => (
                 <button
@@ -659,16 +659,16 @@ export default function ShopClient({
                       ? toggleArrayQuery(filter.key, filter.value)
                       : updateQuery(filter.key, null)
                   }
-                  className="inline-flex items-center gap-2 rounded-full bg-[#7A3511]/10 text-[#7A3511] px-3 py-1.5 text-xs font-semibold hover:bg-[#7A3511]/20 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#1B2E27]/10 text-black px-3 py-1.5 text-xs font-semibold hover:bg-[#1B2E27]/20 transition-colors"
                 >
                   <span>{filter.label}:</span>
-                  <span className="text-gray-700">{filter.value}</span>
-                  <X className="w-3 h-3 text-[#7A3511]" />
+                  <span className="text-black">{filter.value}</span>
+                  <X className="w-3 h-3 text-black" />
                 </button>
               ))}
               <button
                 onClick={clearFilters}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-semibold text-black hover:bg-gray-50 transition-colors"
               >
                 Clear all
               </button>
@@ -684,8 +684,8 @@ export default function ShopClient({
                 onClick={() => updateQuery("gender", tab.value === "all" ? null : tab.value)}
                 className={`rounded-full px-3 py-2 text-xs font-semibold transition text-center sm:px-5 sm:text-sm ${
                   gender === tab.value
-                    ? "bg-[#7A3511] text-white shadow-lg shadow-[#7A3511]/10"
-                    : "text-[#5C4A3A] bg-white border border-[#E9DAC0] hover:bg-[#8C7466]/10"
+                    ? "bg-[#1B2E27] text-white shadow-lg shadow-[#1B2E27]/10"
+                    : "text-black bg-white border border-[#E9DAC0] hover:bg-[#8C7466]/10"
                 }`}
               >
                 {tab.label}
@@ -696,12 +696,12 @@ export default function ShopClient({
           <button
             type="button"
             onClick={() => setIsFilterOpen(true)}
-            className="relative inline-flex items-center gap-2 rounded-full border border-[#E9DAC0] bg-white px-4 py-2 text-xs font-semibold text-[#5C4A3A] hover:bg-[#8C7466]/10 sm:text-sm lg:hidden"
+            className="relative inline-flex items-center gap-2 rounded-full border border-[#E9DAC0] bg-white px-4 py-2 text-xs font-semibold text-black hover:bg-[#8C7466]/10 sm:text-sm lg:hidden"
           >
             <SlidersHorizontal size={15} />
             Filters
             {activeFilters.length > 0 && (
-              <span className="ml-1 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[#7A3511] px-1 text-[10px] font-bold text-white">
+              <span className="ml-1 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[#1B2E27] px-1 text-[10px] font-bold text-white">
                 {activeFilters.length}
               </span>
             )}
@@ -738,7 +738,7 @@ export default function ShopClient({
                 className="absolute inset-0 bg-black/40"
                 onClick={() => setIsFilterOpen(false)}
               />
-              <div className="absolute left-0 top-0 h-full w-[86%] max-w-sm overflow-y-auto bg-[#FDFBF7] p-4 shadow-2xl">
+              <div className="absolute left-0 top-0 h-full w-[86%] max-w-sm overflow-y-auto bg-white p-4 shadow-2xl">
                 <FilterSidebar
                   mainCategoryOptions={mainCategoryOptions}
                   categoryOptions={categoryOptions}
@@ -767,22 +767,22 @@ export default function ShopClient({
           <div>
           <div>
             <div className="hidden lg:grid grid-cols-[1fr_auto] gap-4 items-center mb-8">
-              <p className="text-gray-600">
-                Showing <span className="font-semibold text-gray-900">{filteredProducts.length}</span> results
+              <p className="text-black">
+                Showing <span className="font-semibold text-black">{filteredProducts.length}</span> results
               </p>
               <div className="flex items-center gap-4 justify-end">
                 <div className="relative">
                   <select
                     value={sort}
                     onChange={(e) => updateQuery("sort", e.target.value)}
-                    className="appearance-none bg-white border border-[#7A3511]/15 pl-4 pr-10 py-2.5 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#7A3511]/20 cursor-pointer"
+                    className="appearance-none bg-white border border-[#1B2E27]/15 pl-4 pr-10 py-2.5 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/20 cursor-pointer"
                   >
                     <option value="featured">Sort by: Featured</option>
                     <option value="rating">Sort by: Top Rated</option>
                     <option value="price-low">Sort by: Price: Low to High</option>
                     <option value="price-high">Sort by: Price: High to Low</option>
                   </select>
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
                 </div>
               </div>
             </div>
@@ -822,12 +822,12 @@ export default function ShopClient({
 
                       <div className="absolute right-3 top-3 z-20 flex flex-wrap gap-2">
                         {isSoldOut && (
-                          <span className="bg-[#f3f4f6] text-[#4b5563] text-[11px] font-semibold px-2.5 py-1 rounded-full">
+                          <span className="bg-[#f3f4f6] text-black text-[11px] font-semibold px-2.5 py-1 rounded-full">
                             Sold out
                           </span>
                         )}
                         {(discount ?? 0) > 0 && !isSoldOut && (
-                          <span className="border border-[#7A3511]/20 bg-[#fff7f2] text-[#7A3511] text-[11px] font-semibold px-2.5 py-1 rounded-full">
+                          <span className="border border-[#1B2E27]/20 bg-[#fff7f2] text-black text-[11px] font-semibold px-2.5 py-1 rounded-full">
                             On sale
                           </span>
                         )}
@@ -846,21 +846,21 @@ export default function ShopClient({
 
                         <button
                           onClick={(e) => toggleWishlist(product._id || product.id, e)}
-                          className="absolute right-2 bottom-2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-md ring-1 ring-[#7A3511]/10 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white md:right-3 md:bottom-3"
+                          className="absolute right-2 bottom-2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-md ring-1 ring-[#1B2E27]/10 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white md:right-3 md:bottom-3"
                         >
                           <Heart
                             size={16}
                             className={`transition-all duration-300 ${
                               isWishlisted
-                                ? "fill-[#C68A13] text-[#C68A13]"
-                                : "text-[#4A230F]"
+                                ? "fill-[#C68A13] text-black"
+                                : "text-black"
                             }`}
                           />
                         </button>
                       </div>
 
                       <div className="flex flex-1 flex-col">
-                        <h3 className="mb-2 min-h-[40px] text-[13px] font-semibold text-[#3d2418] md:min-h-[44px] md:text-sm">
+                        <h3 className="mb-2 min-h-[40px] text-[13px] font-semibold text-black md:min-h-[44px] md:text-sm">
                           {product.name}
                         </h3>
 
@@ -872,35 +872,35 @@ export default function ShopClient({
                                 size={14}
                                 className={`${
                                   i < Math.round(product.rating || 0)
-                                    ? "fill-[#8C7466] text-[#8C7466]"
-                                    : "text-gray-300"
+                                    ? "fill-[#8C7466] text-black"
+                                    : "text-black"
                                 }`}
                               />
                             ))}
-                            <span className="ml-1 text-xs text-gray-500">
+                            <span className="ml-1 text-xs text-black">
                               {product.reviewCount || 0} | Ratings
                             </span>
                           </div>
                         ) : null}
 
-                        <div className="mb-3 rounded-xl border border-[#f0e4d7] bg-[#fffdfb] px-3 py-2 text-center text-xs text-gray-700 md:text-sm">
+                        <div className="mb-3 rounded-xl border border-[#f0e4d7] bg-[#fffdfb] px-3 py-2 text-center text-xs text-black md:text-sm">
                           {primaryVariant?.label ? `${primaryVariant.label} - ` : ""}
                           {formatProductPrice(primaryVariant?.discountPrice || primaryVariant?.price || price)}
                         </div>
 
                         <div className="mb-3 flex items-center justify-between gap-2">
                           <div className="flex min-w-0 items-center gap-2">
-                            <div className="whitespace-nowrap text-[13px] font-bold text-[#7A3511] md:text-sm">
+                            <div className="whitespace-nowrap text-[13px] font-bold text-black md:text-sm">
                               {formatProductPrice(price)}
                             </div>
                             {product.discountPrice && (
-                              <div className="whitespace-nowrap text-[11px] text-gray-400 line-through md:text-xs">
+                              <div className="whitespace-nowrap text-[11px] text-black line-through md:text-xs">
                                 MRP {formatProductPrice(product.basePrice)}
                               </div>
                             )}
                           </div>
                           {product.rating ? (
-                            <div className="whitespace-nowrap text-[11px] text-gray-600 md:text-xs">
+                            <div className="whitespace-nowrap text-[11px] text-black md:text-xs">
                               {product.rating.toFixed(1)} ★
                             </div>
                           ) : null}
@@ -911,8 +911,8 @@ export default function ShopClient({
                           disabled={isSoldOut}
                           className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.75 font-semibold transition-all duration-300 ${
                             isSoldOut
-                              ? "cursor-not-allowed bg-[#e5e7eb] text-[#4b5563]"
-                              : "bg-[#7A3511] text-white hover:bg-[#5A260F] shadow-[0_10px_22px_rgba(122,53,17,0.18)]"
+                              ? "cursor-not-allowed bg-[#e5e7eb] text-black"
+                              : "bg-[#233B32] text-white hover:bg-[#1B2E27] shadow-[0_10px_22px_rgba(35,59,50,0.18)]"
                           }`}
                         >
                           {isSoldOut ? "Sold Out" : "Add to Cart"}
@@ -925,16 +925,16 @@ export default function ShopClient({
             ) : (
               <div className="text-center py-20">
                 <div className="bg-[#F6F1EC] rounded-2xl p-12 max-w-md mx-auto">
-                  <Search className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <Search className="w-12 h-12 text-black mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-black mb-2">
                     No products found
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-black mb-6">
                     Try adjusting your search or filter to find what you&apos;re looking for.
                   </p>
                   <button
                     onClick={clearFilters}
-                    className="inline-flex items-center gap-2 bg-[#7A3511] text-white px-6 py-3 rounded-xl hover:bg-[#5A260F] transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#1B2E27] text-white px-6 py-3 rounded-xl hover:bg-[#5A260F] transition-colors"
                   >
                     Clear all filters
                   </button>
@@ -944,7 +944,7 @@ export default function ShopClient({
 
             {filteredProducts.length > pageSize && (
               <div className="mt-10 flex flex-col items-center gap-4">
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-black">
                   Page {currentPageSafe} of {totalPages}
                 </div>
                 <div className="flex items-center gap-2 flex-wrap justify-center">
@@ -953,8 +953,8 @@ export default function ShopClient({
                     disabled={currentPageSafe === 1}
                     className={`px-4 py-2 rounded-lg border text-sm font-semibold transition ${
                       currentPageSafe === 1
-                        ? "border-gray-200 text-gray-400 cursor-not-allowed"
-                        : "border-[#7A3511]/30 text-[#7A3511] hover:bg-[#7A3511]/10"
+                        ? "border-gray-200 text-black cursor-not-allowed"
+                        : "border-[#1B2E27]/30 text-black hover:bg-[#1B2E27]/10"
                     }`}
                   >
                     Previous
@@ -964,7 +964,7 @@ export default function ShopClient({
                     item === "ellipsis" ? (
                       <span
                         key={`ellipsis-${i}`}
-                        className="w-10 h-10 flex items-center justify-center text-sm text-gray-400"
+                        className="w-10 h-10 flex items-center justify-center text-sm text-black"
                       >
                         …
                       </span>
@@ -974,8 +974,8 @@ export default function ShopClient({
                         onClick={() => setCurrentPage(item)}
                         className={`w-10 h-10 rounded-lg text-sm font-semibold border transition ${
                           item === currentPageSafe
-                            ? "bg-[#7A3511] text-white border-[#7A3511]"
-                            : "border-gray-200 text-gray-600 hover:border-[#7A3511]/40 hover:text-[#7A3511]"
+                            ? "bg-[#1B2E27] text-white border-[#1B2E27]"
+                            : "border-gray-200 text-black hover:border-[#1B2E27]/40 hover:text-black"
                         }`}
                       >
                         {item}
@@ -988,8 +988,8 @@ export default function ShopClient({
                     disabled={currentPageSafe === totalPages}
                     className={`px-4 py-2 rounded-lg border text-sm font-semibold transition ${
                       currentPageSafe === totalPages
-                        ? "border-gray-200 text-gray-400 cursor-not-allowed"
-                        : "border-[#7A3511]/30 text-[#7A3511] hover:bg-[#7A3511]/10"
+                        ? "border-gray-200 text-black cursor-not-allowed"
+                        : "border-[#1B2E27]/30 text-black hover:bg-[#1B2E27]/10"
                     }`}
                   >
                     Next
@@ -1002,24 +1002,24 @@ export default function ShopClient({
         </div>
       </div>
 
-      <div className="border-t border-[#7A3511]/10 mt-16 bg-white/70 backdrop-blur-sm">
+      <div className="border-t border-[#1B2E27]/10 mt-16 bg-white/70 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">{products.length}</div>
-              <div className="text-sm text-gray-500">Products</div>
+              <div className="text-2xl font-bold text-black">{products.length}</div>
+              <div className="text-sm text-black">Products</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">{categoryOptions.length}</div>
-              <div className="text-sm text-gray-500">Categories</div>
+              <div className="text-2xl font-bold text-black">{categoryOptions.length}</div>
+              <div className="text-sm text-black">Categories</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">{collections.length}</div>
-              <div className="text-sm text-gray-500">Collections</div>
+              <div className="text-2xl font-bold text-black">{collections.length}</div>
+              <div className="text-sm text-black">Collections</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">{subcategoryOptions.length}</div>
-              <div className="text-sm text-gray-500">Subcategories</div>
+              <div className="text-2xl font-bold text-black">{subcategoryOptions.length}</div>
+              <div className="text-sm text-black">Subcategories</div>
             </div>
           </div>
         </div>

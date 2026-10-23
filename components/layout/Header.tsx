@@ -34,14 +34,8 @@ import {
 
 type GenderTab = "men" | "women";
 
-// Tags that describe the whole catalog rather than a specific product type —
-// not useful as a mega-menu link, so they're excluded from the dynamic list.
 const GENERIC_TAGS = new Set(["fashion", "apparel", "men", "women", "unisex"]);
 
-// The catalog's categories are a flat list (no subcategories), so the Shop
-// mega-menu groups them into themed columns editorially, Myntra/Meesho-style,
-// rather than inventing a subcategory taxonomy that doesn't exist in the data.
-// Any category slug not listed here still shows up, under "More".
 const SHOP_MENU_GROUPS: { title: string; slugs: string[] }[] = [
   {
     title: "Lingerie & Intimates",
@@ -114,14 +108,13 @@ export default function Header() {
   const wishlistCount = wishlistItems.length;
 
   useEffect(() => {
-    // Loaded once on mount rather than lazily on search-open, since the
-    // Shop mega-menu also needs this data to build its links from real
-    // product tags instead of a hardcoded list.
     let isActive = true;
 
     const loadProducts = async () => {
       try {
-        const productsData = await getProducts({ limit: 5000 });
+        // Keep the shared header request lightweight; loading thousands of
+        // full product documents was timing out during homepage hydration.
+        const productsData = await getProducts({ limit: 100 });
         if (isActive) {
           setProducts(productsData);
         }
@@ -250,9 +243,6 @@ export default function Header() {
     }
   }, [hasWishlistHydrated, isAuthenticated, loadWishlist]);
 
-  // Built from real product tags instead of a hardcoded list, so every
-  // link in the Shop mega-menu actually resolves to real products — and
-  // the menu grows on its own as new tags appear in the catalog.
   const genderTags = useMemo(() => {
     const buildTagsFor = (gender: GenderTab) => {
       const tags = new Set<string>();
@@ -300,14 +290,12 @@ export default function Header() {
       .slice(0, 6);
   }, [products, searchQuery]);
 
-  /* ---------------- AUTO FOCUS SEARCH ---------------- */
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
       searchInputRef.current.focus();
     }
   }, [isSearchOpen]);
 
-  /* ---------------- ESC CLOSE SEARCH ---------------- */
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -321,7 +309,6 @@ export default function Header() {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  /* ---------------- CLICK OUTSIDE TO CLOSE MENUS ---------------- */
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -336,7 +323,6 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isUserMenuOpen]);
 
-  /* ---------------- HEADER SCROLL EFFECT ---------------- */
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 8);
@@ -347,7 +333,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ---------------- LOGOUT HANDLER ---------------- */
   const handleLogout = async () => {
     try {
       await logout();
@@ -360,10 +345,8 @@ export default function Header() {
 
   return (
     <>
-      {/* ================= Announcement Bar ================= */}
       <AnnouncementBar />
 
-      {/* ================= Header ================= */}
       <header
         className={`sticky top-0 z-50 border-b border-[#191714]/10 bg-[#F8F6F1]/75 backdrop-blur-[14px] transition-all duration-300 ${
           isScrolled
@@ -372,30 +355,30 @@ export default function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+          {/* Improved grid proportions to prevent crowding */}
           <div
-            className={`grid grid-cols-[1fr_auto_1fr] items-center transition-[height] duration-300 ${
-              isScrolled ? "h-20" : "h-24"
+            className={`grid grid-cols-[auto_1fr_auto] lg:grid-cols-[220px_1fr_auto] items-center gap-4 transition-[height] duration-300 ${
+              isScrolled ? "h-18 md:h-20" : "h-20 md:h-24"
             }`}
           >
             {/* Logo */}
-
             <Link href="/" className="flex items-center justify-self-start">
               <Image
                 src="/final-logo.png"
                 alt="Denimique"
-                width={160}
-                height={180}
+                width={150}
+                height={160}
                 priority
-                className="h-16 w-auto sm:h-20 md:h-24"
+                className="h-16 w-auto sm:h-20 md:h-24 object-contain"
               />
             </Link>
 
-            {/* ================= Desktop Navigation ================= */}
+            {/* Desktop Navigation */}
 
-            <nav className="hidden md:flex items-center justify-self-center gap-10 relative">
+            <nav className="hidden md:flex items-center justify-self-center gap-8 lg:gap-10 relative">
               <Link
                 href="/shop"
-                className="relative flex items-center gap-1 text-sm font-bold uppercase tracking-[0.16em] text-[#191714] group font-heading"
+                className="relative flex items-center gap-1 text-sm font-bold uppercase tracking-[0.16em] text-black group font-heading py-2"
                 onMouseEnter={openShopMenu}
                 onMouseLeave={closeShopMenuWithDelay}
               >
@@ -404,15 +387,15 @@ export default function Header() {
                   size={14}
                   className={`transition-transform duration-300 ${isShopMenuOpen ? "rotate-180" : ""}`}
                 />
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#A58D68] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#A58D68] transition-all duration-300 group-hover:w-full" />
               </Link>
 
               <Link
                 href="/shop?sort=newest"
-                className="relative flex items-center gap-1 text-sm font-bold uppercase tracking-[0.16em] text-[#191714] group font-heading"
+                className="relative flex items-center gap-1 text-sm font-bold uppercase tracking-[0.16em] text-black group font-heading py-2"
               >
                 New Arrivals
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#A58D68] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#A58D68] transition-all duration-300 group-hover:w-full" />
               </Link>
 
               <AnimatePresence>
@@ -424,18 +407,12 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                     onMouseEnter={openShopMenu}
                     onMouseLeave={closeShopMenuWithDelay}
-                    // Anchored to the whole nav (not just the "Shop" link) and
-                    // capped to the viewport width, so it can't overflow past
-                    // the left edge on narrower desktop/laptop screens. Only
-                    // the "Shop" link and this panel toggle it — hovering
-                    // "New Arrivals" does not.
-
-                    className="absolute left-1/2 top-full z-50 mt-3 w-[min(94vw,860px)] -translate-x-1/2 rounded-2xl border border-gray-100 bg-white p-6 shadow-2xl"
+                    className="absolute left-1/2 top-full z-50 mt-2 w-[min(94vw,860px)] -translate-x-1/2 rounded-2xl border border-gray-100 bg-white p-6 shadow-2xl"
                   >
                     <div className="grid grid-cols-2 gap-x-8 gap-y-5 lg:grid-cols-4 lg:gap-y-0">
                       {shopMenuColumns.map((column) => (
                         <div key={column.title}>
-                          <p className="mb-3 text-sm font-bold text-[#92764A]">
+                          <p className="mb-3 text-sm font-bold text-black">
                             {column.title}
                           </p>
                           <div className="flex flex-col gap-2.5">
@@ -444,11 +421,11 @@ export default function Header() {
                                 key={category.slug}
                                 href={`/shop?category=${category.slug}`}
                                 onClick={() => setIsShopMenuOpen(false)}
-                                className="flex items-center justify-between gap-3 text-sm text-gray-600 transition-colors hover:text-[#92764A]"
+                                className="flex items-center justify-between gap-3 text-sm text-black transition-colors hover:text-black"
                               >
                                 <span>{category.name}</span>
                                 {categoryProductCounts.has(category.slug) && (
-                                  <span className="shrink-0 text-xs text-gray-400">
+                                  <span className="shrink-0 text-xs text-black">
                                     {categoryProductCounts.get(category.slug)}
                                   </span>
                                 )}
@@ -463,14 +440,14 @@ export default function Header() {
                       <Link
                         href="/shop?category=all-products"
                         onClick={() => setIsShopMenuOpen(false)}
-                        className="text-sm font-bold text-[#92764A] hover:underline"
+                        className="text-sm font-bold text-black hover:underline"
                       >
                         View All Products &rarr;
                       </Link>
                       <Link
                         href="/shop?sort=newest"
                         onClick={() => setIsShopMenuOpen(false)}
-                        className="text-sm font-semibold text-gray-500 hover:text-[#92764A]"
+                        className="text-sm font-semibold text-black hover:text-black"
                       >
                         Latest Collection
                       </Link>
@@ -480,25 +457,24 @@ export default function Header() {
               </AnimatePresence>
             </nav>
 
-            {/* ================= Right Section ================= */}
+            {/* Right Section */}
 
-            <div className="flex items-center justify-self-end gap-1.5 sm:gap-3 md:gap-4">
+            <div className="flex items-center justify-self-end gap-1 sm:gap-2 md:gap-3">
               {/* Search */}
-
-              <div className="relative flex items-center hidden md:block">
+              <div className="relative hidden md:block">
                 <AnimatePresence mode="wait">
                   {isSearchOpen ? (
                     <motion.div
                       key="search-expanded"
                       initial={{ width: 0, opacity: 0 }}
-                      animate={{ width: 280, opacity: 1 }}
+                      animate={{ width: 260, opacity: 1 }}
                       exit={{ width: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="relative p-2 text-gray-800"
+                      className="relative text-black"
                     >
                       <div className="relative overflow-hidden rounded-full">
                         <Search
-                          className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                          className="absolute left-4 top-1/2 -translate-y-1/2 text-black"
                           size={18}
                         />
                         <input
@@ -507,23 +483,23 @@ export default function Header() {
                           placeholder="Search products..."
                           value={searchQuery}
                           onChange={(e) => setSearchQuery(e.target.value)}
-                          className="w-full pl-10 pr-12 py-2.5 bg-gray-50 rounded-full focus:ring-2 focus:ring-[#A58D68] outline-none text-sm"
+                          className="w-full pl-10 pr-10 py-2 bg-white/80 border border-gray-200 rounded-full focus:ring-2 focus:ring-[#A58D68] outline-none text-sm shadow-sm"
                         />
                         <button
                           onClick={() => {
                             setIsSearchOpen(false);
                             setSearchQuery("");
                           }}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 "
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-black"
                         >
                           <X size={16} />
                         </button>
                       </div>
 
                       {searchQuery && (
-                        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-50">
                           {products.length === 0 ? (
-                            <div className="px-4 py-6 text-center text-gray-500">
+                            <div className="px-4 py-6 text-center text-black text-sm">
                               Loading products...
                             </div>
                           ) : searchResults.length > 0 ? (
@@ -537,10 +513,10 @@ export default function Header() {
                                   setSearchQuery("");
                                 }}
                               >
-                                <div className="text-sm font-medium text-gray-800">
+                                <div className="text-sm font-medium text-black">
                                   {result.name}
                                 </div>
-                                <div className="text-xs text-gray-500">
+                                <div className="text-xs text-black">
                                   {result.brand ||
                                     result.category?.name ||
                                     result.color ||
@@ -549,7 +525,7 @@ export default function Header() {
                               </Link>
                             ))
                           ) : (
-                            <div className="px-4 py-6 text-center text-gray-500">
+                            <div className="px-4 py-6 text-center text-black text-sm">
                               No products found
                             </div>
                           )}
@@ -560,28 +536,28 @@ export default function Header() {
                     <motion.button
                       key="search-icon"
                       onClick={() => setIsSearchOpen(true)}
-                      className="p-2 hover:bg-[#92764A]/10 rounded-full"
+                      className="p-2.5 hover:bg-[#92764A]/10 rounded-full transition-colors"
+                      title="Search"
                     >
-                      <Search className="text-[#191714]" size={20} />
+                      <Search className="text-black" size={20} />
                     </motion.button>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* User Account (mobile has these links in the hamburger drawer) */}
-
+              {/* User Account */}
               {isAuthenticated ? (
                 <div className="relative user-menu-container hidden sm:block">
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center gap-2 p-2 rounded-full transition-colors hover:bg-[#92764A]/10"
+                    className="flex items-center gap-1.5 p-1.5 rounded-full transition-colors hover:bg-[#92764A]/10"
                   >
                     <div className="w-8 h-8 bg-[#92764A]/10 rounded-full flex items-center justify-center">
-                      <User className="w-4 h-4 text-[#191714]" />
+                      <User className="w-4 h-4 text-black" />
                     </div>
                     <ChevronDown
-                      size={16}
-                      className={`text-[#191714] transition-transform ${
+                      size={14}
+                      className={`text-black transition-transform ${
                         isUserMenuOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -594,32 +570,32 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0"
+                        className="absolute top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 right-0"
                       >
                         <div className="px-4 py-3 border-b border-gray-100">
-                          <p className="font-semibold text-[#191714]">
+                          <p className="font-semibold text-black text-sm">
                             {user?.name}
                           </p>
-                          <p className="text-sm text-gray-500 truncate">
+                          <p className="text-xs text-black truncate">
                             {user?.email}
                           </p>
                         </div>
 
                         <Link
                           href="/notifications"
-                          className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-black hover:bg-gray-50 transition-colors"
                           onClick={() => setIsUserMenuOpen(false)}
                         >
-                          <Bell size={18} />
+                          <Bell size={16} />
                           <span>Notifications</span>
                         </Link>
 
                         <Link
                           href="/profile"
-                          className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-black hover:bg-gray-50 transition-colors"
                           onClick={() => setIsUserMenuOpen(false)}
                         >
-                          <User size={18} />
+                          <User size={16} />
                           <span>Profile</span>
                         </Link>
 
@@ -627,10 +603,10 @@ export default function Header() {
                           user?.role === "superadmin") && (
                           <Link
                             href="/admin"
-                            className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-black hover:bg-gray-50 transition-colors"
                             onClick={() => setIsUserMenuOpen(false)}
                           >
-                            <Settings size={18} />
+                            <Settings size={16} />
                             <span>Admin Panel</span>
                           </Link>
                         )}
@@ -638,28 +614,28 @@ export default function Header() {
                         {user?.role === "superadmin" && (
                           <Link
                             href="/admin/users"
-                            className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-black hover:bg-gray-50 transition-colors"
                             onClick={() => setIsUserMenuOpen(false)}
                           >
-                            <Users size={18} />
+                            <Users size={16} />
                             <span>Users</span>
                           </Link>
                         )}
 
                         <Link
                           href="/orders"
-                          className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-black hover:bg-gray-50 transition-colors"
                           onClick={() => setIsUserMenuOpen(false)}
                         >
-                          <ShoppingBag size={18} />
+                          <ShoppingBag size={16} />
                           <span>My Orders</span>
                         </Link>
 
                         <button
                           onClick={handleLogout}
-                          className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors w-full text-left"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-black transition-colors w-full text-left border-t border-gray-50 mt-1"
                         >
-                          <LogOut size={18} />
+                          <LogOut size={16} />
                           <span>Logout</span>
                         </button>
                       </motion.div>
@@ -667,10 +643,10 @@ export default function Header() {
                   </AnimatePresence>
                 </div>
               ) : (
-                <div className="hidden md:flex items-center gap-3">
+                <div className="hidden md:flex items-center">
                   <Link
                     href="/login"
-                    className="p-2 text-[#191714] hover:bg-[#92764A]/10 rounded-full transition-colors"
+                    className="p-2.5 text-black hover:bg-[#92764A]/10 rounded-full transition-colors"
                     title="Login / Sign Up"
                   >
                     <User size={20} />
@@ -683,41 +659,39 @@ export default function Header() {
               {/* Wishlist */}
               <Link
                 href="/wishlist"
-                className="relative group -m-2 rounded-full p-2 transition-colors duration-300 hover:bg-[#92764A]/10"
+                className="relative group rounded-full p-2.5 transition-colors duration-300 hover:bg-[#92764A]/10"
+                title="Wishlist"
               >
                 <Heart
-                  size={22}
+                  size={20}
                   strokeWidth={1.75}
                   className={`transition-all duration-300 group-hover:scale-110 ${
                     hasWishlistHydrated && wishlistCount > 0
-                      ? "fill-[#92764A] text-[#92764A]"
-                      : "text-[#191714]"
+                      ? "fill-[#92764A] text-black"
+                      : "text-black"
                   }`}
                 />
                 {hasWishlistHydrated && wishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-[#191714] text-white text-[10px] font-bold shadow-md ring-2 ring-white">
+                  <span className="absolute top-1 right-1 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-[#191714] text-white text-[10px] font-bold shadow-md ring-2 ring-white">
                     {wishlistCount > 9 ? "9+" : wishlistCount}
                   </span>
                 )}
               </Link>
 
-              {/* Cart (Visible On All Devices) */}
+              {/* Cart */}
               <Link
                 href="/cart"
-                className="relative group rounded-full p-2 transition-colors duration-300 hover:bg-[#92764A]/10"
+                className="relative group rounded-full p-2.5 transition-colors duration-300 hover:bg-[#92764A]/10"
+                title="Cart"
               >
                 <ShoppingCart
-                  size={22}
-                  className="text-[#191714] transition-transform duration-300 group-hover:scale-110 sm:size-6"
+                  size={20}
+                  className="text-black transition-transform duration-300 group-hover:scale-110"
                 />
-
                 {hasHydrated && cartCount > 0 && (
                   <span
                     key={cartCount}
-                    className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1
-                               flex items-center justify-center
-                               bg-[#191714] text-white text-[10px] font-bold
-                               rounded-full shadow-md ring-2 ring-white"
+                    className="absolute top-1 right-1 min-w-[18px] h-[18px] px-1 flex items-center justify-center bg-[#191714] text-white text-[10px] font-bold rounded-full shadow-md ring-2 ring-white"
                   >
                     {cartCount}
                   </span>
@@ -728,260 +702,156 @@ export default function Header() {
               <button
                 className="md:hidden rounded-full p-2 transition-colors duration-300 hover:bg-[#92764A]/10"
                 onClick={() => setIsOpen(true)}
+                aria-label="Open Menu"
               >
-                <Menu size={24} className="text-[#191714]" />
+                <Menu size={24} className="text-black" />
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* ================= Mobile Panel ================= */}
-
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed inset-0 bg-white z-50 flex flex-col"
           >
-            {/* Fixed Header */}
-
-            <div className="flex justify-between items-center p-8 pb-6 border-b border-gray-100">
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
               <Image
                 src="/final-logo.png"
                 alt="Denimique"
-                width={160}
-                height={180}
-                className="h-20 w-auto"
+                width={140}
+                height={150}
+                className="h-14 w-auto object-contain"
               />
-              <X
-                size={28}
-                className="text-[#191714] cursor-pointer"
+              <button
                 onClick={() => setIsOpen(false)}
-              />
+                className="p-2 rounded-full hover:bg-gray-100"
+              >
+                <X size={24} className="text-black" />
+              </button>
             </div>
 
-            {/* Scrollable Content */}
-
-            <div className="flex-1 overflow-y-auto px-8 pb-8">
-              {/* Mobile Search */}
-              <div className="mb-6">
-                <div className="relative">
-                  <Search
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                    size={20}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-50 rounded-xl focus:ring-2 focus:ring-[#A58D68] outline-none"
-                  />
-                </div>
-
+            <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+              {/* Mobile Search Input */}
+              <div className="relative">
+                <Search
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-black"
+                  size={18}
+                />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-11 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#A58D68] outline-none text-sm"
+                />
                 {searchQuery && (
-                  <div className="mt-4 max-h-48 overflow-y-auto">
-                    {products.length === 0 ? (
-                      <p className="px-4 py-2 text-sm text-gray-500">
-                        Loading products...
-                      </p>
-                    ) : (
-                      searchResults.map((product) => (
-                        <Link
-                          key={product.id}
-                          href={`/products/${product.slug}`}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setSearchQuery("");
-                          }}
-                          className="block px-4 py-2 hover:bg-[#A58D68]/10 rounded-lg"
-                        >
-                          {product.name}
-                        </Link>
-                      ))
-                    )}
+                  <div className="mt-2 bg-gray-50 rounded-xl overflow-hidden border border-gray-100">
+                    {searchResults.map((product) => (
+                      <Link
+                        key={product.id}
+                        href={`/products/${product.slug}`}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setSearchQuery("");
+                        }}
+                        className="block px-4 py-2.5 text-sm hover:bg-[#A58D68]/10 transition"
+                      >
+                        {product.name}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
 
-              {/* Mobile Links */}
-              <div className="flex flex-col gap-6 text-xl font-semibold text-[#191714]">
-                <Link href="/shop" onClick={() => setIsOpen(false)}>
+              {/* Mobile Navigation Links */}
+              <div className="flex flex-col gap-4 text-lg font-semibold text-black">
+                <Link
+                  href="/shop"
+                  onClick={() => setIsOpen(false)}
+                  className="py-1 hover:text-black"
+                >
                   Shop All
                 </Link>
-
-                <Link href="/shop?sort=newest" onClick={() => setIsOpen(false)}>
+                <Link
+                  href="/shop?sort=newest"
+                  onClick={() => setIsOpen(false)}
+                  className="py-1 hover:text-black"
+                >
                   New Arrivals
                 </Link>
+              </div>
 
-                <div className="grid grid-cols-2 gap-6 border-y border-[#A58D68]/15 py-5">
-                  <div>
-                    <p className="mb-2 text-sm font-bold text-[#A58D68]">
-                      Men&apos;s Tags
-                    </p>
-                    <div className="flex flex-col gap-2">
-                      {genderTags.men.length > 0 ? (
-                        genderTags.men.map((tag) => (
+              {/* Mobile Category Groups Accordion/Grid */}
+              <div className="border-t border-gray-100 pt-6 space-y-6">
+                <p className="text-xs font-bold tracking-wider uppercase text-black">
+                  Explore Categories
+                </p>
+                <div className="grid grid-cols-1 gap-4">
+                  {SHOP_MENU_GROUPS.map((group) => (
+                    <div key={group.title} className="space-y-2">
+                      <p className="text-sm font-bold text-black">
+                        {group.title}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {group.slugs.map((slug) => (
                           <Link
-                            key={tag}
-                            href={`/shop?gender=men&tag=${toTag(tag)}`}
+                            key={slug}
+                            href={`/shop?category=${slug}`}
                             onClick={() => setIsOpen(false)}
-                            className="text-sm text-gray-700"
+                            className="text-xs bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-lg text-black hover:border-[#A58D68] hover:text-black"
                           >
-                            {toLabel(tag)}
+                            {SHOP_MENU_LABELS[slug] || toLabel(slug)}
                           </Link>
-                        ))
-                      ) : (
-                        <p className="text-sm text-gray-400">Coming soon</p>
-                      )}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <p className="mb-2 text-sm font-bold text-[#A58D68]">
-                      Women&apos;s Tags
-                    </p>
-                    <div className="flex flex-col gap-2">
-                      {genderTags.women.length > 0 ? (
-                        genderTags.women.map((tag) => (
-                          <Link
-                            key={tag}
-                            href={`/shop?gender=women&tag=${toTag(tag)}`}
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm text-gray-700"
-                          >
-                            {toLabel(tag)}
-                          </Link>
-                        ))
-                      ) : (
-                        <p className="text-sm text-gray-400">Coming soon</p>
-                      )}
-                    </div>
-                  </div>
+                  ))}
                 </div>
+              </div>
 
-                {/* User Authentication - Mobile */}
+              {/* Mobile Account Actions */}
+              <div className="border-t border-gray-100 pt-6 flex flex-col gap-3">
                 {isAuthenticated ? (
-                  <div className="pt-4">
-                    {/* User Info Card */}
-                    <div className="bg-gradient-to-r from-[#191714] to-[#191714] p-3 rounded-xl mb-3 text-white">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                          <User className="w-5 h-5 text-white" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-white text-sm truncate">
-                            {user?.name}
-                          </p>
-                          <p className="text-xs text-white/80 truncate">
-                            {user?.email}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Link
-                        href="/notifications"
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition"
-                      >
-                        <Bell size={16} />
-                        <span>Notifications</span>
-                      </Link>
-
-                      <Link
-                        href="/profile"
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition"
-                      >
-                        <User size={16} />
-                        <span>Profile</span>
-                      </Link>
-
-                      <Link
-                        href="/orders"
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition"
-                      >
-                        <ShoppingBag size={16} />
-                        <span>My Orders</span>
-                      </Link>
-
-                      {(user?.role === "admin" ||
-                        user?.role === "superadmin") && (
-                        <Link
-                          href="/admin"
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition"
-                        >
-                          <Settings size={16} />
-                          <span>Admin Panel</span>
-                        </Link>
-                      )}
-
-                      {user?.role === "superadmin" && (
-                        <Link
-                          href="/admin/users"
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition"
-                        >
-                          <Users size={16} />
-                          <span>Users</span>
-                        </Link>
-                      )}
-
-                      <Link
-                        href="/wishlist"
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-gray-50 transition"
-                      >
-                        <Heart size={16} />
-                        <span>Wishlist</span>
-                      </Link>
-
-                      <button
-                        onClick={async () => {
-                          await handleLogout();
-                          setIsOpen(false);
-                        }}
-                        className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:bg-red-50 transition w-full text-left"
-                      >
-                        <LogOut size={16} className="text-red-600" />
-                        <span className="text-red-600">Logout</span>
-                      </button>
-                    </div>
-                  </div>
+                  <>
+                    <Link
+                      href="/profile"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-3 text-sm font-medium text-black py-2"
+                    >
+                      <User size={18} /> My Profile
+                    </Link>
+                    <Link
+                      href="/orders"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-3 text-sm font-medium text-black py-2"
+                    >
+                      <ShoppingBag size={18} /> My Orders
+                    </Link>
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                        handleLogout();
+                      }}
+                      className="flex items-center gap-3 text-sm font-medium text-black py-2 text-left"
+                    >
+                      <LogOut size={18} /> Logout
+                    </button>
+                  </>
                 ) : (
-                  <div className="pt-4">
-                    <div className="bg-gradient-to-r from-[#191714] to-[#191714] rounded-xl p-3 mb-3">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="p-1.5 bg-white/20 rounded-lg">
-                          <User size={16} className="text-white" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-white text-sm">
-                            Welcome to Denimique
-                          </p>
-                          <p className="text-xs text-white/80">
-                            Sign in to your account
-                          </p>
-                        </div>
-                      </div>
-
-                      <Link
-                        href="/login"
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center justify-center gap-2 w-full py-2 bg-white text-[#191714] rounded-lg font-semibold hover:bg-gray-50 transition text-sm"
-                      >
-                        <User size={14} />
-                        Login / Sign Up
-                      </Link>
-                    </div>
-                  </div>
+                  <Link
+                    href="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full py-3 bg-[#191714] text-white rounded-xl text-center font-medium shadow-md"
+                  >
+                    Sign In / Register
+                  </Link>
                 )}
               </div>
             </div>

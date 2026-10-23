@@ -112,10 +112,10 @@ export default function BestSellers({ initialProducts = [] }: BestSellersProps) 
           className="flex items-start justify-between mb-10 md:mb-12 gap-4"
         >
           <div className="max-w-[75%]">
-            <h2 className="text-2xl md:text-4xl font-bold text-[#102B50]">
+            <h2 className="text-2xl md:text-4xl font-bold text-black">
               Our Best Sellers!
             </h2>
-            <p className="text-gray-500 mt-2 text-sm md:text-base">
+            <p className="text-black mt-2 text-sm md:text-base">
               Discover the styles Denimique customers come back for.
             </p>
           </div>
@@ -169,12 +169,12 @@ export default function BestSellers({ initialProducts = [] }: BestSellersProps) 
 
                 <div className="absolute right-3 top-3 z-20 flex flex-wrap gap-2">
                   {isSoldOut && (
-                    <span className="bg-gray-200 text-gray-700 text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                    <span className="bg-gray-200 text-black text-[11px] font-semibold px-2.5 py-1 rounded-md">
                       Sold out
                     </span>
                   )}
                   {(discount ?? 0) > 0 && !isSoldOut && (
-                    <span className="bg-white border border-[#173F70]/30 text-[#173F70] text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                    <span className="bg-white border border-[#173F70]/30 text-black text-[11px] font-semibold px-2.5 py-1 rounded-md">
                       On sale
                     </span>
                   )}
@@ -188,8 +188,8 @@ export default function BestSellers({ initialProducts = [] }: BestSellersProps) 
                     size={16}
                     className={`transition-all duration-300 ${
                       isWishlisted
-                        ? "fill-[#55779E] text-[#55779E]"
-                        : "text-[#102B50]"
+                        ? "fill-[#55779E] text-black"
+                        : "text-black"
                     }`}
                   />
                 </button>
@@ -209,8 +209,8 @@ export default function BestSellers({ initialProducts = [] }: BestSellersProps) 
                     disabled={isSoldOut}
                     className={`absolute inset-x-0 bottom-0 z-10 flex items-center justify-center gap-2 py-2.5 text-xs md:text-sm font-semibold transition-all duration-300 ${
                       isSoldOut
-                        ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                        : "bg-[#102B50] text-white hover:bg-[#0C2446]"
+                        ? "bg-gray-200 text-black cursor-not-allowed"
+                        : "bg-[#233B32] text-white hover:bg-[#1B2E27]"
                     }`}
                   >
                     <ShoppingBag size={14} />
@@ -218,7 +218,7 @@ export default function BestSellers({ initialProducts = [] }: BestSellersProps) 
                   </button>
                 </div>
 
-                <h3 className="text-[#102B50] font-semibold mb-2 text-[13px] md:text-sm min-h-[40px] md:min-h-[44px]">
+                <h3 className="text-black font-semibold mb-2 text-[13px] md:text-sm min-h-[40px] md:min-h-[44px]">
                   {product.name}
                 </h3>
 
@@ -230,35 +230,35 @@ export default function BestSellers({ initialProducts = [] }: BestSellersProps) 
                         size={14}
                         className={`${
                           i < Math.round(product.rating || 0)
-                            ? "fill-[#55779E] text-[#55779E]"
-                            : "text-gray-300"
+                            ? "fill-[#55779E] text-black"
+                            : "text-black"
                         }`}
                       />
                     ))}
-                    <span className="text-xs text-gray-500 ml-1">
+                    <span className="text-xs text-black ml-1">
                       {product.reviewCount || 0} | Ratings
                     </span>
                   </div>
                 ) : null}
 
-                <div className="border border-gray-200 rounded-lg px-3 py-2 text-center text-xs md:text-sm text-gray-700 mb-3">
+                <div className="border border-gray-200 rounded-lg px-3 py-2 text-center text-xs md:text-sm text-black mb-3">
                   {primaryVariant?.label ? `${primaryVariant.label} - ` : ""}
                   {formatProductPrice(primaryVariant?.discountPrice || primaryVariant?.price || price)}
                 </div>
 
                 <div className="flex items-center justify-between mb-3 gap-2">
                   <div className="flex items-center gap-2 min-w-0">
-                    <div className="text-[13px] md:text-sm font-semibold text-[#173F70] whitespace-nowrap">
+                    <div className="text-[13px] md:text-sm font-semibold text-black whitespace-nowrap">
                       {formatProductPrice(price)}
                     </div>
                     {product.discountPrice && (
-                      <div className="text-[11px] md:text-xs text-gray-400 line-through whitespace-nowrap">
+                      <div className="text-[11px] md:text-xs text-black line-through whitespace-nowrap">
                         MRP {formatProductPrice(product.basePrice)}
                       </div>
                     )}
                   </div>
                   {product.rating ? (
-                    <div className="text-[11px] md:text-xs text-gray-600 whitespace-nowrap">
+                    <div className="text-[11px] md:text-xs text-black whitespace-nowrap">
                       {product.rating.toFixed(1)} {"\u2605"}
                     </div>
                   ) : null}

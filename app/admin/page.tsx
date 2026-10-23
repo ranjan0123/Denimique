@@ -73,7 +73,9 @@ export default function AdminPage() {
     0,
   );
 
-  const activePromoCount = promoCodes.filter((promoCode) => promoCode.isActive).length;
+  const activePromoCount = promoCodes.filter(
+    (promoCode) => promoCode.isActive,
+  ).length;
   const pendingOrders = orders.filter((order) =>
     ["pending", "confirmed", "processing"].includes(order.orderStatus),
   );
@@ -124,7 +126,7 @@ export default function AdminPage() {
       title: "Add Product",
       href: "/admin/products/add",
       icon: Plus,
-      tone: "bg-[#7A3511] text-[#D4AF37] hover:bg-[#5A260F]",
+      tone: "bg-[#1B2E27] text-white hover:bg-[#5A260F]",
       description: "Create a new sellable item",
       priority: true,
     },
@@ -132,7 +134,7 @@ export default function AdminPage() {
       title: "Review Orders",
       href: "/admin/orders",
       icon: ShoppingCart,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Update order and payment status",
       priority: true,
     },
@@ -140,7 +142,7 @@ export default function AdminPage() {
       title: "Create Promo",
       href: "/admin/promocodes/add",
       icon: TicketPercent,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Launch a new discount code",
       priority: true,
     },
@@ -148,28 +150,28 @@ export default function AdminPage() {
       title: "Hero Content",
       href: "/admin/hero",
       icon: Megaphone,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Update homepage hero messaging",
     },
     {
       title: "Hot Product",
       href: "/admin/hot-product",
       icon: Sparkles,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Manage featured offers",
     },
     {
       title: "City Pages",
       href: "/admin/city-pages",
       icon: MapPin,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Manage location landing pages",
     },
     {
       title: "New Blog",
       href: "/admin/blogs/create",
       icon: BookOpen,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Publish a fresh story",
       priority: true,
     },
@@ -177,7 +179,7 @@ export default function AdminPage() {
       title: "Form Responses",
       href: "/admin/form-responses",
       icon: Layers3,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "View all submissions",
       priority: true,
     },
@@ -185,14 +187,14 @@ export default function AdminPage() {
       title: "Store Settings",
       href: "/admin/settings",
       icon: Sliders,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Toggle checkout behavior",
     },
     {
       title: "Push Notification",
       href: "/admin/push",
       icon: Send,
-      tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+      tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
       description: "Send a custom push to subscribed customers",
     },
     ...(user?.role === "superadmin"
@@ -201,7 +203,7 @@ export default function AdminPage() {
             title: "User Management",
             href: "/admin/users",
             icon: Users,
-            tone: "bg-white text-[#4A230F] border border-[#7A3511]/20 hover:bg-[#7A3511]/5",
+            tone: "bg-white text-black border border-[#1B2E27]/20 hover:bg-[#1B2E27]/5",
             description: "Manage roles and access",
           },
         ]
@@ -356,14 +358,19 @@ export default function AdminPage() {
 
   async function fetchDashboardData() {
     try {
-      const [hierarchyRes, productsRes, ordersRes, promoCodesRes, blogStatsRes] =
-        await Promise.all([
-          api.get("/categories/hierarchy"),
-          api.get("/products", { params: { limit: 1000 } }),
-          api.get("/orders"),
-          api.get("/promocodes"),
-          api.get("/admin/blogs/analytics"),
-        ]);
+      const [
+        hierarchyRes,
+        productsRes,
+        ordersRes,
+        promoCodesRes,
+        blogStatsRes,
+      ] = await Promise.all([
+        api.get("/categories/hierarchy"),
+        api.get("/products", { params: { limit: 1000 } }),
+        api.get("/orders"),
+        api.get("/promocodes"),
+        api.get("/admin/blogs/analytics"),
+      ]);
 
       setHierarchy(hierarchyRes.data.mainCategories || hierarchyRes.data);
 
@@ -389,7 +396,10 @@ export default function AdminPage() {
 
       setTimeout(async () => {
         const currentUser = useAuthStore.getState().user;
-        if (!currentUser || !['admin', 'superadmin'].includes(currentUser.role || "")) {
+        if (
+          !currentUser ||
+          !["admin", "superadmin"].includes(currentUser.role || "")
+        ) {
           router.push("/");
           return;
         }
@@ -404,7 +414,7 @@ export default function AdminPage() {
   if (isLoading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-[#7A3511] animate-spin" />
+        <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-[#1B2E27] animate-spin" />
       </div>
     );
   }
@@ -414,10 +424,10 @@ export default function AdminPage() {
       {/* Page header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-xl font-semibold text-slate-950 sm:text-2xl">
+          <h1 className="text-xl font-semibold text-black sm:text-2xl">
             {`Welcome back${user?.name ? `, ${user.name.split(" ")[0]}` : ""}`}
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-black">
             Here&apos;s what needs your attention today.
           </p>
         </div>
@@ -432,8 +442,8 @@ export default function AdminPage() {
                 href={action.href}
                 className={`inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors ${
                   isFirst
-                    ? "bg-[#7A3511] text-white hover:bg-[#5A260F]"
-                    : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                    ? "bg-[#1B2E27] text-white hover:bg-[#5A260F]"
+                    : "border border-slate-200 bg-white text-black hover:bg-slate-50"
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -456,15 +466,15 @@ export default function AdminPage() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-medium text-slate-500">
+                  <p className="text-sm font-medium text-black">
                     {card.label}
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-slate-950">
+                  <p className="mt-2 text-2xl font-semibold text-black">
                     {card.value}
                   </p>
-                  <p className="mt-1.5 text-xs text-slate-400">{card.hint}</p>
+                  <p className="mt-1.5 text-xs text-black">{card.hint}</p>
                 </div>
-                <div className="rounded-xl bg-[#7A3511]/8 p-2.5 text-[#7A3511]">
+                <div className="rounded-xl bg-[#1B2E27]/8 p-2.5 text-black">
                   <Icon className="h-4.5 w-4.5" />
                 </div>
               </div>
@@ -476,7 +486,7 @@ export default function AdminPage() {
       {/* Priority queue + structure snapshot */}
       <section className="grid grid-cols-1 gap-4 xl:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-2xl border border-slate-200 bg-white p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black">
             Priority Queue
           </p>
           <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
@@ -487,18 +497,18 @@ export default function AdminPage() {
                 className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 hover:bg-slate-50 transition-colors"
               >
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-slate-900">
+                  <p className="truncate text-sm font-semibold text-black">
                     {item.title}
                   </p>
-                  <p className="truncate text-xs text-slate-500">
+                  <p className="truncate text-xs text-black">
                     {item.description}
                   </p>
                 </div>
                 <span
                   className={`shrink-0 rounded-full px-2.5 py-1 text-sm font-semibold ${
                     item.count > 0
-                      ? "bg-[#7A3511]/10 text-[#7A3511]"
-                      : "bg-slate-100 text-slate-400"
+                      ? "bg-[#1B2E27]/10 text-black"
+                      : "bg-slate-100 text-black"
                   }`}
                 >
                   {item.count}
@@ -509,21 +519,27 @@ export default function AdminPage() {
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black">
             Structure Snapshot
           </p>
           <div className="mt-3 grid grid-cols-3 gap-3">
             <div className="rounded-xl bg-slate-50 p-3 text-center">
-              <p className="text-xl font-semibold text-slate-950">{mainCategoryCount}</p>
-              <p className="mt-1 text-xs text-slate-500">Main</p>
+              <p className="text-xl font-semibold text-black">
+                {mainCategoryCount}
+              </p>
+              <p className="mt-1 text-xs text-black">Main</p>
             </div>
             <div className="rounded-xl bg-slate-50 p-3 text-center">
-              <p className="text-xl font-semibold text-slate-950">{categoryCount}</p>
-              <p className="mt-1 text-xs text-slate-500">Category</p>
+              <p className="text-xl font-semibold text-black">
+                {categoryCount}
+              </p>
+              <p className="mt-1 text-xs text-black">Category</p>
             </div>
             <div className="rounded-xl bg-slate-50 p-3 text-center">
-              <p className="text-xl font-semibold text-slate-950">{subcategoryCount}</p>
-              <p className="mt-1 text-xs text-slate-500">Subcategory</p>
+              <p className="text-xl font-semibold text-black">
+                {subcategoryCount}
+              </p>
+              <p className="mt-1 text-xs text-black">Subcategory</p>
             </div>
           </div>
         </div>
@@ -532,12 +548,12 @@ export default function AdminPage() {
       <section className="grid grid-cols-1 gap-4 xl:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-base font-semibold text-slate-950">
+            <h2 className="text-base font-semibold text-black">
               Recent Orders
             </h2>
             <Link
               href="/admin/orders"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#7A3511] hover:text-[#5A260F]"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-black hover:text-black"
             >
               View all
               <ArrowRight className="h-3.5 w-3.5" />
@@ -545,7 +561,7 @@ export default function AdminPage() {
           </div>
 
           {recentOrders.length === 0 ? (
-            <div className="mt-5 rounded-xl border border-dashed border-slate-200 bg-slate-50 p-8 text-center text-sm text-slate-500">
+            <div className="mt-5 rounded-xl border border-dashed border-slate-200 bg-slate-50 p-8 text-center text-sm text-black">
               No orders yet. New customer orders will appear here.
             </div>
           ) : (
@@ -557,10 +573,10 @@ export default function AdminPage() {
                   className="flex flex-col gap-3 py-3.5 first:pt-0 last:pb-0 hover:bg-slate-50/60 md:flex-row md:items-center md:justify-between md:-mx-2 md:px-2 md:rounded-lg"
                 >
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-slate-950">
+                    <p className="text-sm font-semibold text-black">
                       {order.orderNumber}
                     </p>
-                    <p className="mt-0.5 truncate text-xs text-slate-500">
+                    <p className="mt-0.5 truncate text-xs text-black">
                       {order.user?.name || order.shippingAddress.fullName} •{" "}
                       {order.items.length} items • Rs. {order.total}
                     </p>
@@ -590,14 +606,14 @@ export default function AdminPage() {
 
         <div className="rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-base font-semibold text-slate-950">
+            <h2 className="text-base font-semibold text-black">
               Catalog Preview
             </h2>
-            <FolderTree className="h-4 w-4 text-slate-400" />
+            <FolderTree className="h-4 w-4 text-black" />
           </div>
 
           {hierarchy.length === 0 ? (
-            <div className="mt-5 rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
+            <div className="mt-5 rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-black">
               No hierarchy data yet. Start with a main category, then add
               categories and subcategories.
             </div>
@@ -609,10 +625,10 @@ export default function AdminPage() {
                   className="rounded-xl border border-slate-100 bg-slate-50/60 p-3"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-black">
                       {mainCategory.name}
                     </h3>
-                    <span className="rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-slate-500 border border-slate-200">
+                    <span className="rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-black border border-slate-200">
                       {mainCategory.categories.length}
                     </span>
                   </div>
@@ -622,7 +638,7 @@ export default function AdminPage() {
                       {mainCategory.categories.map((category) => (
                         <span
                           key={category._id}
-                          className="inline-flex rounded-full bg-white px-2.5 py-1 text-xs font-medium text-slate-600 border border-slate-200"
+                          className="inline-flex rounded-full bg-white px-2.5 py-1 text-xs font-medium text-black border border-slate-200"
                         >
                           {category.name}
                         </span>
@@ -643,10 +659,10 @@ export default function AdminPage() {
             key={group.title}
             className="rounded-2xl border border-slate-200 bg-white p-5 md:p-6"
           >
-            <h2 className="text-base font-semibold text-slate-950">
+            <h2 className="text-base font-semibold text-black">
               {group.title}
             </h2>
-            <p className="mt-0.5 text-sm text-slate-500">{group.subtitle}</p>
+            <p className="mt-0.5 text-sm text-black">{group.subtitle}</p>
 
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {group.items.map((item) => {
@@ -656,17 +672,17 @@ export default function AdminPage() {
                   <Link
                     key={item.title}
                     href={item.href}
-                    className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-3.5 transition-colors hover:border-[#7A3511]/30 hover:bg-[#7A3511]/5"
+                    className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-3.5 transition-colors hover:border-[#1B2E27]/30 hover:bg-[#1B2E27]/5"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="rounded-lg bg-slate-100 p-2 text-slate-500 group-hover:bg-white group-hover:text-[#7A3511]">
+                      <div className="rounded-lg bg-slate-100 p-2 text-black group-hover:bg-white group-hover:text-black">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <span className="text-sm font-medium text-slate-800">
+                      <span className="text-sm font-medium text-black">
                         {item.title}
                       </span>
                     </div>
-                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-500 group-hover:bg-white group-hover:text-[#7A3511]">
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-black group-hover:bg-white group-hover:text-black">
                       {item.value}
                     </span>
                   </Link>
@@ -678,7 +694,7 @@ export default function AdminPage() {
 
         {secondaryActions.length > 0 && (
           <div className="rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
-            <h2 className="text-base font-semibold text-slate-950">
+            <h2 className="text-base font-semibold text-black">
               More Shortcuts
             </h2>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -688,9 +704,9 @@ export default function AdminPage() {
                   <Link
                     key={action.title}
                     href={action.href}
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3.5 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3.5 py-2 text-sm font-medium text-black hover:bg-slate-50 transition-colors"
                   >
-                    <Icon className="h-4 w-4 text-slate-400" />
+                    <Icon className="h-4 w-4 text-black" />
                     {action.title}
                   </Link>
                 );
@@ -702,5 +718,3 @@ export default function AdminPage() {
     </div>
   );
 }
-
-

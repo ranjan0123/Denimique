@@ -73,20 +73,20 @@ export default function AdminPushPage() {
 
   if (!hasInitialized || isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7]">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-slate-900 animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-gray-800">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h1 className="text-2xl font-semibold text-gray-900">
+          <h1 className="text-2xl font-semibold text-black">
             Push Notification
           </h1>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-black">
             Send a custom browser push notification to every customer who has
             enabled notifications. Only devices with notifications turned on
             will receive it.
@@ -94,7 +94,7 @@ export default function AdminPushPage() {
 
           <div className="mt-6 space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 Title
               </label>
               <input
@@ -107,7 +107,7 @@ export default function AdminPushPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 Message
               </label>
               <textarea
@@ -121,7 +121,7 @@ export default function AdminPushPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 Link when tapped (optional)
               </label>
               <input
@@ -130,7 +130,7 @@ export default function AdminPushPage() {
                 placeholder="/shop"
                 className="w-full rounded-xl border border-gray-300 px-3 py-2"
               />
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-xs text-black">
                 A path on your website, e.g. /shop or /products/some-product.
                 Defaults to the homepage.
               </p>
@@ -139,7 +139,7 @@ export default function AdminPushPage() {
             <button
               onClick={handleSend}
               disabled={isSending}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#7A3511] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#5A260F] disabled:opacity-50"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#1B2E27] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#5A260F] disabled:opacity-50"
             >
               <Send className="h-4 w-4" />
               {isSending ? "Sending..." : "Send Notification"}
@@ -149,21 +149,21 @@ export default function AdminPushPage() {
 
         {lastResult && (
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-black">
               Last Delivery
             </h2>
             <div className="mt-3 flex gap-6">
               <div>
-                <p className="text-2xl font-semibold text-slate-950">
+                <p className="text-2xl font-semibold text-black">
                   {lastResult.total}
                 </p>
-                <p className="text-sm text-gray-500">Subscribed devices</p>
+                <p className="text-sm text-black">Subscribed devices</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold text-emerald-700">
+                <p className="text-2xl font-semibold text-black">
                   {lastResult.sent}
                 </p>
-                <p className="text-sm text-gray-500">Delivered</p>
+                <p className="text-sm text-black">Delivered</p>
               </div>
             </div>
           </div>

@@ -191,7 +191,7 @@ export default function BlogDetailClient() {
   return (
     <>
       <div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#936965] to-[#7A3511] z-50 transition-all duration-150"
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#936965] to-[#1B2E27] z-50 transition-all duration-150"
         style={{ width: `${readingProgress}%` }}
       />
 
@@ -209,7 +209,7 @@ export default function BlogDetailClient() {
         <div className="relative" ref={shareMenuRef}>
           <button
             onClick={() => setShowShareMenu(!showShareMenu)}
-            className="group relative flex items-center justify-center w-12 h-12 bg-[#7A3511] text-white rounded-full shadow-lg hover:bg-[#1C3A2E] transition-all duration-300 hover:scale-110"
+            className="group relative flex items-center justify-center w-12 h-12 bg-[#1B2E27] text-white rounded-full shadow-lg hover:bg-[#1C3A2E] transition-all duration-300 hover:scale-110"
             aria-label="Share"
           >
             <Share2 className="w-5 h-5 transition-transform group-hover:rotate-12" />
@@ -224,9 +224,9 @@ export default function BlogDetailClient() {
                 }}
                 className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 rounded-lg transition-colors group"
               >
-                <Facebook className="w-5 h-5 text-[#7A3511]" />
+                <Facebook className="w-5 h-5 text-black" />
                 <span className="flex-1">Facebook</span>
-                <span className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">Share</span>
+                <span className="text-xs text-black opacity-0 group-hover:opacity-100 transition-opacity">Share</span>
               </button>
               
               <button
@@ -236,9 +236,9 @@ export default function BlogDetailClient() {
                 }}
                 className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 rounded-lg transition-colors group"
               >
-                <Twitter className="w-5 h-5 text-sky-500" />
+                <Twitter className="w-5 h-5 text-black" />
                 <span className="flex-1">Twitter</span>
-                <span className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">Tweet</span>
+                <span className="text-xs text-black opacity-0 group-hover:opacity-100 transition-opacity">Tweet</span>
               </button>
               
               <button
@@ -248,9 +248,9 @@ export default function BlogDetailClient() {
                 }}
                 className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 rounded-lg transition-colors group"
               >
-                <Linkedin className="w-5 h-5 text-[#7A3511]" />
+                <Linkedin className="w-5 h-5 text-black" />
                 <span className="flex-1">LinkedIn</span>
-                <span className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">Share</span>
+                <span className="text-xs text-black opacity-0 group-hover:opacity-100 transition-opacity">Share</span>
               </button>
               
               <div className="border-t border-gray-100 my-1" />
@@ -261,14 +261,14 @@ export default function BlogDetailClient() {
               >
                 {copied ? (
                   <>
-                    <Check className="w-5 h-5 text-green-500" />
-                    <span className="flex-1 text-green-600">Copied!</span>
+                    <Check className="w-5 h-5 text-black" />
+                    <span className="flex-1 text-black">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Link2 className="w-5 h-5 text-gray-600" />
+                    <Link2 className="w-5 h-5 text-black" />
                     <span className="flex-1">Copy link</span>
-                    <span className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">Copy</span>
+                    <span className="text-xs text-black opacity-0 group-hover:opacity-100 transition-opacity">Copy</span>
                   </>
                 )}
               </button>
@@ -278,7 +278,7 @@ export default function BlogDetailClient() {
       </div>
 
       <article ref={articleRef} className="min-h-screen bg-[#FAF7F3]">
-        <div className="relative w-full min-h-[70vh] bg-gradient-to-br from-[#5A260F] to-[#7A3511] overflow-hidden">
+        <div className="relative w-full min-h-[70vh] bg-gradient-to-br from-[#5A260F] to-[#1B2E27] overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src={resolveApiAssetUrl(blog.featuredImage)}
@@ -290,12 +290,12 @@ export default function BlogDetailClient() {
               priority
               onLoadingComplete={() => setImageLoaded(true)}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#7A3511] via-[#7A3511]/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1B2E27] via-[#1B2E27]/70 to-transparent" />
           </div>
 
           <div className="relative h-full flex items-end">
             <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-              <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
+              <nav className="flex items-center gap-2 text-sm text-black mb-6">
                 <Link href="/" className="hover:text-white transition-colors">
                   Home
                 </Link>
@@ -307,7 +307,7 @@ export default function BlogDetailClient() {
                 <span className="text-white truncate">{blog.title}</span>
               </nav>
 
-              <div className="inline-block bg-[#7A3511] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 hover:bg-[#1C3A2E] transition-colors cursor-pointer">
+              <div className="inline-block bg-[#1B2E27] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 hover:bg-[#1C3A2E] transition-colors cursor-pointer">
                 {blog.category}
               </div>
 
@@ -315,13 +315,13 @@ export default function BlogDetailClient() {
                 {blog.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-6 text-gray-200">
+              <div className="flex flex-wrap items-center gap-6 text-black">
                 <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7A3511] to-[#1C3A2E] flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1B2E27] to-[#1C3A2E] flex items-center justify-center">
                     <User className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <span className="block text-sm text-gray-400">Author</span>
+                    <span className="block text-sm text-black">Author</span>
                     <span className="font-medium">{blog.author.name}</span>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export default function BlogDetailClient() {
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5" />
                   <div>
-                    <span className="block text-sm text-gray-400">Published</span>
+                    <span className="block text-sm text-black">Published</span>
                     <span className="font-medium">{formattedDate}</span>
                   </div>
                 </div>
@@ -337,7 +337,7 @@ export default function BlogDetailClient() {
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5" />
                   <div>
-                    <span className="block text-sm text-gray-400">Read time</span>
+                    <span className="block text-sm text-black">Read time</span>
                     <span className="font-medium">{estimatedReadTime} min read</span>
                   </div>
                 </div>
@@ -345,7 +345,7 @@ export default function BlogDetailClient() {
                 <div className="flex items-center gap-2">
                   <Eye className="w-5 h-5" />
                   <div>
-                    <span className="block text-sm text-gray-400">Views</span>
+                    <span className="block text-sm text-black">Views</span>
                     <span className="font-medium">{blog.viewCount.toLocaleString()}</span>
                   </div>
                 </div>
@@ -360,13 +360,13 @@ export default function BlogDetailClient() {
               <div className="p-6 bg-[#FAF7F3] border-b border-gray-200">
                 <h3 className="text-lg font-semibold mb-4">Table of Contents</h3>
                 <nav className="space-y-2">
-                  <Link href="#section-1" className="block text-[#7A3511] hover:text-[#1C3A2E]">
+                  <Link href="#section-1" className="block text-black hover:text-black">
                     Introduction
                   </Link>
-                  <Link href="#section-2" className="block text-[#7A3511] hover:text-[#1C3A2E]">
+                  <Link href="#section-2" className="block text-black hover:text-black">
                     Key Points
                   </Link>
-                  <Link href="#section-3" className="block text-[#7A3511] hover:text-[#1C3A2E]">
+                  <Link href="#section-3" className="block text-black hover:text-black">
                     Conclusion
                   </Link>
                 </nav>
@@ -375,7 +375,7 @@ export default function BlogDetailClient() {
 
             <div className="p-8 md:p-12">
               <div className="mb-8 pb-8 border-b border-gray-200">
-                <p className="text-xl text-gray-700 leading-relaxed">
+                <p className="text-xl text-black leading-relaxed">
                   {blog.excerpt}
                 </p>
               </div>
@@ -386,7 +386,7 @@ export default function BlogDetailClient() {
                     <Link
                       key={tag}
                       href={`/blog?tags=${tag}`}
-                      className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-200 hover:text-gray-900 transition-all hover:scale-105"
+                      className="bg-gray-100 text-black px-4 py-2 rounded-full text-sm hover:bg-gray-200 hover:text-black transition-all hover:scale-105"
                     >
                       #{tag}
                     </Link>
@@ -394,29 +394,29 @@ export default function BlogDetailClient() {
                 </div>
               </div>
 
-              <div ref={contentRef} className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-[#7A3511] prose-img:rounded-xl">
+              <div ref={contentRef} className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-black prose-img:rounded-xl">
                 <BlogContentRenderer
                   content={blog.content}
                   internalLinks={blog.internalLinks}
                 />
               </div>
 
-              <div className="mt-10 rounded-2xl border border-[#7A3511]/15 bg-gradient-to-r from-[#7A3511]/12 via-[#F6F1EC] to-[#F4B223]/20 p-6 md:p-8">
+              <div className="mt-10 rounded-2xl border border-[#1B2E27]/15 bg-gradient-to-r from-[#1B2E27]/12 via-[#F6F1EC] to-[#F4B223]/20 p-6 md:p-8">
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7A3511]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black">
                       Shop the Collection
                     </p>
-                    <h3 className="mt-2 text-xl md:text-2xl font-bold text-slate-900">
+                    <h3 className="mt-2 text-xl md:text-2xl font-bold text-black">
                       Discover Our Latest Fashion Arrivals
                     </h3>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-black">
                       Explore premium apparel and ethnic wear crafted for the modern wardrobe.
                     </p>
                   </div>
                   <Link
                     href="/shop"
-                    className="inline-flex items-center justify-center rounded-full bg-[#7A3511] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#7A3511]/25 hover:bg-[#1C3A2E] transition-colors"
+                    className="inline-flex items-center justify-center rounded-full bg-[#1B2E27] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#1B2E27]/25 hover:bg-[#1C3A2E] transition-colors"
                   >
                     Shop Now
                   </Link>
@@ -425,13 +425,13 @@ export default function BlogDetailClient() {
 
               {blog.seoKeywords && blog.seoKeywords.length > 0 && (
                 <div className="mt-8 pt-8 border-t border-gray-200">
-                  <p className="text-sm text-gray-500 mb-3">Related topics:</p>
+                  <p className="text-sm text-black mb-3">Related topics:</p>
                   <div className="flex flex-wrap gap-2">
                     {blog.seoKeywords.map((keyword) => (
                       <Link
                         key={keyword}
                         href={`/blog?keyword=${keyword}`}
-                        className="bg-[#7A3511]/10 text-[#7A3511] text-sm px-4 py-2 rounded-full hover:bg-[#7A3511]/20 transition-colors"
+                        className="bg-[#1B2E27]/10 text-black text-sm px-4 py-2 rounded-full hover:bg-[#1B2E27]/20 transition-colors"
                       >
                         {keyword}
                       </Link>
@@ -444,7 +444,7 @@ export default function BlogDetailClient() {
 
           {relatedBlogs.length > 0 && (
             <section className="mt-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl font-bold text-black mb-8">
                 You might also like
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -464,7 +464,7 @@ export default function BlogDetailClient() {
             </section>
           )}
 
-          <div className="mt-16 bg-gradient-to-br from-[#936965] via-[#5A260F] to-[#7A3511] rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+          <div className="mt-16 bg-gradient-to-br from-[#936965] via-[#5A260F] to-[#1B2E27] rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#F4B223] rounded-full filter blur-3xl opacity-20 -translate-y-32 translate-x-32" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F4B223] rounded-full filter blur-3xl opacity-20 translate-y-32 -translate-x-32" />
             
@@ -487,13 +487,13 @@ export default function BlogDetailClient() {
                     required
                     value={subscriberEmail}
                     onChange={(e) => setSubscriberEmail(e.target.value)}
-                    className="w-full px-5 py-4 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-[#F4B223]/60"
+                    className="w-full px-5 py-4 rounded-xl text-black placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-[#F4B223]/60"
                   />
               </div>
               <button
                 type="submit"
                 disabled={submittingSubscribe}
-                className="bg-white text-[#7A3511] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all hover:scale-105 hover:shadow-xl whitespace-nowrap disabled:opacity-70 disabled:cursor-not-allowed"
+                className="bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all hover:scale-105 hover:shadow-xl whitespace-nowrap disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {submittingSubscribe ? "Submitting..." : "Subscribe"}
               </button>
@@ -508,7 +508,7 @@ export default function BlogDetailClient() {
           <div className="mt-8 text-center">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors group"
+              className="inline-flex items-center gap-2 text-black hover:text-black transition-colors group"
             >
               <span>Back to top</span>
               <svg

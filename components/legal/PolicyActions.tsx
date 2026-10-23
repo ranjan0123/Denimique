@@ -31,12 +31,12 @@ export default function PolicyActions() {
       <button
         type="button"
         onClick={handleCopy}
-        className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:shadow-md hover:-translate-y-[1px] transition"
+        className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm hover:shadow-md hover:-translate-y-[1px] transition"
         aria-label="Copy page link"
       >
         {copied ? (
           <>
-            <Check className="h-4 w-4 text-emerald-600" />
+            <Check className="h-4 w-4 text-black" />
             Copied
           </>
         ) : (
@@ -50,7 +50,7 @@ export default function PolicyActions() {
       <button
         type="button"
         onClick={handlePrint}
-        className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:shadow-md hover:-translate-y-[1px] transition"
+        className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm hover:shadow-md hover:-translate-y-[1px] transition"
         aria-label="Print this page"
       >
         <Printer className="h-4 w-4" />

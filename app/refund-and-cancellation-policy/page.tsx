@@ -59,10 +59,10 @@ function Section({
       id={id}
       className="scroll-mt-[120px] rounded-2xl border border-slate-100 bg-white p-4 md:p-6 shadow-[0_12px_34px_rgba(15,23,42,0.06)]"
     >
-      <h2 className="text-lg md:text-xl font-extrabold text-[#102B50] tracking-tight">
+      <h2 className="text-lg md:text-xl font-extrabold text-black tracking-tight">
         {title}
       </h2>
-      <div className="mt-2 space-y-2 text-sm leading-normal text-slate-700">
+      <div className="mt-2 space-y-2 text-sm leading-normal text-black">
         {children}
       </div>
     </section>
@@ -100,7 +100,7 @@ export default function RefundAndCancellationPolicyPage() {
   };
 
   return (
-    <main className="bg-linear-to-br from-[#FDFBF7] via-white to-white text-gray-800">
+    <main className="bg-white text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(policyJsonLd) }}
@@ -116,15 +116,15 @@ export default function RefundAndCancellationPolicyPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-8 md:py-10">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-[#102B50] backdrop-blur">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-black backdrop-blur">
                 Legal • Refunds & Cancellations
                 <span className="h-1 w-1 rounded-full bg-[#102B50]" />
                 Last updated {LAST_UPDATED}
               </p>
-              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-[#102B50]">
+              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-black">
                 Refund & Cancellation Policy
               </h1>
-              <p className="mt-2 max-w-2xl text-slate-700 text-sm md:text-base leading-normal">
+              <p className="mt-2 max-w-2xl text-black text-sm md:text-base leading-normal">
                 This policy explains when you can cancel a fashion order, when a
                 return is accepted, and how refunds are processed for purchases
                 made through the Denimique website.
@@ -155,15 +155,15 @@ export default function RefundAndCancellationPolicyPage() {
                 key={card.title}
                 className="rounded-xl border border-slate-100 bg-white/80 p-3 shadow-sm backdrop-blur"
               >
-                <p className="text-sm font-bold text-[#102B50]">{card.title}</p>
-                <p className="mt-1 text-sm leading-normal text-slate-600">
+                <p className="text-sm font-bold text-black">{card.title}</p>
+                <p className="mt-1 text-sm leading-normal text-black">
                   {card.body}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-4 rounded-xl border border-amber-200/60 bg-amber-50/70 p-3 text-sm text-amber-900/90">
+          <div className="mt-4 rounded-xl border border-amber-200/60 bg-amber-50/70 p-3 text-sm text-black/90">
             <p className="font-semibold">Important note</p>
             <p className="mt-1 leading-normal">
               This page is provided for customer clarity and trust. If any part
@@ -185,7 +185,7 @@ export default function RefundAndCancellationPolicyPage() {
                 through Denimique. For general usage terms, please review our{" "}
                 <Link
                   href="/terms-of-service"
-                  className="text-[#102B50] hover:underline"
+                  className="text-black hover:underline"
                 >
                   Terms of Service
                 </Link>
@@ -221,7 +221,7 @@ export default function RefundAndCancellationPolicyPage() {
                 fit, and condition matter. Returns may be accepted only when the
                 item is eligible and verified.
               </p>
-              <p className="font-extrabold text-slate-900">
+              <p className="font-extrabold text-black">
                 A return may be accepted if:
               </p>
               <BulletList
@@ -231,7 +231,7 @@ export default function RefundAndCancellationPolicyPage() {
                   "The product is not damaged due to customer handling, improper storage, or misuse.",
                 ]}
               />
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-black">
                 To request a return, email us your order ID, the reason, and
                 photos where relevant. We will share next steps after review.
               </p>
@@ -252,7 +252,7 @@ export default function RefundAndCancellationPolicyPage() {
                 original method is not refundable, we may request bank/UPI
                 details to process the refund.
               </p>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-black">
                 Promotional discounts (if any) are applied proportionally. If a
                 refund is approved, the refunded amount may exclude shipping,
                 COD, or convenience fees unless the issue was caused by us.
@@ -283,7 +283,7 @@ export default function RefundAndCancellationPolicyPage() {
                   "Store credit (only if you choose it).",
                 ]}
               />
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-black">
                 Please keep the outer packaging and invoice (if any) until the
                 issue is resolved.
               </p>
@@ -315,11 +315,11 @@ export default function RefundAndCancellationPolicyPage() {
                 contact:
               </p>
               <div className="rounded-xl border border-slate-100 bg-[#FFF8EE]/60 p-3">
-                <p className="font-bold text-slate-900">Denimique</p>
-                <p className="mt-1 text-slate-700">
+                <p className="font-bold text-black">Denimique</p>
+                <p className="mt-1 text-black">
                   Email:{" "}
                   <a
-                    className="font-semibold text-[#102B50] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="mailto:care@denimique.com"
                   >
                     Care@denimique.com
@@ -327,7 +327,7 @@ export default function RefundAndCancellationPolicyPage() {
                   <br />
                   Phone:{" "}
                   <a
-                    className="font-semibold text-[#102B50] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="tel:+919625610749"
                   >
                     +91 96256 10749
@@ -336,11 +336,11 @@ export default function RefundAndCancellationPolicyPage() {
                   Address: H-63, Sector 62, Noida, Uttar Pradesh 201301, India
                 </p>
               </div>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-black">
                 You can also use our{" "}
                 <Link
                   href="/contact"
-                  className="text-[#102B50] hover:underline"
+                  className="text-black hover:underline"
                 >
                   Contact page
                 </Link>{" "}

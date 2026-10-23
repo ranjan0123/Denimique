@@ -67,7 +67,7 @@ export default function AboutComponent({
   ];
 
   return (
-    <div className="overflow-hidden bg-white text-[#102B50]">
+    <div className="overflow-hidden bg-white text-black">
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden bg-[#102B50] px-6 py-24 text-center text-white md:py-32">
         <motion.div
@@ -77,12 +77,12 @@ export default function AboutComponent({
           transition={{ duration: 0.8 }}
           className="relative z-10 mx-auto max-w-3xl"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#D6B56D] backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black backdrop-blur">
             <Sparkles size={14} />
             About Us
           </span>
           <h1 className="font-heading mt-6 text-4xl font-bold leading-tight md:text-6xl">
-            Denimique <span className="text-[#D6B56D]">Every Day</span>
+            Denimique <span className="text-black">Every Day</span>
           </h1>
           <p className="mt-5 text-base leading-relaxed text-white/85 md:text-lg">
             Contemporary denim and lifestyle fashion, thoughtfully chosen for
@@ -104,10 +104,10 @@ export default function AboutComponent({
               transition={{ duration: 0.5, delay: index * 0.06 }}
               className="rounded-2xl border border-[#102B50]/10 bg-white p-6 text-center shadow-[0_10px_28px_rgba(16,43,80,0.06)]"
             >
-              <p className="font-heading text-3xl font-bold text-[#102B50] md:text-4xl">
+              <p className="font-heading text-3xl font-bold text-black md:text-4xl">
                 {stat.value}
               </p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#102B50]/60">
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-black">
                 {stat.label}
               </p>
             </motion.div>
@@ -125,26 +125,26 @@ export default function AboutComponent({
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#102B50]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black">
               Our Story
             </span>
-            <h2 className="font-heading mt-4 text-3xl font-bold text-[#102B50] md:text-4xl">
+            <h2 className="font-heading mt-4 text-3xl font-bold text-black md:text-4xl">
               Everyday style, made your own
             </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-[#1C2E26]/80">
+            <p className="mt-5 text-[15px] leading-relaxed text-black">
               Denimique is built around a simple idea: getting dressed should
               feel effortless and personal. We bring together modern denim,
               versatile essentials, and statement pieces that work beyond a
               single season.
             </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-[#1C2E26]/80">
+            <p className="mt-4 text-[15px] leading-relaxed text-black">
               Explore the catalog by category, find new favorites, and build a
               wardrobe that feels like you. Each collection is selected to
               balance comfort, quality, and an easy sense of style.
             </p>
             <Link
               href="/style-guide"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#102B50] transition hover:gap-3"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-black transition hover:gap-3"
             >
               Read our Fit &amp; Style Guide
               <ArrowUpRight size={15} />
@@ -215,7 +215,7 @@ export default function AboutComponent({
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="rounded-2xl border border-white/15 bg-white/5 p-5 transition-colors duration-300 hover:bg-white/10"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-[#D6B56D]">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-black">
                     <Icon size={20} />
                   </span>
                   <h3 className="mt-4 font-heading text-lg font-bold">
@@ -242,10 +242,10 @@ export default function AboutComponent({
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
-            <h2 className="font-heading text-3xl font-bold text-[#102B50] md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-black md:text-4xl">
               Explore Our Collections
             </h2>
-            <p className="mt-3 text-[#102B50]/70">
+            <p className="mt-3 text-black">
               Real styles from the shop, grouped the way you actually shop.
             </p>
           </motion.div>
@@ -273,10 +273,10 @@ export default function AboutComponent({
                       className="object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <p className="mt-2 truncate px-1 text-xs font-semibold text-[#102B50]">
+                  <p className="mt-2 truncate px-1 text-xs font-semibold text-black">
                     {collection.name}
                   </p>
-                  <p className="px-1 pb-1 text-[11px] text-gray-500">
+                  <p className="px-1 pb-1 text-[11px] text-black">
                     {collection.count} styles
                   </p>
                 </Link>
@@ -296,7 +296,7 @@ export default function AboutComponent({
           transition={{ duration: 0.6 }}
           className="relative mx-auto max-w-2xl"
         >
-          <PackageCheck className="mx-auto mb-5 text-[#D6B56D]" size={32} />
+          <PackageCheck className="mx-auto mb-5 text-black" size={32} />
           <h2 className="font-heading text-3xl font-bold md:text-4xl">
             Find Your Everyday Style
           </h2>
@@ -307,7 +307,7 @@ export default function AboutComponent({
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-bold text-[#102B50] shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition hover:scale-105 hover:bg-[#F1F4F8]"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-bold text-black shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition hover:scale-105 hover:bg-[#F1F4F8]"
             >
               Explore the Collection
               <ArrowUpRight size={16} />

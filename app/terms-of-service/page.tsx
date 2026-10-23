@@ -59,10 +59,10 @@ function Section({
       id={id}
       className="scroll-mt-[120px] rounded-2xl border border-slate-100 bg-white p-4 md:p-6 shadow-[0_12px_34px_rgba(15,23,42,0.06)]"
     >
-      <h2 className="text-lg md:text-xl font-extrabold text-[#102B50] tracking-tight">
+      <h2 className="text-lg md:text-xl font-extrabold text-black tracking-tight">
         {title}
       </h2>
-      <div className="mt-2 space-y-2 text-sm leading-normal text-slate-700">
+      <div className="mt-2 space-y-2 text-sm leading-normal text-black">
         {children}
       </div>
     </section>
@@ -100,7 +100,7 @@ export default function TermsPage() {
   };
 
   return (
-    <main className="bg-linear-to-br from-[#FDFBF7] via-white to-white text-gray-800">
+    <main className="bg-white text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(termsJsonLd) }}
@@ -116,15 +116,15 @@ export default function TermsPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-8 md:py-10">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-[#102B50] backdrop-blur">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-black backdrop-blur">
                 Legal • Terms
                 <span className="h-1 w-1 rounded-full bg-[#102B50]" />
                 Last updated {LAST_UPDATED}
               </p>
-              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-[#102B50]">
+              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-black">
                 Terms of Service
               </h1>
-              <p className="mt-2 max-w-2xl text-slate-700 text-sm md:text-base leading-normal">
+              <p className="mt-2 max-w-2xl text-black text-sm md:text-base leading-normal">
                 These Terms of Service govern your access to and use of
                 Denimique, website and services, including purchasing products
                 and interacting with our customer support.
@@ -155,8 +155,8 @@ export default function TermsPage() {
                 key={card.title}
                 className="rounded-xl border border-slate-100 bg-white/80 p-3 shadow-sm backdrop-blur"
               >
-                <p className="text-sm font-bold text-[#102B50]">{card.title}</p>
-                <p className="mt-1 text-sm leading-normal text-slate-600">
+                <p className="text-sm font-bold text-black">{card.title}</p>
+                <p className="mt-1 text-sm leading-normal text-black">
                   {card.body}
                 </p>
               </div>
@@ -176,7 +176,7 @@ export default function TermsPage() {
                 agree to these Terms and our{" "}
                 <Link
                   href="/privacy-policy"
-                  className="text-[#102B50] hover:underline"
+                  className="text-black hover:underline"
                 >
                   Privacy Policy
                 </Link>
@@ -218,7 +218,7 @@ export default function TermsPage() {
                 at checkout, including applicable taxes, shipping charges, and
                 any fees displayed.
               </p>
-              <h3 className="text-lg font-extrabold text-slate-900">
+              <h3 className="text-lg font-extrabold text-black">
                 Availability & pricing
               </h3>
               <BulletList
@@ -228,7 +228,7 @@ export default function TermsPage() {
                   "We may cancel or refuse orders in cases of suspected fraud, pricing errors, or supply constraints.",
                 ]}
               />
-              <h3 className="text-lg font-extrabold text-slate-900">
+              <h3 className="text-lg font-extrabold text-black">
                 Payments
               </h3>
               <p>
@@ -262,7 +262,7 @@ export default function TermsPage() {
                 through the{" "}
                 <Link
                   href="/contact"
-                  className="text-[#102B50] hover:underline"
+                  className="text-black hover:underline"
                 >
                   Contact page
                 </Link>
@@ -352,11 +352,11 @@ export default function TermsPage() {
             <Section id="contact" title="Contact">
               <p>For questions about these Terms, contact:</p>
               <div className="rounded-xl border border-slate-100 bg-[#FFF8EE]/60 p-3">
-                <p className="font-bold text-slate-900">Denimique</p>
-                <p className="mt-1 text-slate-700">
+                <p className="font-bold text-black">Denimique</p>
+                <p className="mt-1 text-black">
                   Email:{" "}
                   <a
-                    className="font-semibold text-[#7A3511] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="mailto:care@denimique.com"
                   >
                     Care@denimique.com
@@ -364,7 +364,7 @@ export default function TermsPage() {
                   <br />
                   Phone:{" "}
                   <a
-                    className="font-semibold text-[#7A3511] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="tel:+919625610749"
                   >
                     +91 96256 10749

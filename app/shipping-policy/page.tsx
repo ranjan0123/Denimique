@@ -51,10 +51,10 @@ function Section({
       id={id}
       className="scroll-mt-[120px] rounded-2xl border border-slate-100 bg-white p-4 md:p-6 shadow-[0_12px_34px_rgba(15,23,42,0.06)]"
     >
-      <h2 className="text-lg md:text-xl font-extrabold text-[#102B50] tracking-tight">
+      <h2 className="text-lg md:text-xl font-extrabold text-black tracking-tight">
         {title}
       </h2>
-      <div className="mt-2 space-y-2 text-sm leading-normal text-slate-700">
+      <div className="mt-2 space-y-2 text-sm leading-normal text-black">
         {children}
       </div>
     </section>
@@ -95,7 +95,7 @@ export default function ShippingPolicyPage() {
   };
 
   return (
-    <main className="bg-linear-to-br from-[#FDFBF7] via-white to-white text-gray-800">
+    <main className="bg-white text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(shippingJsonLd) }}
@@ -106,15 +106,15 @@ export default function ShippingPolicyPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-8 md:py-10">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-[#102B50] backdrop-blur">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#102B50]/30 bg-white/70 px-4 py-2 text-xs font-semibold text-black backdrop-blur">
                 Legal • Shipping
                 <span className="h-1 w-1 rounded-full bg-[#102B50]" />
                 Last updated {LAST_UPDATED}
               </p>
-              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-[#102B50]">
+              <h1 className="mt-3 text-2xl md:text-4xl font-black tracking-tight text-black">
                 Shipping Policy
               </h1>
-              <p className="mt-2 max-w-2xl text-slate-700 text-sm md:text-base leading-normal">
+              <p className="mt-2 max-w-2xl text-black text-sm md:text-base leading-normal">
                 This Shipping Policy explains how Denimique processes and
                 delivers orders across India through its logistics network.
               </p>
@@ -249,7 +249,7 @@ export default function ShippingPolicyPage() {
             <Section id="tracking" title="Order Status">
               <p>
                 You can check the status of your order anytime from the{" "}
-                <Link href="/orders" className="text-[#102B50] hover:underline">
+                <Link href="/orders" className="text-black hover:underline">
                   My Orders
                 </Link>{" "}
                 page in your account — from order placed through to delivered.
@@ -325,11 +325,11 @@ export default function ShippingPolicyPage() {
                 contact:
               </p>
               <div className="rounded-xl border border-slate-100 bg-[#FFF8EE]/60 p-3">
-                <p className="font-bold text-slate-900">Denimique</p>
-                <p className="mt-1 text-slate-700">
+                <p className="font-bold text-black">Denimique</p>
+                <p className="mt-1 text-black">
                   Email:{" "}
                   <a
-                    className="font-semibold text-[#102B50] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="mailto:care@denimique.com"
                   >
                     Care@denimique.com
@@ -337,7 +337,7 @@ export default function ShippingPolicyPage() {
                   <br />
                   Phone:{" "}
                   <a
-                    className="font-semibold text-[#102B50] hover:underline"
+                    className="font-semibold text-black hover:underline"
                     href="tel:+919625610749"
                   >
                     +91 96256 10749
@@ -346,11 +346,11 @@ export default function ShippingPolicyPage() {
                   Address: H-63, Sector 62, Noida, Uttar Pradesh 201301, India
                 </p>
               </div>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-black">
                 You can also use our{" "}
                 <Link
                   href="/contact"
-                  className="text-[#102B50] hover:underline"
+                  className="text-black hover:underline"
                 >
                   Contact page
                 </Link>{" "}

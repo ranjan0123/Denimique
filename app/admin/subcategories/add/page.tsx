@@ -130,13 +130,13 @@ export default function AddSubcategoryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-gray-800">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-black">
             Add New Subcategory
           </h1>
-          <p className="mt-2 text-gray-600">Create a new product subcategory</p>
+          <p className="mt-2 text-black">Create a new product subcategory</p>
         </div>
 
         <form
@@ -144,7 +144,7 @@ export default function AddSubcategoryPage() {
           className="bg-white shadow-md rounded-lg p-6 space-y-6"
         >
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Subcategory Name *
             </label>
             <input
@@ -158,7 +158,7 @@ export default function AddSubcategoryPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Category *
             </label>
             <select
@@ -179,7 +179,7 @@ export default function AddSubcategoryPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Description
             </label>
             <textarea
@@ -192,7 +192,7 @@ export default function AddSubcategoryPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Image URL
             </label>
             <input
@@ -205,7 +205,7 @@ export default function AddSubcategoryPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Upload Image
             </label>
             <input
@@ -231,7 +231,7 @@ export default function AddSubcategoryPage() {
           <div className="flex justify-end space-x-4 pt-6 border-t">
             <Link
               href="/admin/subcategories"
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-[#FDFBF7] transition-colors"
+              className="px-4 py-2 border border-gray-300 rounded-md text-black hover:bg-white transition-colors"
             >
               Cancel
             </Link>

@@ -15,11 +15,42 @@ import toast from "react-hot-toast";
 import type { Product } from "@/types/product";
 import {
   formatProductPrice,
+  getProducts,
   getProductPrimaryImage,
 } from "@/lib/storefront";
 import { getApiErrorMessage } from "@/lib/api";
 import { useCartStore } from "@/store/cartStore";
 import { useWishlistStore } from "@/store/wishlistStore";
+
+const HOME_CATALOG_HIGHLIGHT_ORDER = [
+  "elegant-lace-seductive-black-nightgown",
+  "luxurious-satin-maxi-sleepwear-for-women",
+  "midnight-whisper-silk-cami-shorts-set",
+  "womens-forest-green-one-piece-dress",
+];
+
+const isHomeCatalogProduct = (product: Product) =>
+  !/\b(jeans?|denim|cargo|bras?|bralettes?|brassieres?|panties|panty|thong|underwear|lingerie|g-string)\b|value wholesale/i.test(
+    `${product.name} ${product.slug} ${product.category?.name ?? ""} ${product.subcategory?.name ?? ""}`,
+  );
+
+const getHomeCatalogProducts = (products: Product[]) => {
+  const seen = new Set<string>();
+  return products
+    .filter((product) => {
+      if (!product.images[0] || !isHomeCatalogProduct(product) || seen.has(product.slug)) {
+        return false;
+      }
+      seen.add(product.slug);
+      return true;
+    })
+    .sort((a, b) => {
+      const aOrder = HOME_CATALOG_HIGHLIGHT_ORDER.indexOf(a.slug);
+      const bOrder = HOME_CATALOG_HIGHLIGHT_ORDER.indexOf(b.slug);
+      return (aOrder < 0 ? HOME_CATALOG_HIGHLIGHT_ORDER.length : aOrder) -
+        (bOrder < 0 ? HOME_CATALOG_HIGHLIGHT_ORDER.length : bOrder);
+    });
+};
 
 export default function LuxuryProductRail({
   products,
@@ -28,6 +59,8 @@ export default function LuxuryProductRail({
   description,
   alwaysShow = false,
   gridOnly = false,
+  showAllProducts = false,
+  compact = false,
 }: {
   products: Product[];
   eyebrow: string;
@@ -35,9 +68,18 @@ export default function LuxuryProductRail({
   description: string;
   alwaysShow?: boolean;
   gridOnly?: boolean;
+  showAllProducts?: boolean;
+  compact?: boolean;
 }) {
   const railRef = useRef<HTMLDivElement>(null);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const [loadedProducts, setLoadedProducts] = useState(() =>
+    showAllProducts ? getHomeCatalogProducts(products) : products,
+  );
+  const [nextPage, setNextPage] = useState(2);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [hasMoreProducts, setHasMoreProducts] = useState(showAllProducts);
+  const [isRailPaused, setIsRailPaused] = useState(false);
   const { addToCart } = useCartStore();
   const {
     items: wishlistItems,
@@ -49,6 +91,30 @@ export default function LuxuryProductRail({
   useEffect(() => {
     loadWishlist();
   }, [loadWishlist]);
+
+  useEffect(() => {
+    if (
+      !showAllProducts ||
+      isRailPaused ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+    const timer = window.setInterval(() => {
+      const rail = railRef.current;
+      if (!rail) return;
+      const remaining = rail.scrollWidth - rail.scrollLeft - rail.clientWidth;
+      if (remaining < 16) {
+        rail.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        rail.scrollBy({
+          left: compact ? 250 : 360,
+          behavior: "smooth",
+        });
+      }
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [compact, isRailPaused, showAllProducts]);
 
   useEffect(() => {
     if (!quickViewProduct) return;
@@ -91,21 +157,75 @@ export default function LuxuryProductRail({
     }
   };
 
-  if (products.length === 0 && !alwaysShow) return null;
+  const displayProducts = showAllProducts ? loadedProducts : products.slice(0, 10);
+
+  const loadMoreProducts = async () => {
+    if (!showAllProducts || isLoadingMore || !hasMoreProducts) return;
+    setIsLoadingMore(true);
+    try {
+      let page = nextPage;
+      const knownSlugs = new Set(loadedProducts.map((product) => product.slug));
+      while (true) {
+        const pageProducts = await getProducts({ limit: 100, page });
+        if (pageProducts.length === 0) {
+          setHasMoreProducts(false);
+          setNextPage(page);
+          return;
+        }
+        const nextProducts = getHomeCatalogProducts(pageProducts).filter((product) => {
+          if (knownSlugs.has(product.slug)) return false;
+          knownSlugs.add(product.slug);
+          return true;
+        });
+        page += 1;
+        if (nextProducts.length === 0) continue;
+        setLoadedProducts((current) => [...current, ...nextProducts]);
+        setNextPage(page);
+        return;
+      }
+    } catch {
+      setHasMoreProducts(false);
+    } finally {
+      setIsLoadingMore(false);
+    }
+  };
+
+  const handleRailScroll = () => {
+    const rail = railRef.current;
+    if (
+      showAllProducts &&
+      rail &&
+      rail.scrollWidth - rail.scrollLeft - rail.clientWidth < 900
+    ) {
+      void loadMoreProducts();
+    }
+  };
+
+  if (displayProducts.length === 0 && !alwaysShow) return null;
 
   return (
     <>
-      <section className="bg-[#F8F6F1] px-4 py-16 sm:px-6 md:py-24">
+      <section
+        className="bg-white px-4 py-16 sm:px-6 md:py-24"
+        onMouseEnter={() => setIsRailPaused(true)}
+        onMouseLeave={() => setIsRailPaused(false)}
+        onFocusCapture={() => setIsRailPaused(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setIsRailPaused(false);
+          }
+        }}
+      >
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-8 flex items-end justify-between gap-6 md:mb-10">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#92764A]">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-black">
                 {eyebrow}
               </p>
-              <h2 className="mt-3 font-heading text-4xl leading-none text-[#191714] sm:text-5xl md:text-6xl">
+              <h2 className="mt-3 font-heading text-4xl leading-none text-black sm:text-5xl md:text-6xl">
                 {title}
               </h2>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-[#6A655C]">
+              <p className="mt-3 max-w-xl text-sm leading-6 text-black">
                 {description}
               </p>
             </div>
@@ -117,7 +237,7 @@ export default function LuxuryProductRail({
                   onClick={() =>
                     railRef.current?.scrollBy({ left: -360, behavior: "smooth" })
                   }
-                  className="grid h-11 w-11 place-items-center rounded-full border border-[#191714]/20 text-[#191714] transition-colors hover:bg-[#191714] hover:text-white"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-[#191714]/20 text-black transition-colors hover:bg-[#191714] hover:text-white"
                 >
                   <ArrowLeft size={17} />
                 </button>
@@ -127,7 +247,7 @@ export default function LuxuryProductRail({
                   onClick={() =>
                     railRef.current?.scrollBy({ left: 360, behavior: "smooth" })
                   }
-                  className="grid h-11 w-11 place-items-center rounded-full border border-[#191714]/20 text-[#191714] transition-colors hover:bg-[#191714] hover:text-white"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-[#191714]/20 text-black transition-colors hover:bg-[#191714] hover:text-white"
                 >
                   <ArrowRight size={17} />
                 </button>
@@ -137,16 +257,17 @@ export default function LuxuryProductRail({
 
           <div
             ref={gridOnly ? undefined : railRef}
-            className={
+            onScroll={gridOnly ? undefined : handleRailScroll}
+            className={`${
               gridOnly
                 ? "grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 : "-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 sm:mx-0 sm:gap-5 sm:px-0"
-            }
+            } ${showAllProducts ? "home-product-rail" : ""}`}
           >
-            {products.length === 0 ? (
-              <p className="text-sm text-[#6A655C]">Best sellers are being updated.</p>
+            {displayProducts.length === 0 ? (
+              <p className="text-sm text-black">Best sellers are being updated.</p>
             ) : (
-              products.slice(0, 10).map((product, index) => {
+              displayProducts.map((product, index) => {
                 const productId = product._id || product.id;
                 const isWishlisted = wishlistItems.some(
                   (item) => item.productId === productId,
@@ -162,10 +283,12 @@ export default function LuxuryProductRail({
                   className={
                     gridOnly
                       ? "group"
-                      : "group w-[72vw] max-w-[290px] shrink-0 snap-start sm:w-[40vw] md:w-[28vw] lg:w-[22vw]"
+                      : compact
+                        ? "group w-[58vw] max-w-[230px] shrink-0 snap-start sm:w-[32vw] md:w-[24vw] lg:w-[18vw]"
+                        : "group w-[72vw] max-w-[290px] shrink-0 snap-start sm:w-[40vw] md:w-[28vw] lg:w-[22vw]"
                   }
                 >
-                  <div className="relative aspect-[3/4] overflow-hidden bg-[#EEEAE2]">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-white">
                     <Link
                       href={`/products/${product.slug}`}
                       aria-label={`View ${product.name}`}
@@ -176,7 +299,9 @@ export default function LuxuryProductRail({
                           src={getProductPrimaryImage(product)}
                           alt={product.name}
                           fill
-                          sizes="(max-width: 640px) 72vw, (max-width: 1024px) 40vw, 22vw"
+                          sizes={compact
+                            ? "(max-width: 640px) 58vw, (max-width: 1024px) 32vw, 18vw"
+                            : "(max-width: 640px) 72vw, (max-width: 1024px) 40vw, 22vw"}
                           className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.035]"
                         />
                       )}
@@ -194,11 +319,11 @@ export default function LuxuryProductRail({
                           ? `Remove ${product.name} from wishlist`
                           : `Add ${product.name} to wishlist`
                       }
-                      className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-[#F8F6F1]/95 text-[#191714] transition-colors hover:bg-white"
+                      className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-white/95 text-black transition-colors hover:bg-white"
                     >
                       <Heart
                         size={18}
-                        className={isWishlisted ? "fill-[#9D8050] text-[#9D8050]" : ""}
+                        className={isWishlisted ? "fill-[#9D8050] text-black" : ""}
                       />
                     </button>
                     <div
@@ -211,14 +336,14 @@ export default function LuxuryProductRail({
                       <button
                         type="button"
                         onClick={() => setQuickViewProduct(product)}
-                        className="flex-1 border border-white/80 bg-white/95 px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.13em] text-[#191714]"
+                        className="flex-1 border border-white/80 bg-white/95 px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.13em] text-black"
                       >
                         Quick view
                       </button>
                       <button
                         type="button"
                         onClick={(event) => void addProductToBag(product, event)}
-                        className={`flex shrink-0 items-center justify-center gap-2 bg-[#102B50] px-4 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#0C2446] ${
+                        className={`flex shrink-0 items-center justify-center gap-2 bg-[#233B32] px-4 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1B2E27] ${
                           gridOnly ? "py-2.5" : "h-10 w-10"
                         }`}
                         aria-label={`Add ${product.name} to bag`}
@@ -230,17 +355,17 @@ export default function LuxuryProductRail({
                   </div>
                   <div className="flex items-start justify-between gap-3 pt-4">
                     <div className="min-w-0">
-                      <p className="text-[9px] uppercase tracking-[0.17em] text-[#92764A]">
+                      <p className="text-[9px] uppercase tracking-[0.17em] text-black">
                         {product.category?.name || product.brand || "Denimique"}
                       </p>
                       <Link
                         href={`/products/${product.slug}`}
-                        className="mt-1 block truncate text-sm font-medium text-[#191714] hover:text-[#92764A]"
+                        className="mt-1 block truncate text-sm font-medium text-black hover:text-black"
                       >
                         {product.name}
                       </Link>
                     </div>
-                    <p className="shrink-0 pt-3 text-sm text-[#191714]">
+                    <p className="shrink-0 pt-3 text-sm text-black">
                       {formatProductPrice(price)}
                     </p>
                   </div>
@@ -270,17 +395,17 @@ export default function LuxuryProductRail({
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
-              className="relative grid max-h-[90vh] w-full max-w-4xl overflow-y-auto bg-[#F8F6F1] md:grid-cols-2"
+              className="relative grid max-h-[90vh] w-full max-w-4xl overflow-y-auto bg-white md:grid-cols-2"
             >
               <button
                 type="button"
                 onClick={() => setQuickViewProduct(null)}
                 aria-label="Close quick view"
-                className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full bg-white text-[#191714]"
+                className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full bg-white text-black"
               >
                 <X size={18} />
               </button>
-              <div className="relative aspect-[4/5] bg-[#EEEAE2] md:aspect-auto md:min-h-[520px]">
+              <div className="relative aspect-[4/5] bg-white md:aspect-auto md:min-h-[520px]">
                 <Image
                   src={getProductPrimaryImage(quickViewProduct)}
                   alt={quickViewProduct.name}
@@ -290,31 +415,31 @@ export default function LuxuryProductRail({
                 />
               </div>
               <div className="flex flex-col justify-center p-6 sm:p-10">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#92764A]">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-black">
                   {quickViewProduct.category?.name || "Denimique"}
                 </p>
-                <h2 className="mt-3 font-heading text-3xl leading-tight text-[#191714] sm:text-4xl">
+                <h2 className="mt-3 font-heading text-3xl leading-tight text-black sm:text-4xl">
                   {quickViewProduct.name}
                 </h2>
-                <p className="mt-4 text-lg text-[#191714]">
+                <p className="mt-4 text-lg text-black">
                   {formatProductPrice(
                     quickViewProduct.price ??
                       quickViewProduct.discountPrice ??
                       quickViewProduct.basePrice,
                   )}
                   {quickViewProduct.discountPrice && (
-                    <span className="ml-3 text-sm text-[#777166] line-through">
+                    <span className="ml-3 text-sm text-black line-through">
                       {formatProductPrice(quickViewProduct.basePrice)}
                     </span>
                   )}
                 </p>
-                <p className="mt-5 line-clamp-5 text-sm leading-7 text-[#625C51]">
+                <p className="mt-5 line-clamp-5 text-sm leading-7 text-black">
                   {quickViewProduct.shortDescription ||
                     quickViewProduct.description ||
                     "A considered addition to your everyday wardrobe."}
                 </p>
                 {quickViewProduct.sizes && quickViewProduct.sizes.length > 0 && (
-                  <p className="mt-5 text-xs uppercase tracking-[0.13em] text-[#625C51]">
+                  <p className="mt-5 text-xs uppercase tracking-[0.13em] text-black">
                     Available sizes: {quickViewProduct.sizes.join(" / ")}
                   </p>
                 )}
@@ -328,7 +453,7 @@ export default function LuxuryProductRail({
                   </button>
                   <Link
                     href={`/products/${quickViewProduct.slug}`}
-                    className="inline-flex items-center justify-center border border-[#191714]/25 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#191714] transition-colors hover:border-[#191714]"
+                    className="inline-flex items-center justify-center border border-[#191714]/25 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-black transition-colors hover:border-[#191714]"
                   >
                     View details
                   </Link>

@@ -63,13 +63,13 @@ export default function PushOptInPrompt() {
   if (!isVisible) return null;
 
   return (
-    <div className="mb-8 flex items-start gap-4 rounded-2xl border border-[#7A3511]/40 bg-[#FFF7EA] px-6 py-4">
-      <BellRing className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#7A3511]" />
+    <div className="mb-8 flex items-start gap-4 rounded-2xl border border-[#1B2E27]/40 bg-[#FFF7EA] px-6 py-4">
+      <BellRing className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-semibold text-[#4A230F]">
+        <p className="text-sm font-semibold text-black">
           Want updates on this order?
         </p>
-        <p className="mt-1 text-sm text-gray-600">
+        <p className="mt-1 text-sm text-black">
           Turn on push notifications and we&apos;ll alert you the moment your
           order ships or arrives.
         </p>
@@ -78,14 +78,14 @@ export default function PushOptInPrompt() {
             type="button"
             onClick={handleEnable}
             disabled={isSubscribing}
-            className="rounded-xl bg-[#7A3511] px-4 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] disabled:opacity-60"
+            className="rounded-xl bg-[#1B2E27] px-4 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] disabled:opacity-60"
           >
             {isSubscribing ? "Enabling..." : "Enable notifications"}
           </button>
           <button
             type="button"
             onClick={dismiss}
-            className="rounded-xl px-4 py-2 text-sm font-medium text-gray-600 hover:bg-black/5"
+            className="rounded-xl px-4 py-2 text-sm font-medium text-black hover:bg-black/5"
           >
             Not now
           </button>
@@ -95,7 +95,7 @@ export default function PushOptInPrompt() {
         type="button"
         onClick={dismiss}
         aria-label="Dismiss"
-        className="flex-shrink-0 rounded-full p-1 text-gray-400 hover:bg-black/5 hover:text-gray-600"
+        className="flex-shrink-0 rounded-full p-1 text-black hover:bg-black/5 hover:text-black"
       >
         <X size={16} />
       </button>

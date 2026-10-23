@@ -418,20 +418,20 @@ export default function ProductClient({ product }: { product: Product }) {
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(122,53,17,0.07),transparent_36%)]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
-          <div className="mb-6 flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-[#7A3511]/70">
-            <Link href="/shop" className="transition hover:text-[#7A3511]">
+          <div className="mb-6 flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-black">
+            <Link href="/shop" className="transition hover:text-black">
               Home
             </Link>
             <span>/</span>
             <span>{getProductCategoryName(product)}</span>
             <span>/</span>
-            <span className="text-[#4A230F]">{product.name}</span>
+            <span className="text-black">{product.name}</span>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
             <div className="space-y-6 lg:sticky lg:top-24">
               <div className="relative overflow-hidden rounded-[30px] rounded-tr-[64px] border border-[#f0e2d3] bg-white p-3 shadow-[0_22px_50px_rgba(73,49,35,0.08)] md:p-5">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#7A3511] via-[#D4AF37] to-[#7A3511]" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#1B2E27] via-[#D4AF37] to-[#1B2E27]" />
                 <ProductGallery
                   images={product.images}
                   selectedImage={selectedImage}
@@ -440,42 +440,42 @@ export default function ProductClient({ product }: { product: Product }) {
               </div>
 
               <div className="hidden rounded-[28px] border border-[#f0e2d3] bg-[linear-gradient(165deg,#FFFFFF_0%,#FFF8EE_100%)] p-5 shadow-[0_14px_30px_rgba(73,49,35,0.05)] lg:block md:p-6">
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-black">
                   The Denimique Promise
                 </p>
-                <h3 className="mt-1 font-heading text-lg font-bold text-[#4A230F]">
+                <h3 className="mt-1 font-heading text-lg font-bold text-black">
                   Why You&apos;ll Love It
                 </h3>
-                <ul className="mt-3 space-y-2 text-sm text-gray-700">
+                <ul className="mt-3 space-y-2 text-sm text-black">
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                    <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                     Premium fabric sourced from trusted mills.
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                    <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                     Hand-finished stitching and detailing.
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                    <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                     Every piece quality-checked before packing.
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                    <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                     Suited for festive and everyday occasions.
                   </li>
                 </ul>
 
                 <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
-                  <div className="rounded-xl border border-[#7A3511]/10 bg-white px-3 py-2 font-semibold text-[#7A3511]">
+                  <div className="rounded-xl border border-[#1B2E27]/10 bg-white px-3 py-2 font-semibold text-black">
                     Free delivery
                   </div>
-                  <div className="rounded-xl border border-[#7A3511]/10 bg-white px-3 py-2 font-semibold text-[#7A3511]">
+                  <div className="rounded-xl border border-[#1B2E27]/10 bg-white px-3 py-2 font-semibold text-black">
                     Secure packaging
                   </div>
-                  <div className="rounded-xl border border-[#7A3511]/10 bg-white px-3 py-2 font-semibold text-[#7A3511]">
+                  <div className="rounded-xl border border-[#1B2E27]/10 bg-white px-3 py-2 font-semibold text-black">
                     Quality assured
                   </div>
-                  <div className="rounded-xl border border-[#7A3511]/10 bg-white px-3 py-2 font-semibold text-[#7A3511]">
+                  <div className="rounded-xl border border-[#1B2E27]/10 bg-white px-3 py-2 font-semibold text-black">
                     Easy returns
                   </div>
                 </div>
@@ -486,7 +486,7 @@ export default function ProductClient({ product }: { product: Product }) {
               <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-[#D4AF37]/[0.08] blur-3xl" />
 
               <div className="relative flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF8EE] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7A3511] ring-1 ring-[#7A3511]/15">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF8EE] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black ring-1 ring-[#1B2E27]/15">
                   Signature Piece
                 </span>
                 {product.isBestSeller && (
@@ -495,27 +495,27 @@ export default function ProductClient({ product }: { product: Product }) {
                   </span>
                 )}
                 {product.isFeatured && (
-                  <span className="rounded-full bg-[#7A3511] px-3 py-1.5 text-[11px] font-bold text-white">
+                  <span className="rounded-full bg-[#1B2E27] px-3 py-1.5 text-[11px] font-bold text-white">
                     Featured
                   </span>
                 )}
-                <span className="rounded-full border border-[#7A3511]/20 bg-white px-3 py-1.5 text-[11px] font-medium text-[#7A3511]">
+                <span className="rounded-full border border-[#1B2E27]/20 bg-white px-3 py-1.5 text-[11px] font-medium text-black">
                   {getProductCategoryName(product)}
                 </span>
                 {(product.brand || product.color || product.flavor) && (
-                  <span className="rounded-full border border-[#7A3511]/20 bg-white px-3 py-1.5 text-[11px] font-medium text-[#7A3511]">
+                  <span className="rounded-full border border-[#1B2E27]/20 bg-white px-3 py-1.5 text-[11px] font-medium text-black">
                     {product.brand || product.color || product.flavor}
                   </span>
                 )}
               </div>
 
-              <h1 className="relative mt-5 font-heading text-3xl font-bold tracking-[-0.02em] text-[#4A230F] md:text-[2.3rem]">
+              <h1 className="relative mt-5 font-heading text-3xl font-bold tracking-[-0.02em] text-black md:text-[2.3rem]">
                 {product.name}
               </h1>
 
               {typeof product.rating === "number" && product.rating > 0 && (
                 <div className="relative mt-4 flex items-center gap-2 text-sm">
-                  <div className="flex text-[#F4B223]">
+                  <div className="flex text-black">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -526,22 +526,22 @@ export default function ProductClient({ product }: { product: Product }) {
                       />
                     ))}
                   </div>
-                  <span className="text-gray-600">
+                  <span className="text-black">
                     {product.rating} ({product.reviewCount || 0} reviews)
                   </span>
                 </div>
               )}
 
-              <div className="relative mt-6 flex items-stretch gap-4 rounded-2xl border border-[#7A3511]/10 bg-[linear-gradient(165deg,#FFF8EE_0%,#FFFFFF_100%)] px-5 py-4">
-                <div className="w-1 shrink-0 rounded-full bg-gradient-to-b from-[#D4AF37] via-[#7A3511] to-[#D4AF37]" />
+              <div className="relative mt-6 flex items-stretch gap-4 rounded-2xl border border-[#1B2E27]/10 bg-[linear-gradient(165deg,#FFF8EE_0%,#FFFFFF_100%)] px-5 py-4">
+                <div className="w-1 shrink-0 rounded-full bg-gradient-to-b from-[#D4AF37] via-[#1B2E27] to-[#D4AF37]" />
                 <div className="flex flex-wrap items-center gap-4">
-                  <span className="font-heading text-3xl font-bold text-[#7A3511]">
+                  <span className="font-heading text-3xl font-bold text-black">
                     Rs.{finalPrice}
                   </span>
 
                   {hasDiscount && (
                     <>
-                      <span className="line-through text-gray-400">
+                      <span className="line-through text-black">
                         Rs.{product.basePrice}
                       </span>
                       {discountPercentage > 0 && (
@@ -554,13 +554,13 @@ export default function ProductClient({ product }: { product: Product }) {
                 </div>
               </div>
 
-              <p className="relative mt-5 text-justify text-lg leading-relaxed text-gray-700">
+              <p className="relative mt-5 text-justify text-lg leading-relaxed text-black">
                 {product.shortDescription}
               </p>
 
               {product.variants && (
-                <div className="mt-6 rounded-2xl border border-[#7A3511]/10 bg-white p-4 md:p-5">
-                  <h3 className="mb-3 font-semibold text-[#4A230F]">Select Size</h3>
+                <div className="mt-6 rounded-2xl border border-[#1B2E27]/10 bg-white p-4 md:p-5">
+                  <h3 className="mb-3 font-semibold text-black">Select Size</h3>
                   <div className="flex flex-wrap gap-3">
                     {product.variants.map((variant) => (
                       <button
@@ -568,8 +568,8 @@ export default function ProductClient({ product }: { product: Product }) {
                         onClick={() => setSelectedVariant(variant)}
                         className={`rounded-lg border-2 px-5 py-2 text-sm font-bold transition ${
                           selectedVariant?.id === variant.id
-                            ? "border-[#7A3511] bg-[#7A3511] text-white shadow-md"
-                            : "border-[#7A3511]/20 text-[#7A3511] hover:border-[#7A3511]"
+                            ? "border-[#1B2E27] bg-[#1B2E27] text-white shadow-md"
+                            : "border-[#1B2E27]/20 text-black hover:border-[#1B2E27]"
                         }`}
                       >
                         {variant.label}
@@ -578,12 +578,12 @@ export default function ProductClient({ product }: { product: Product }) {
                   </div>
                   <div className="mt-3">
                     {stockAvailable > 0 ? (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1.5 text-xs font-bold text-black">
                         <CheckCircle2 size={14} />
                         In Stock
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-bold text-black">
                         <XCircle size={14} />
                         Out of Stock
                       </span>
@@ -596,16 +596,16 @@ export default function ProductClient({ product }: { product: Product }) {
                 <div className="order-1 flex shrink-0 items-center overflow-hidden rounded-xl border border-[#d9b897] bg-[#fffaf5] shadow-sm">
                   <button
                     onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
-                    className="px-3 py-2.5 text-xl font-bold text-[#7A3511] transition hover:bg-[#fff1e3]"
+                    className="px-3 py-2.5 text-xl font-bold text-black transition hover:bg-[#fff1e3]"
                   >
                     -
                   </button>
-                  <span className="min-w-[48px] px-3 py-2.5 text-lg font-bold text-[#7A3511] text-center">
+                  <span className="min-w-[48px] px-3 py-2.5 text-lg font-bold text-black text-center">
                     {quantity}
                   </span>
                   <button
                     onClick={() => setQuantity((prev) => prev + 1)}
-                    className="px-3 py-2.5 text-xl font-bold text-[#7A3511] transition hover:bg-[#fff1e3]"
+                    className="px-3 py-2.5 text-xl font-bold text-black transition hover:bg-[#fff1e3]"
                   >
                     +
                   </button>
@@ -614,14 +614,14 @@ export default function ProductClient({ product }: { product: Product }) {
                 <button
                   disabled={stockAvailable === 0}
                   onClick={handleAddToCart}
-                  className="order-3 w-full min-w-0 whitespace-nowrap rounded-xl bg-[#102B50] px-3 py-3 text-base font-bold text-white shadow-[0_12px_24px_rgba(16,43,80,0.18)] transition-all duration-300 hover:bg-[#0C2446] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 sm:order-2 sm:w-auto sm:flex-1 sm:px-6 sm:text-lg"
+                  className="order-3 w-full min-w-0 whitespace-nowrap rounded-xl bg-[#233B32] px-3 py-3 text-base font-bold text-white shadow-[0_12px_24px_rgba(35,59,50,0.18)] transition-all duration-300 hover:bg-[#1B2E27] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-black sm:order-2 sm:w-auto sm:flex-1 sm:px-6 sm:text-lg"
                 >
                   Add to Cart
                 </button>
 
                 <button
                   onClick={toggleWishlist}
-                  className="order-2 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#d9b897] bg-[#fffaf5] text-[#7A3511] transition-all duration-300 hover:bg-[#FFF8EE] sm:order-3"
+                  className="order-2 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#d9b897] bg-[#fffaf5] text-black transition-all duration-300 hover:bg-[#FFF8EE] sm:order-3"
                   title={
                     wishlistItems.some(
                       (item) => item.productId === (product._id || product.id),
@@ -636,8 +636,8 @@ export default function ProductClient({ product }: { product: Product }) {
                       wishlistItems.some(
                         (item) => item.productId === (product._id || product.id),
                       )
-                        ? "fill-[#7A3511] text-[#7A3511]"
-                        : "text-[#7A3511]"
+                        ? "fill-[#1B2E27] text-black"
+                        : "text-black"
                     }`}
                   />
                 </button>
@@ -655,8 +655,8 @@ export default function ProductClient({ product }: { product: Product }) {
                 ];
 
                 return (
-                  <div className="relative mt-6 rounded-2xl border border-[#7A3511]/10 bg-white p-4 md:p-5">
-                    <div className="flex flex-wrap gap-2 border-b border-[#7A3511]/10 pb-3">
+                  <div className="relative mt-6 rounded-2xl border border-[#1B2E27]/10 bg-white p-4 md:p-5">
+                    <div className="flex flex-wrap gap-2 border-b border-[#1B2E27]/10 pb-3">
                       {tabs.map((tab) => (
                         <button
                           key={tab.id}
@@ -664,8 +664,8 @@ export default function ProductClient({ product }: { product: Product }) {
                           onClick={() => setActiveTab(tab.id)}
                           className={`rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] transition ${
                             activeTab === tab.id
-                              ? "bg-[#7A3511] text-white shadow-sm"
-                              : "text-[#7A3511]/70 hover:bg-[#FFF8EE]"
+                              ? "bg-[#1B2E27] text-white shadow-sm"
+                              : "text-black hover:bg-[#FFF8EE]"
                           }`}
                         >
                           {tab.label}
@@ -675,7 +675,7 @@ export default function ProductClient({ product }: { product: Product }) {
 
                     <div className="pt-4">
                       {activeTab === "details" && (
-                        <p className="text-justify leading-relaxed text-gray-700">
+                        <p className="text-justify leading-relaxed text-black">
                           {product.description}
                         </p>
                       )}
@@ -683,8 +683,8 @@ export default function ProductClient({ product }: { product: Product }) {
                       {activeTab === "highlights" && (
                         <ul className="space-y-2">
                           {productHighlights.map((item) => (
-                            <li key={item} className="flex items-center gap-2 text-gray-700">
-                              <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                            <li key={item} className="flex items-center gap-2 text-black">
+                              <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                               {item}
                             </li>
                           ))}
@@ -692,20 +692,20 @@ export default function ProductClient({ product }: { product: Product }) {
                       )}
 
                       {activeTab === "fabric" && hasFabricInfo && (
-                        <div className="space-y-2 text-sm text-gray-700">
-                          {product.fabric && <div><span className="font-semibold text-[#4A230F]">Fabric:</span> {product.fabric}</div>}
-                          {product.material && <div><span className="font-semibold text-[#4A230F]">Material:</span> {product.material}</div>}
-                          {product.fit && <div><span className="font-semibold text-[#4A230F]">Fit:</span> {product.fit}</div>}
-                          {product.color && <div><span className="font-semibold text-[#4A230F]">Color:</span> {product.color}</div>}
-                          {product.pattern && <div><span className="font-semibold text-[#4A230F]">Pattern:</span> {product.pattern}</div>}
+                        <div className="space-y-2 text-sm text-black">
+                          {product.fabric && <div><span className="font-semibold text-black">Fabric:</span> {product.fabric}</div>}
+                          {product.material && <div><span className="font-semibold text-black">Material:</span> {product.material}</div>}
+                          {product.fit && <div><span className="font-semibold text-black">Fit:</span> {product.fit}</div>}
+                          {product.color && <div><span className="font-semibold text-black">Color:</span> {product.color}</div>}
+                          {product.pattern && <div><span className="font-semibold text-black">Pattern:</span> {product.pattern}</div>}
                         </div>
                       )}
 
                       {activeTab === "care" && (
                         <ul className="space-y-2">
                           {productCare.map((item) => (
-                            <li key={item} className="flex items-center gap-2 text-gray-700">
-                              <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                            <li key={item} className="flex items-center gap-2 text-black">
+                              <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                               {item}
                             </li>
                           ))}
@@ -714,13 +714,13 @@ export default function ProductClient({ product }: { product: Product }) {
                     </div>
 
                     {product.sizes && product.sizes.length > 0 && (
-                      <div className="mt-4 border-t border-[#7A3511]/10 pt-4">
-                        <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-[#7A3511]/70">
+                      <div className="mt-4 border-t border-[#1B2E27]/10 pt-4">
+                        <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-black">
                           Available Sizes
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {product.sizes.map((size) => (
-                            <span key={size} className="rounded-full border border-[#7A3511]/10 bg-[#FFF7EA] px-3 py-1.5 text-sm text-[#7A3511]">
+                            <span key={size} className="rounded-full border border-[#1B2E27]/10 bg-[#FFF7EA] px-3 py-1.5 text-sm text-black">
                               {size}
                             </span>
                           ))}
@@ -735,7 +735,7 @@ export default function ProductClient({ product }: { product: Product }) {
                 {product.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#7A3511]/30 bg-white px-3 py-1.5 text-xs font-semibold text-[#7A3511]"
+                    className="rounded-full border border-[#1B2E27]/30 bg-white px-3 py-1.5 text-xs font-semibold text-black"
                   >
                     #{tag}
                   </span>
@@ -745,40 +745,40 @@ export default function ProductClient({ product }: { product: Product }) {
           </div>
 
           <div className="mt-8 lg:hidden">
-            <div className="rounded-3xl border border-[#7A3511]/10 bg-white p-5 shadow-[0_14px_36px_rgba(11,77,59,0.12)]">
-              <h3 className="mb-3 text-base font-bold text-[#4A230F]">
+            <div className="rounded-3xl border border-[#1B2E27]/10 bg-white p-5 shadow-[0_14px_36px_rgba(11,77,59,0.12)]">
+              <h3 className="mb-3 text-base font-bold text-black">
                 Why You&apos;ll Love It
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-black">
                 <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                  <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                   Premium fabric sourced from trusted mills.
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                  <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                   Hand-finished stitching and detailing.
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                  <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                   Every piece quality-checked before packing.
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-[#7A3511]" />
+                  <span className="h-2 w-2 rounded-full bg-[#1B2E27]" />
                   Suited for festive and everyday occasions.
                 </li>
               </ul>
 
               <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
-                <div className="rounded-xl border border-[#7A3511]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-[#7A3511]">
+                <div className="rounded-xl border border-[#1B2E27]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-black">
                   Free delivery
                 </div>
-                <div className="rounded-xl border border-[#7A3511]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-[#7A3511]">
+                <div className="rounded-xl border border-[#1B2E27]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-black">
                   Secure packaging
                 </div>
-                <div className="rounded-xl border border-[#7A3511]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-[#7A3511]">
+                <div className="rounded-xl border border-[#1B2E27]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-black">
                   Quality assured
                 </div>
-                <div className="rounded-xl border border-[#7A3511]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-[#7A3511]">
+                <div className="rounded-xl border border-[#1B2E27]/10 bg-[#FFF7EA] px-3 py-2 font-semibold text-black">
                   Easy returns
                 </div>
               </div>
@@ -793,16 +793,16 @@ export default function ProductClient({ product }: { product: Product }) {
           <div className="max-w-7xl mx-auto px-5 md:px-6 relative z-10">
             <div className="flex items-start justify-between mb-10 md:mb-12 gap-4">
               <div className="max-w-[75%]">
-                <h2 className="text-2xl md:text-4xl font-bold text-[#4A230F]">
+                <h2 className="text-2xl md:text-4xl font-bold text-black">
                   You May Also Like
                 </h2>
-                <p className="text-gray-600 mt-2 text-sm md:text-base">
+                <p className="text-black mt-2 text-sm md:text-base">
                   Handpicked picks based on what you&apos;re viewing.
                 </p>
               </div>
               <Link
                 href="/shop"
-                className="whitespace-nowrap text-[#4A230F] border border-[#4A230F]/20 px-4 md:px-5 py-2 rounded-full text-sm md:text-base hover:bg-[#4A230F] hover:text-white transition"
+                className="whitespace-nowrap text-black border border-[#4A230F]/20 px-4 md:px-5 py-2 rounded-full text-sm md:text-base hover:bg-[#4A230F] hover:text-white transition"
               >
                 View All {"->"}
               </Link>
@@ -866,12 +866,12 @@ export default function ProductClient({ product }: { product: Product }) {
 
                       <div className="absolute right-3 top-3 flex flex-wrap gap-2">
                         {isSoldOut && (
-                          <span className="bg-gray-200 text-gray-700 text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                          <span className="bg-gray-200 text-black text-[11px] font-semibold px-2.5 py-1 rounded-md">
                             Sold out
                           </span>
                         )}
                         {(discount ?? 0) > 0 && !isSoldOut && (
-                          <span className="bg-white border border-[#7A3511]/30 text-[#7A3511] text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                          <span className="bg-white border border-[#1B2E27]/30 text-black text-[11px] font-semibold px-2.5 py-1 rounded-md">
                             On sale
                           </span>
                         )}
@@ -887,8 +887,8 @@ export default function ProductClient({ product }: { product: Product }) {
                           size={16}
                           className={`transition-all duration-300 ${
                             isWishlisted
-                              ? "fill-[#C68A13] text-[#C68A13]"
-                              : "text-[#4A230F]"
+                              ? "fill-[#C68A13] text-black"
+                              : "text-black"
                           }`}
                         />
                       </button>
@@ -903,7 +903,7 @@ export default function ProductClient({ product }: { product: Product }) {
                         />
                       </div>
 
-                      <h3 className="text-[#4A230F] font-semibold mb-2 text-[13px] md:text-sm min-h-[40px] md:min-h-[44px]">
+                      <h3 className="text-black font-semibold mb-2 text-[13px] md:text-sm min-h-[40px] md:min-h-[44px]">
                         {relatedProduct.name}
                       </h3>
 
@@ -915,35 +915,35 @@ export default function ProductClient({ product }: { product: Product }) {
                               size={14}
                               className={`${
                                 i < Math.round(relatedProduct.rating || 0)
-                                  ? "fill-[#F4B223] text-[#F4B223]"
-                                  : "text-gray-300"
+                                  ? "fill-[#F4B223] text-black"
+                                  : "text-black"
                               }`}
                             />
                           ))}
-                          <span className="text-xs text-gray-500 ml-1">
+                          <span className="text-xs text-black ml-1">
                             {relatedProduct.reviewCount || 0} | Ratings
                           </span>
                         </div>
                       ) : null}
 
-                      <div className="border border-gray-200 rounded-lg px-3 py-2 text-center text-xs md:text-sm text-gray-700 mb-3">
+                      <div className="border border-gray-200 rounded-lg px-3 py-2 text-center text-xs md:text-sm text-black mb-3">
                         {primaryVariant?.label ? `${primaryVariant.label} - ` : ""}
                         ₹ {primaryVariant?.discountPrice || primaryVariant?.price || price}
                       </div>
 
                       <div className="flex items-center justify-between mb-3 gap-2">
                         <div className="flex items-center gap-2 min-w-0">
-                          <div className="text-[13px] md:text-sm font-semibold text-[#7A3511] whitespace-nowrap">
+                          <div className="text-[13px] md:text-sm font-semibold text-black whitespace-nowrap">
                             ₹ {price}
                           </div>
                           {relatedProduct.discountPrice && (
-                            <div className="text-[11px] md:text-xs text-gray-400 line-through whitespace-nowrap">
+                            <div className="text-[11px] md:text-xs text-black line-through whitespace-nowrap">
                               MRP ₹ {relatedProduct.basePrice}
                             </div>
                           )}
                         </div>
                         {relatedProduct.rating ? (
-                          <div className="text-[11px] md:text-xs text-gray-600 whitespace-nowrap">
+                          <div className="text-[11px] md:text-xs text-black whitespace-nowrap">
                             {relatedProduct.rating.toFixed(1)} ★
                           </div>
                         ) : null}
@@ -954,8 +954,8 @@ export default function ProductClient({ product }: { product: Product }) {
                         disabled={isSoldOut}
                         className={`w-full flex items-center justify-center gap-2 font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 ${
                           isSoldOut
-                            ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                            : "bg-[#102B50] text-white hover:bg-[#0C2446]"
+                            ? "bg-gray-200 text-black cursor-not-allowed"
+                            : "bg-[#233B32] text-white hover:bg-[#1B2E27]"
                         }`}
                       >
                         {isSoldOut ? "Sold Out" : "Add to Cart"}

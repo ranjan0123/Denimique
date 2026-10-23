@@ -137,32 +137,32 @@ export default function AdminUserDetailPage() {
         label: "Total Orders",
         value: overview.summary.totalOrders,
         icon: ShoppingBag,
-        tone: "bg-amber-50 text-amber-700 border-amber-200",
+        tone: "bg-amber-50 text-black border-amber-200",
       },
       {
         label: "Total Spent",
         value: `Rs. ${overview.summary.totalSpent}`,
         icon: ShoppingCart,
-        tone: "bg-emerald-50 text-emerald-700 border-emerald-200",
+        tone: "bg-emerald-50 text-black border-emerald-200",
       },
       {
         label: "Cart Items",
         value: overview.summary.cartItems,
         icon: ShoppingCart,
-        tone: "bg-sky-50 text-sky-700 border-sky-200",
+        tone: "bg-sky-50 text-black border-sky-200",
       },
       {
         label: "Wishlist Items",
         value: overview.summary.wishlistItems,
         icon: Heart,
-        tone: "bg-rose-50 text-rose-700 border-rose-200",
+        tone: "bg-rose-50 text-black border-rose-200",
       },
     ];
   }, [overview]);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7]">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="h-24 w-24 rounded-full border-4 border-slate-200 border-t-[#0B0F6B] animate-spin" />
       </div>
     );
@@ -170,15 +170,15 @@ export default function AdminUserDetailPage() {
 
   if (accessDenied) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7] px-4">
+      <div className="min-h-screen flex items-center justify-center bg-white px-4">
         <div className="max-w-lg rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-black">
             <Shield className="h-6 w-6" />
           </div>
-          <h1 className="mt-4 text-2xl font-semibold text-slate-900">
+          <h1 className="mt-4 text-2xl font-semibold text-black">
             Super admin access only
           </h1>
-          <p className="mt-2 text-sm text-slate-600">
+          <p className="mt-2 text-sm text-black">
             You don&apos;t have permission to view this user. Please contact the
             primary administrator if you need access.
           </p>
@@ -195,15 +195,15 @@ export default function AdminUserDetailPage() {
 
   if (!overview) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7] px-4">
+      <div className="min-h-screen flex items-center justify-center bg-white px-4">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-black">
             <Users className="h-6 w-6" />
           </div>
-          <h1 className="mt-4 text-2xl font-semibold text-slate-900">
+          <h1 className="mt-4 text-2xl font-semibold text-black">
             User data unavailable
           </h1>
-          <p className="mt-2 text-sm text-slate-600">{error || "Try again later."}</p>
+          <p className="mt-2 text-sm text-black">{error || "Try again later."}</p>
           <button
             onClick={() => router.push("/admin/users")}
             className="mt-6 rounded-xl bg-[#0B0F6B] px-5 py-2.5 text-sm font-semibold text-white"
@@ -218,22 +218,22 @@ export default function AdminUserDetailPage() {
   const { user, cart, wishlist, orders } = overview;
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-slate-900">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="w-full px-4 sm:px-6 lg:px-10 space-y-6">
         <section className="rounded-[28px] border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <Link
                 href="/admin/users"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-[#0B0F6B]"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-black"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Users
               </Link>
-              <h1 className="mt-4 text-3xl font-semibold text-slate-950">
+              <h1 className="mt-4 text-3xl font-semibold text-black">
                 {user.name || "User Overview"}
               </h1>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-sm text-black">
                 {user.email} • {user.role}
               </p>
             </div>
@@ -246,14 +246,14 @@ export default function AdminUserDetailPage() {
                     className="min-w-[160px] rounded-2xl border border-slate-200 bg-slate-50 p-4"
                   >
                     <div className="flex items-center justify-between">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-black">
                         {card.label}
                       </p>
                       <span className={`inline-flex rounded-2xl border p-2 ${card.tone}`}>
                         <Icon className="h-4 w-4" />
                       </span>
                     </div>
-                    <p className="mt-3 text-2xl font-semibold text-slate-900">
+                    <p className="mt-3 text-2xl font-semibold text-black">
                       {card.value}
                     </p>
                   </div>
@@ -272,7 +272,7 @@ export default function AdminUserDetailPage() {
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                   activeTab === tab
                     ? "bg-[#0B0F6B] text-white"
-                    : "bg-slate-50 text-slate-600 hover:bg-slate-100"
+                    : "bg-slate-50 text-black hover:bg-slate-100"
                 }`}
               >
                 {tab}
@@ -284,42 +284,42 @@ export default function AdminUserDetailPage() {
             {activeTab === "Profile" && (
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.18em] text-black">
                     Name
                   </p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">
+                  <p className="mt-2 text-lg font-semibold text-black">
                     {user.name || "-"}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.18em] text-black">
                     Email
                   </p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">
+                  <p className="mt-2 text-lg font-semibold text-black">
                     {user.email || "-"}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.18em] text-black">
                     Role
                   </p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">
+                  <p className="mt-2 text-lg font-semibold text-black">
                     {user.role}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.18em] text-black">
                     Phone
                   </p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">
+                  <p className="mt-2 text-lg font-semibold text-black">
                     {user.phone || "-"}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 md:col-span-2">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.18em] text-black">
                     Created At
                   </p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">
+                  <p className="mt-2 text-lg font-semibold text-black">
                     {formatDate(user.createdAt)}
                   </p>
                 </div>
@@ -329,7 +329,7 @@ export default function AdminUserDetailPage() {
             {activeTab === "Addresses" && (
               <div className="grid gap-4 md:grid-cols-2">
                 {(user.addresses || []).length === 0 && (
-                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500 md:col-span-2">
+                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-black md:col-span-2">
                     No addresses available.
                   </div>
                 )}
@@ -339,26 +339,26 @@ export default function AdminUserDetailPage() {
                     className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
                   >
                     <div className="flex items-center justify-between">
-                      <p className="text-sm font-semibold text-slate-900">
+                      <p className="text-sm font-semibold text-black">
                         {address.label}
                       </p>
                       {address.isDefault && (
-                        <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                        <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-black">
                           Default
                         </span>
                       )}
                     </div>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-black">
                       {address.fullName} • {address.phone}
                     </p>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-black">
                       {address.line1}
                       {address.line2 ? `, ${address.line2}` : ""}
                     </p>
-                    <p className="text-sm text-slate-600">
+                    <p className="text-sm text-black">
                       {address.city}, {address.state} {address.postalCode}
                     </p>
-                    <p className="text-sm text-slate-600">{address.country}</p>
+                    <p className="text-sm text-black">{address.country}</p>
                   </div>
                 ))}
               </div>
@@ -367,7 +367,7 @@ export default function AdminUserDetailPage() {
             {activeTab === "Cart" && (
               <div className="space-y-4">
                 {cart.items.length === 0 && (
-                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500">
+                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-black">
                     No items in cart.
                   </div>
                 )}
@@ -386,36 +386,36 @@ export default function AdminUserDetailPage() {
                       />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-slate-900">
+                      <p className="text-sm font-semibold text-black">
                         {getCartItemName(item)}
                       </p>
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="mt-1 text-xs text-black">
                         Qty: {item.quantity || 0} • Price: Rs.{" "}
                         {item.unitPrice ?? item.price ?? 0}
                       </p>
                     </div>
-                    <div className="text-sm font-semibold text-slate-900">
+                    <div className="text-sm font-semibold text-black">
                       Rs. {item.lineTotal ?? (item.unitPrice ?? 0) * (item.quantity ?? 0)}
                     </div>
                   </div>
                 ))}
 
                 <div className="flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-sm font-semibold text-slate-700">
+                  <p className="text-sm font-semibold text-black">
                     Subtotal: Rs. {cart.subtotal}
                   </p>
                   <div className="flex gap-3">
                     <button
                       onClick={() => setCartPage((prev) => Math.max(1, prev - 1))}
                       disabled={cart.pagination.page <= 1}
-                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
                     >
                       Previous
                     </button>
                     <button
                       onClick={() => setCartPage((prev) => prev + 1)}
                       disabled={cart.pagination.page >= cart.pagination.totalPages}
-                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
                     >
                       Next
                     </button>
@@ -427,7 +427,7 @@ export default function AdminUserDetailPage() {
             {activeTab === "Wishlist" && (
               <div className="space-y-4">
                 {wishlist.items.length === 0 && (
-                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500">
+                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-black">
                     No items in wishlist.
                   </div>
                 )}
@@ -447,7 +447,7 @@ export default function AdminUserDetailPage() {
                         />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">
+                        <p className="text-sm font-semibold text-black">
                           {getWishlistItemName(item)}
                         </p>
                       </div>
@@ -459,14 +459,14 @@ export default function AdminUserDetailPage() {
                   <button
                     onClick={() => setWishlistPage((prev) => Math.max(1, prev - 1))}
                     disabled={wishlist.pagination.page <= 1}
-                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
                   >
                     Previous
                   </button>
                   <button
                     onClick={() => setWishlistPage((prev) => prev + 1)}
                     disabled={wishlist.pagination.page >= wishlist.pagination.totalPages}
-                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
                   >
                     Next
                   </button>
@@ -477,7 +477,7 @@ export default function AdminUserDetailPage() {
             {activeTab === "Orders" && (
               <div className="space-y-4">
                 {orders.items.length === 0 && (
-                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500">
+                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-black">
                     No orders found.
                   </div>
                 )}
@@ -490,18 +490,18 @@ export default function AdminUserDetailPage() {
                     >
                       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                         <div>
-                          <p className="text-sm font-semibold text-slate-900">
+                          <p className="text-sm font-semibold text-black">
                             {order.orderNumber || order._id}
                           </p>
-                          <p className="mt-1 text-xs text-slate-500">
+                          <p className="mt-1 text-xs text-black">
                             {formatDate(order.createdAt)}
                           </p>
                         </div>
                         <div className="flex flex-wrap gap-2 text-xs">
-                          <span className="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-slate-600">
+                          <span className="rounded-full bg-slate-100 px-3 py-1.5 font-semibold text-black">
                             Rs. {order.total}
                           </span>
-                          <span className="rounded-full bg-amber-50 px-3 py-1.5 font-semibold text-amber-700">
+                          <span className="rounded-full bg-amber-50 px-3 py-1.5 font-semibold text-black">
                             {formatStatusLabel(order.orderStatus)}
                           </span>
                         </div>
@@ -514,14 +514,14 @@ export default function AdminUserDetailPage() {
                   <button
                     onClick={() => setOrdersPage((prev) => Math.max(1, prev - 1))}
                     disabled={orders.pagination.page <= 1}
-                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
                   >
                     Previous
                   </button>
                   <button
                     onClick={() => setOrdersPage((prev) => prev + 1)}
                     disabled={orders.pagination.page >= orders.pagination.totalPages}
-                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 disabled:opacity-40"
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
                   >
                     Next
                   </button>

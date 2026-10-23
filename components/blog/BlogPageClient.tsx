@@ -47,11 +47,11 @@ export default function BlogPageClient({
   const listBlogs = blogs.slice(3);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#936965]/15 via-[#F6F1EC] to-[#7A3511]/15 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-[#936965]/15 via-[#F6F1EC] to-[#1B2E27]/15 text-black">
       <div className="relative overflow-hidden bg-[#10191C] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,180,0,0.18),_transparent_40%),radial-gradient(circle_at_85%_15%,_rgba(147,105,101,0.25),_transparent_35%)]" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          {/* <span className="inline-flex items-center rounded-full border border-slate-200 bg-white/90 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-slate-500">
+          {/* <span className="inline-flex items-center rounded-full border border-slate-200 bg-white/90 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-black">
             BLOG
           </span> */}
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
@@ -65,17 +65,17 @@ export default function BlogPageClient({
 
           <form className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <div className="relative w-full sm:w-[460px]">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-black" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search fit guides, styling, denim care..."
-                className="w-full rounded-full border border-white/40 bg-white/95 px-10 py-3.5 text-sm text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7A3511]/50"
+                className="w-full rounded-full border border-white/40 bg-white/95 px-10 py-3.5 text-sm text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1B2E27]/50"
               />
             </div>
             <Link
               href={`?search=${encodeURIComponent(query)}`}
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#7A3511] shadow-md shadow-black/10 hover:bg-[#F5F1EA] transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black shadow-md shadow-black/10 hover:bg-[#F5F1EA] transition-colors"
             >
               Find Now
             </Link>
@@ -107,11 +107,11 @@ export default function BlogPageClient({
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
         {initialError && (
-          <div className="bg-red-50 text-red-700 p-6 rounded-lg text-center">
+          <div className="bg-red-50 text-black p-6 rounded-lg text-center">
             <p>{initialError}</p>
             <button
               onClick={() => window.location.reload()}
-              className="mt-4 inline-flex items-center rounded-full bg-[#7A3511] px-5 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
+              className="mt-4 inline-flex items-center rounded-full bg-[#1B2E27] px-5 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
             >
               Try again
             </button>
@@ -120,15 +120,15 @@ export default function BlogPageClient({
 
         {blogs.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-12 text-center">
-            <p className="text-gray-700 text-lg font-medium">
+            <p className="text-black text-lg font-medium">
               No blog posts are published yet.
             </p>
-            <p className="mt-2 text-gray-500">
+            <p className="mt-2 text-black">
               Explore our products while fresh articles are being prepared.
             </p>
             <Link
               href="/shop"
-              className="mt-6 inline-flex items-center rounded-full bg-[#7A3511] px-6 py-3 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
+              className="mt-6 inline-flex items-center rounded-full bg-[#1B2E27] px-6 py-3 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
             >
               Visit Shop
             </Link>
@@ -138,10 +138,10 @@ export default function BlogPageClient({
             <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-10">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
-                  <h2 className="text-xl font-semibold text-slate-900">
+                  <h2 className="text-xl font-semibold text-black">
                     Editor&apos;s Highlights
                   </h2>
-                  <span className="text-xs font-semibold text-slate-500">
+                  <span className="text-xs font-semibold text-black">
                     Top Picks
                   </span>
                 </div>
@@ -160,7 +160,7 @@ export default function BlogPageClient({
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700">
+                        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-black">
                           {blog.category}
                         </span>
                         <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -196,7 +196,7 @@ export default function BlogPageClient({
 
               <div className="space-y-8">
                 <div className="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
-                  <h3 className="text-lg font-semibold text-slate-900 border-b border-slate-200 pb-3">
+                  <h3 className="text-lg font-semibold text-black border-b border-slate-200 pb-3">
                     Featured
                   </h3>
                   <div className="mt-4 space-y-4">
@@ -215,7 +215,7 @@ export default function BlogPageClient({
                           />
                         </div>
                         <div>
-                          <p className="text-xs text-slate-500">
+                          <p className="text-xs text-black">
                             {blog.createdAt
                               ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                                   year: "numeric",
@@ -224,7 +224,7 @@ export default function BlogPageClient({
                                 })
                               : ""}
                           </p>
-                          <p className="text-sm font-semibold text-slate-900 leading-snug">
+                          <p className="text-sm font-semibold text-black leading-snug">
                             {blog.title}
                           </p>
                         </div>
@@ -241,7 +241,7 @@ export default function BlogPageClient({
 
             {listBlogs.length > 0 && (
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-slate-900">
+                <h3 className="text-xl font-semibold text-black">
                   More Articles
                 </h3>
                 <div className="space-y-8">
@@ -261,8 +261,8 @@ export default function BlogPageClient({
                       href={`?page=${pageNum}${category ? "&category=" + category : ""}${tags.length > 0 ? "&tags=" + tags.join("&tags=") : ""}${search ? "&search=" + search : ""}`}
                       className={`px-4 py-2 rounded-lg transition-colors ${
                         pageNum === pagination.page
-                          ? "bg-[#7A3511] text-white font-semibold"
-                          : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+                          ? "bg-[#1B2E27] text-white font-semibold"
+                          : "bg-white text-black border border-gray-200 hover:bg-gray-50"
                       }`}
                     >
                       {pageNum}

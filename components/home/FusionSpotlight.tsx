@@ -73,13 +73,13 @@ export default function FusionSpotlight() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#173F70]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#173F70]/20 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-black">
             Browse
           </span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-[#102B50]">
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-black">
             Shop by Collection
           </h2>
-          <p className="mt-3 text-gray-600 max-w-xl mx-auto">
+          <p className="mt-3 text-black max-w-xl mx-auto">
             Find your next favourite from the Denimique collection.
           </p>
         </motion.div>

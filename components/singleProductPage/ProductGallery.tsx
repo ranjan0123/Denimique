@@ -36,7 +36,7 @@ export default function ProductGallery({
         <button
           type="button"
           onClick={() => setIsZoomOpen(true)}
-          className="absolute right-5 top-5 z-20 inline-flex items-center gap-2 rounded-full border border-[#7A3511]/10 bg-white/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7A3511] shadow-md backdrop-blur-sm transition hover:bg-white"
+          className="absolute right-5 top-5 z-20 inline-flex items-center gap-2 rounded-full border border-[#1B2E27]/10 bg-white/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-black shadow-md backdrop-blur-sm transition hover:bg-white"
           aria-label="Zoom product image"
         >
           <ZoomIn size={12} />
@@ -81,7 +81,7 @@ export default function ProductGallery({
                 <button
                   type="button"
                   onClick={() => setIsZoomOpen(false)}
-                  className="absolute right-4 top-4 z-[10000] inline-flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-[#7A3511]/10 text-[#7A3511] hover:bg-[#FFF7EA]"
+                  className="absolute right-4 top-4 z-[10000] inline-flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-[#1B2E27]/10 text-black hover:bg-[#FFF7EA]"
                   aria-label="Close zoomed image"
                 >
                   <X size={20} />
@@ -123,14 +123,14 @@ export default function ProductGallery({
               whileTap={{ scale: 0.98 }}
               className={`relative h-[86px] w-[86px] shrink-0 overflow-hidden rounded-[18px] border transition-all duration-300 ${
                 isActive
-                  ? "border-[#7A3511] shadow-[0_10px_22px_rgba(122,53,17,0.18)]"
-                  : "border-[#efdccc] hover:border-[#7A3511]/40"
+                  ? "border-[#1B2E27] shadow-[0_10px_22px_rgba(122,53,17,0.18)]"
+                  : "border-[#efdccc] hover:border-[#1B2E27]/40"
               }`}
             >
               {isActive && (
                 <motion.div
                   layoutId="activeRing"
-                  className="absolute inset-0 rounded-[18px] border-2 border-[#7A3511]"
+                  className="absolute inset-0 rounded-[18px] border-2 border-[#1B2E27]"
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 />
               )}

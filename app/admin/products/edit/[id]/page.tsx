@@ -647,17 +647,17 @@ export default function EditProductPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#7A3511]"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#1B2E27]"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 text-gray-800">
+    <div className="min-h-screen bg-white py-8 text-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Edit Product</h1>
-          <p className="mt-2 text-gray-600">Update product information</p>
+          <h1 className="text-3xl font-bold text-black">Edit Product</h1>
+          <p className="mt-2 text-black">Update product information</p>
         </div>
 
         <form
@@ -667,7 +667,7 @@ export default function EditProductPage() {
           {/* Basic Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Product Name *
               </label>
               <input
@@ -675,20 +675,20 @@ export default function EditProductPage() {
                 required
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                 placeholder="Enter product name"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Brand
               </label>
               <input
                 type="text"
                 value={formData.brand}
                 onChange={(e) => handleInputChange("brand", e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                 placeholder="Denimique"
               />
             </div>
@@ -696,26 +696,26 @@ export default function EditProductPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Collection / Look
               </label>
               <input
                 type="text"
                 value={formData.flavor}
                 onChange={(e) => handleInputChange("flavor", e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                 placeholder="e.g., Autumn Edit, Ivory Luxe"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Gender
               </label>
               <select
                 value={formData.gender}
                 onChange={(e) => handleInputChange("gender", e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
               >
                 <option value="">Select gender</option>
                 <option value="Women">Women</option>
@@ -728,29 +728,29 @@ export default function EditProductPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Fabric</label>
-              <input value={formData.fabric} onChange={(e) => handleInputChange("fabric", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Cotton" />
+              <label className="block text-sm font-medium text-black mb-2">Fabric</label>
+              <input value={formData.fabric} onChange={(e) => handleInputChange("fabric", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Cotton" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Fit</label>
-              <input value={formData.fit} onChange={(e) => handleInputChange("fit", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Regular fit" />
+              <label className="block text-sm font-medium text-black mb-2">Fit</label>
+              <input value={formData.fit} onChange={(e) => handleInputChange("fit", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Regular fit" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Material</label>
-              <input value={formData.material} onChange={(e) => handleInputChange("material", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Silk blend" />
+              <label className="block text-sm font-medium text-black mb-2">Material</label>
+              <input value={formData.material} onChange={(e) => handleInputChange("material", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Silk blend" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Pattern</label>
-              <input value={formData.pattern} onChange={(e) => handleInputChange("pattern", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Solid / Printed" />
+              <label className="block text-sm font-medium text-black mb-2">Pattern</label>
+              <input value={formData.pattern} onChange={(e) => handleInputChange("pattern", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Solid / Printed" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Color</label>
-              <input value={formData.color} onChange={(e) => handleInputChange("color", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Ivory" />
+              <label className="block text-sm font-medium text-black mb-2">Color</label>
+              <input value={formData.color} onChange={(e) => handleInputChange("color", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Ivory" />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Short Description *
             </label>
             <input
@@ -760,13 +760,13 @@ export default function EditProductPage() {
               onChange={(e) =>
                 handleInputChange("shortDescription", e.target.value)
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
               placeholder="Brief description of the product"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Description *
             </label>
             <textarea
@@ -774,21 +774,21 @@ export default function EditProductPage() {
               rows={4}
               value={formData.description}
               onChange={(e) => handleInputChange("description", e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
               placeholder="Detailed description of the product"
             />
           </div>
 
           {/* Image Upload */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Product Images
             </label>
 
             {/* Existing Images */}
             {formData.images.length > 0 && (
               <div className="mb-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-2">
+                <h4 className="text-sm font-medium text-black mb-2">
                   Current Images:
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -840,7 +840,7 @@ export default function EditProductPage() {
             {/* Upload New Images */}
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
               <div className="text-center">
-                <div className="mx-auto h-12 w-12 text-gray-400">
+                <div className="mx-auto h-12 w-12 text-black">
                   <svg
                     fill="none"
                     viewBox="0 0 48 48"
@@ -857,10 +857,10 @@ export default function EditProductPage() {
                 </div>
                 <div className="mt-4">
                   <label htmlFor="image-upload" className="cursor-pointer">
-                    <span className="mt-2 block text-sm font-medium text-gray-900">
+                    <span className="mt-2 block text-sm font-medium text-black">
                       Upload new images
                     </span>
-                    <span className="mt-1 block text-sm text-gray-500">
+                    <span className="mt-1 block text-sm text-black">
                       PNG, JPG, GIF up to 10MB each
                     </span>
                   </label>
@@ -880,7 +880,7 @@ export default function EditProductPage() {
             {/* Image Previews */}
             {imageFiles.length > 0 && (
               <div className="mt-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-2">
+                <h4 className="text-sm font-medium text-black mb-2">
                   New Images to Upload:
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -895,7 +895,7 @@ export default function EditProductPage() {
                         className="w-full h-24 object-cover rounded-md border"
                       />
                       {imageFile.uploading && (
-                        <div className="absolute inset-0 bg-[#7A3511] bg-opacity-50 flex items-center justify-center rounded-md">
+                        <div className="absolute inset-0 bg-[#1B2E27] bg-opacity-50 flex items-center justify-center rounded-md">
                           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                         </div>
                       )}
@@ -929,7 +929,7 @@ export default function EditProductPage() {
                   ))}
                 </div>
                 {isUploadingImages && (
-                  <p className="text-sm text-[#7A3511] mt-2">
+                  <p className="text-sm text-black mt-2">
                     Uploading images...
                   </p>
                 )}
@@ -940,14 +940,14 @@ export default function EditProductPage() {
           {/* Category and Subcategory */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Main Category *
               </label>
               <select
                 required
                 value={formData.mainCategory}
                 onChange={(e) => handleMainCategoryChange(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
               >
                 <option value="">Select Main Category</option>
                 {mainCategories.map((mainCategory) => (
@@ -959,14 +959,14 @@ export default function EditProductPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Category *
               </label>
               <select
                 required
                 value={formData.category}
                 onChange={(e) => handleCategoryChange(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                 disabled={!formData.mainCategory}
               >
                 <option value="">Select Category</option>
@@ -979,7 +979,7 @@ export default function EditProductPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Subcategory
               </label>
               <select
@@ -987,7 +987,7 @@ export default function EditProductPage() {
                 onChange={(e) =>
                   handleInputChange("subcategory", e.target.value)
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                 disabled={!formData.category || filteredSubcategories.length === 0}
               >
                 <option value="">
@@ -1007,11 +1007,11 @@ export default function EditProductPage() {
           {/* Pricing */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Base Price (₹) *
               </label>
               <div className="relative">
-                <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500">
+                <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-black">
                   ₹
                 </span>
                 <input
@@ -1026,17 +1026,17 @@ export default function EditProductPage() {
                       e.target.value === "" ? 0 : parseFloat(e.target.value),
                     )
                   }
-                  className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-black mb-2">
                 Discount Price (₹)
               </label>
               <div className="relative">
-                <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500">
+                <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-black">
                   ₹
                 </span>
                 <input
@@ -1050,7 +1050,7 @@ export default function EditProductPage() {
                       e.target.value === "" ? 0 : parseFloat(e.target.value),
                     )
                   }
-                  className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
             </div>
@@ -1059,17 +1059,17 @@ export default function EditProductPage() {
           {/* Shipping Details */}
           <div>
             <div className="flex items-start justify-between gap-4">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-black">
                 Shipping Details
               </h3>
-              <p className="text-xs text-gray-500 max-w-xs text-right">
+              <p className="text-xs text-black max-w-xs text-right">
                 Required for shippable products. Leave all fields blank for
                 digital or service items.
               </p>
             </div>
             <div className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Weight (kg)
                 </label>
                 <input
@@ -1080,15 +1080,15 @@ export default function EditProductPage() {
                   onChange={(e) =>
                     handleInputChange("weightKg", e.target.value)
                   }
-                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="e.g., 0.5"
                 />
-                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-gray-500">
+                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-black">
                   kg
                 </span>
               </div>
               <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Length (cm)
                 </label>
                 <input
@@ -1099,15 +1099,15 @@ export default function EditProductPage() {
                   onChange={(e) =>
                     handleInputChange("lengthCm", e.target.value)
                   }
-                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="e.g., 20"
                 />
-                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-gray-500">
+                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-black">
                   cm
                 </span>
               </div>
               <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Breadth (cm)
                 </label>
                 <input
@@ -1118,15 +1118,15 @@ export default function EditProductPage() {
                   onChange={(e) =>
                     handleInputChange("breadthCm", e.target.value)
                   }
-                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="e.g., 15"
                 />
-                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-gray-500">
+                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-black">
                   cm
                 </span>
               </div>
               <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Height (cm)
                 </label>
                 <input
@@ -1137,10 +1137,10 @@ export default function EditProductPage() {
                   onChange={(e) =>
                     handleInputChange("heightCm", e.target.value)
                   }
-                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className="w-full pr-10 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="e.g., 10"
                 />
-                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-gray-500">
+                <span className="pointer-events-none absolute right-3 top-[calc(50%+18px)] -translate-y-1/2 text-xs text-black">
                   cm
                 </span>
               </div>
@@ -1156,9 +1156,9 @@ export default function EditProductPage() {
                 onChange={(e) =>
                   handleInputChange("isBestSeller", e.target.checked)
                 }
-                className="rounded border-gray-300 text-[#7A3511] focus:ring-[#7A3511]"
+                className="rounded border-gray-300 text-black focus:ring-[#1B2E27]"
               />
-              <span className="ml-2 text-sm text-gray-700">Best Seller</span>
+              <span className="ml-2 text-sm text-black">Best Seller</span>
             </label>
 
             <label className="flex items-center">
@@ -1168,16 +1168,16 @@ export default function EditProductPage() {
                 onChange={(e) =>
                   handleInputChange("isFeatured", e.target.checked)
                 }
-                className="rounded border-gray-300 text-[#7A3511] focus:ring-[#7A3511]"
+                className="rounded border-gray-300 text-black focus:ring-[#1B2E27]"
               />
-              <span className="ml-2 text-sm text-gray-700">Featured</span>
+              <span className="ml-2 text-sm text-black">Featured</span>
             </label>
           </div>
 
 
           {/* Product Details */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Key Details (comma-separated)
             </label>
             <input
@@ -1193,13 +1193,13 @@ export default function EditProductPage() {
                     .filter((item) => item),
                 )
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
               placeholder="e.g., Premium weave, festive-ready, reversible"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-black mb-2">
               Tags (comma-separated)
             </label>
             <input
@@ -1215,53 +1215,53 @@ export default function EditProductPage() {
                     .filter((tag) => tag),
                 )
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
               placeholder="e.g., festive, premium, new-arrival"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Available Sizes</label>
-              <input type="text" value={sizesInput} onChange={(e) => setSizesInput(e.target.value)} onBlur={() => handleInputChange("sizes", sizesInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="XS, S, M, L, XL" />
+              <label className="block text-sm font-medium text-black mb-2">Available Sizes</label>
+              <input type="text" value={sizesInput} onChange={(e) => setSizesInput(e.target.value)} onBlur={() => handleInputChange("sizes", sizesInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="XS, S, M, L, XL" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Occasions</label>
-              <input type="text" value={occasionInput} onChange={(e) => setOccasionInput(e.target.value)} onBlur={() => handleInputChange("occasion", occasionInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Wedding, Festive, Casual" />
+              <label className="block text-sm font-medium text-black mb-2">Occasions</label>
+              <input type="text" value={occasionInput} onChange={(e) => setOccasionInput(e.target.value)} onBlur={() => handleInputChange("occasion", occasionInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Wedding, Festive, Casual" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Care Instructions</label>
-              <input type="text" value={careInstructionsInput} onChange={(e) => setCareInstructionsInput(e.target.value)} onBlur={() => handleInputChange("careInstructions", careInstructionsInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Dry clean, hand wash" />
+              <label className="block text-sm font-medium text-black mb-2">Care Instructions</label>
+              <input type="text" value={careInstructionsInput} onChange={(e) => setCareInstructionsInput(e.target.value)} onBlur={() => handleInputChange("careInstructions", careInstructionsInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Dry clean, hand wash" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Meta Keywords</label>
-              <input type="text" value={metaKeywordsInput} onChange={(e) => setMetaKeywordsInput(e.target.value)} onBlur={() => handleInputChange("metaKeywords", metaKeywordsInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="designer, festive wear, premium" />
+              <label className="block text-sm font-medium text-black mb-2">Meta Keywords</label>
+              <input type="text" value={metaKeywordsInput} onChange={(e) => setMetaKeywordsInput(e.target.value)} onBlur={() => handleInputChange("metaKeywords", metaKeywordsInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="designer, festive wear, premium" />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Highlights</label>
-            <input type="text" value={highlightsInput} onChange={(e) => setHighlightsInput(e.target.value)} onBlur={() => handleInputChange("highlights", highlightsInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Premium fabric, embroidered detail, limited edition" />
+            <label className="block text-sm font-medium text-black mb-2">Highlights</label>
+            <input type="text" value={highlightsInput} onChange={(e) => setHighlightsInput(e.target.value)} onBlur={() => handleInputChange("highlights", highlightsInput.split(",").map((item) => item.trim()).filter(Boolean))} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Premium fabric, embroidered detail, limited edition" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">SEO Title</label>
-              <input type="text" value={formData.seoTitle} onChange={(e) => handleInputChange("seoTitle", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Elegant Ivory Kurta for Festive Wear" />
+              <label className="block text-sm font-medium text-black mb-2">SEO Title</label>
+              <input type="text" value={formData.seoTitle} onChange={(e) => handleInputChange("seoTitle", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Elegant Ivory Kurta for Festive Wear" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">SEO Description</label>
-              <textarea rows={2} value={formData.seoDescription} onChange={(e) => handleInputChange("seoDescription", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]" placeholder="Premium festive kurta with breathable fabric and modern silhouette." />
+              <label className="block text-sm font-medium text-black mb-2">SEO Description</label>
+              <textarea rows={2} value={formData.seoDescription} onChange={(e) => handleInputChange("seoDescription", e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]" placeholder="Premium festive kurta with breathable fabric and modern silhouette." />
             </div>
           </div>
 
           {/* Variants */}
           <div>
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-medium text-gray-900">Variants</h3>
+              <h3 className="text-lg font-medium text-black">Variants</h3>
               <button
                 type="button"
                 onClick={addVariant}
@@ -1277,7 +1277,7 @@ export default function EditProductPage() {
                 className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4 p-4 border border-gray-200 rounded-md"
               >
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-black mb-2">
                     Label *
                   </label>
                   <input
@@ -1287,17 +1287,17 @@ export default function EditProductPage() {
                     onChange={(e) =>
                       handleVariantChange(index, "label", e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                     placeholder="e.g., 50g, 100g"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-black mb-2">
                     Price (₹) *
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500">
+                    <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-black">
                       ₹
                     </span>
                     <input
@@ -1313,13 +1313,13 @@ export default function EditProductPage() {
                           e.target.value === "" ? 0 : parseFloat(e.target.value),
                         )
                       }
-                      className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27] appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-black mb-2">
                     Stock *
                   </label>
                   <input
@@ -1336,7 +1336,7 @@ export default function EditProductPage() {
                           : parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0,
                       )
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7A3511]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1B2E27]"
                   />
                 </div>
 
@@ -1359,14 +1359,14 @@ export default function EditProductPage() {
           <div className="flex justify-end space-x-4 pt-6 border-t">
             <Link
               href="/admin/products"
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-[#FDFBF7] transition-colors"
+              className="px-4 py-2 border border-gray-300 rounded-md text-black hover:bg-white transition-colors"
             >
               Cancel
             </Link>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-4 py-2 bg-[#7A3511] text-white rounded-md hover:bg-[#5A260F] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-4 py-2 bg-[#1B2E27] text-white rounded-md hover:bg-[#5A260F] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isSubmitting ? "Updating Product..." : "Update Product"}
             </button>

@@ -15,7 +15,7 @@ export default function AnnouncementBar() {
       text: "Premium fabrics, timeless craftsmanship, everyday comfort",
     },
     {
-      text: "Call for bulk pricing: +91 9625610749",
+      text: "Call for bulk pricing: +91 9213970893",
       href: "tel:+919625610749",
     },
     {
@@ -36,13 +36,11 @@ export default function AnnouncementBar() {
       </div>
 
       <div className="relative overflow-x-auto md:overflow-x-hidden">
-        <div
-          className="flex items-center gap-8 md:gap-16 whitespace-nowrap px-4 py-1.5 text-[12px] font-medium tracking-[0.2px] animate-marquee hover:[animation-play-state:paused] relative z-10"
-        >
+        <div className="flex items-center gap-8 md:gap-16 whitespace-nowrap px-4 py-1.5 text-[12px] font-medium tracking-[0.2px] animate-marquee hover:[animation-play-state:paused] relative z-10">
           {[...items, ...items].map((item, index) => {
             const content = (
               <div className="inline-flex items-center px-2 py-1">
-                <span className="mx-2 text-[#8DA9C9]">|</span>
+                <span className="mx-2 text-black">|</span>
                 <span className="text-white">{item.text}</span>
               </div>
             );
@@ -53,7 +51,7 @@ export default function AnnouncementBar() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                className="ml-10 inline-flex transition-colors hover:text-[#B7CCE4]"
+                className="ml-10 inline-flex transition-colors hover:text-black"
               >
                 {content}
               </a>

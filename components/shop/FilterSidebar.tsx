@@ -30,7 +30,7 @@ const COLOR_HEX: Record<string, string> = {
   ivory: "#fffff0",
   cream: "#fdf6e3",
   beige: "#e8dcc8",
-  brown: "#7a3511",
+  brown: "#1B2E27",
   tan: "#d2b48c",
   maroon: "#7a1f2b",
   red: "#dc2626",
@@ -79,10 +79,10 @@ function FilterSection({ title, defaultOpen = true, children }: FilterSectionPro
         onClick={() => setOpen((o) => !o)}
         className="flex w-full items-center justify-between text-left"
       >
-        <span className="text-xs font-semibold text-[#3d2418]">{title}</span>
+        <span className="text-xs font-semibold text-black">{title}</span>
         <ChevronDown
           size={14}
-          className={`text-[#8C7466] transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-black transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
       {open && <div className="mt-2.5 space-y-2">{children}</div>}
@@ -111,22 +111,22 @@ function OptionRow({
         <span
           className={`flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-[3px] border transition-colors ${
             active
-              ? "border-[#7A3511] bg-[#7A3511]"
-              : "border-[#d8c7b4] bg-white group-hover:border-[#7A3511]/60"
+              ? "border-[#1B2E27] bg-[#1B2E27]"
+              : "border-[#d8c7b4] bg-white group-hover:border-[#1B2E27]/60"
           }`}
         >
           {active && <span className="h-1.5 w-1.5 rounded-[2px] bg-white" />}
         </span>
         <span
           className={`break-words text-[11px] leading-5 ${
-            active ? "font-semibold text-[#7A3511]" : "text-[#4b3a2d]"
+            active ? "font-semibold text-black" : "text-black"
           }`}
         >
           {label}
         </span>
       </span>
       {typeof count === "number" && (
-        <span className="shrink-0 text-[10px] text-gray-400">{count}</span>
+        <span className="shrink-0 text-[10px] text-black">{count}</span>
       )}
     </button>
   );
@@ -178,13 +178,13 @@ export default function FilterSidebar({
   return (
     <div className="rounded-lg border border-[#f1e4d6] bg-white p-4">
       <div className="mb-1 flex items-center justify-between">
-        <h2 className="text-sm font-bold text-[#3d2418]">Filters</h2>
+        <h2 className="text-sm font-bold text-black">Filters</h2>
         <div className="flex items-center gap-3">
           {hasActiveFilters && (
             <button
               type="button"
               onClick={onClearAll}
-              className="text-xs font-semibold text-[#7A3511] hover:underline"
+              className="text-xs font-semibold text-black hover:underline"
             >
               Clear all
             </button>
@@ -193,7 +193,7 @@ export default function FilterSidebar({
             <button
               type="button"
               onClick={onClose}
-              className="rounded-full p-1 text-gray-500 hover:bg-gray-100 lg:hidden"
+              className="rounded-full p-1 text-black hover:bg-gray-100 lg:hidden"
             >
               <X size={18} />
             </button>
@@ -274,8 +274,8 @@ export default function FilterSidebar({
                   onClick={() => onToggleArray("sizes", opt.name)}
                   className={`min-w-[1.75rem] rounded border px-2 py-1.5 text-[11px] font-semibold transition ${
                     active
-                      ? "border-[#7A3511] bg-[#7A3511] text-white"
-                      : "border-[#e2d3c1] text-[#4b3a2d] hover:border-[#7A3511]/60"
+                      ? "border-[#1B2E27] bg-[#1B2E27] text-white"
+                      : "border-[#e2d3c1] text-black hover:border-[#1B2E27]/60"
                   }`}
                 >
                   {opt.name}
@@ -302,7 +302,7 @@ export default function FilterSidebar({
                 >
                   <span
                     className={`flex h-8 w-8 items-center justify-center rounded-full border-2 transition ${
-                      active ? "border-[#7A3511]" : "border-transparent"
+                      active ? "border-[#1B2E27]" : "border-transparent"
                     }`}
                   >
                     {swatch ? (
@@ -311,14 +311,14 @@ export default function FilterSidebar({
                         style={{ background: swatch }}
                       />
                     ) : (
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 text-[9px] font-semibold text-gray-500 ring-1 ring-black/10">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 text-[9px] font-semibold text-black ring-1 ring-black/10">
                         {opt.name.slice(0, 2).toUpperCase()}
                       </span>
                     )}
                   </span>
                   <span
                     className={`max-w-[3.5rem] truncate text-[10px] ${
-                      active ? "font-semibold text-[#7A3511]" : "text-gray-500"
+                      active ? "font-semibold text-black" : "text-black"
                     }`}
                   >
                     {opt.name}

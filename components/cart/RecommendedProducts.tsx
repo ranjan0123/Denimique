@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useCartStore } from "@/store/cartStore";
 import { getProductPrimaryImage, getProducts } from "@/lib/storefront";
 import type { Product } from "@/types/product";
+import { getMainCategoryId } from "@/lib/catalog";
 
 const RECOMMENDED_LIMIT = 4;
 
@@ -27,21 +28,60 @@ export default function RecommendedProducts({
 
     const loadRecommended = async () => {
       try {
-        const items = await getProducts({ limit: 200 });
+        // The API sorts newest-first. A small page therefore kept returning
+        // the same recently added jeans instead of considering the full store.
+        const items = await getProducts({ limit: 5000 });
         if (!isMounted) return;
 
         const excluded = new Set(excludeProductIds);
         const notInCart = items.filter(
           (product) => !excluded.has(product._id || product.id),
         );
-        const highlighted = notInCart.filter(
-          (product) => product.isBestSeller || product.isFeatured,
+        const cartProducts = items.filter((product) =>
+          excluded.has(product._id || product.id),
+        );
+        const cartSubcategories = new Set(
+          cartProducts.map((product) => product.subcategory?.slug).filter(Boolean),
+        );
+        const cartCategories = new Set(
+          cartProducts.map((product) => product.category?.slug).filter(Boolean),
+        );
+        const cartMainCategories = new Set(
+          cartProducts.map(getMainCategoryId).filter(Boolean),
         );
 
-        const picks = (highlighted.length > 0 ? highlighted : notInCart).slice(
-          0,
-          RECOMMENDED_LIMIT,
+        const related = notInCart
+          .map((product) => {
+            const score =
+              (product.subcategory?.slug && cartSubcategories.has(product.subcategory.slug) ? 4 : 0) +
+              (product.category?.slug && cartCategories.has(product.category.slug) ? 3 : 0) +
+              (getMainCategoryId(product.category) && cartMainCategories.has(getMainCategoryId(product.category)) ? 1 : 0);
+            return { product, score };
+          })
+          .filter(({ score }) => score > 0)
+          .sort((a, b) =>
+            b.score - a.score ||
+            Number(Boolean(b.product.isBestSeller || b.product.isFeatured)) -
+              Number(Boolean(a.product.isBestSeller || a.product.isFeatured)),
+          )
+          .map(({ product }) => product);
+
+        // If the cart has no usable category data, show a category-diverse
+        // selection from the full catalog instead of its newest records only.
+        const fallbackCandidates = [...notInCart].sort(
+          (a, b) =>
+            Number(Boolean(b.isBestSeller || b.isFeatured)) -
+            Number(Boolean(a.isBestSeller || a.isFeatured)),
         );
+        const candidates = related.length ? related : fallbackCandidates;
+        const seenCategories = new Set<string>();
+        const diverseFallback = candidates.filter((product) => {
+          const category = product.category?.slug || product.collection || product._id || product.id;
+          if (seenCategories.has(category)) return false;
+          seenCategories.add(category);
+          return true;
+        });
+        const picks = (related.length ? related : diverseFallback).slice(0, RECOMMENDED_LIMIT);
 
         setProducts(picks);
       } catch {
@@ -74,8 +114,8 @@ export default function RecommendedProducts({
 
   return (
     <div className="mt-10 border-t border-gray-200 pt-8">
-      <h2 className="text-xl font-bold text-[#2d1d18]">You May Also Like</h2>
-      <p className="mt-1 text-sm text-gray-500">
+      <h2 className="text-xl font-bold text-black">You May Also Like</h2>
+      <p className="mt-1 text-sm text-black">
         Picks that pair well with what&apos;s in your cart.
       </p>
 
@@ -117,17 +157,17 @@ export default function RecommendedProducts({
                   <div className="flex flex-1 flex-col p-3">
                     <Link
                       href={`/products/${product.slug}`}
-                      className="line-clamp-2 min-h-[36px] text-sm font-semibold text-[#2d1d18] hover:text-[#7A3511]"
+                      className="line-clamp-2 min-h-[36px] text-sm font-semibold text-black hover:text-black"
                     >
                       {product.name}
                     </Link>
 
                     <div className="mt-1.5 flex items-center gap-2">
-                      <span className="text-sm font-bold text-[#7A3511]">
+                      <span className="text-sm font-bold text-black">
                         Rs. {price}
                       </span>
                       {product.discountPrice && (
-                        <span className="text-xs text-gray-400 line-through">
+                        <span className="text-xs text-black line-through">
                           Rs. {product.basePrice}
                         </span>
                       )}

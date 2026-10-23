@@ -34,7 +34,7 @@ export default function CreateBlogPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="h-24 w-24 rounded-full border-4 border-gray-200 border-t-[#7A3511] animate-spin" />
+        <div className="h-24 w-24 rounded-full border-4 border-gray-200 border-t-[#1B2E27] animate-spin" />
       </div>
     );
   }
@@ -42,8 +42,8 @@ export default function CreateBlogPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Create New Blog</h1>
-        <p className="text-gray-600">
+        <h1 className="text-3xl font-bold text-black mb-2">Create New Blog</h1>
+        <p className="text-black">
           Create a new blog post with comprehensive content and SEO optimization
         </p>
       </div>

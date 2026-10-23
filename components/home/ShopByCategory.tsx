@@ -60,7 +60,7 @@ export default function NewArrivals({ initialProducts = [] }: NewArrivalsProps) 
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-end justify-between mb-14">
           <div>
-            <span className="text-gray-400 font-medium tracking-wide uppercase text-xs">
+            <span className="text-black font-medium tracking-wide uppercase text-xs">
               Just Dropped
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-black mt-2">
@@ -104,8 +104,8 @@ export default function NewArrivals({ initialProducts = [] }: NewArrivalsProps) 
                     disabled={isSoldOut}
                     className={`absolute inset-x-0 bottom-0 py-3 text-sm font-medium tracking-wide transition-colors ${
                       isSoldOut
-                        ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                        : "bg-[#102B50] text-white hover:bg-[#0C2446]"
+                        ? "bg-gray-200 text-black cursor-not-allowed"
+                        : "bg-[#233B32] text-white hover:bg-[#1B2E27]"
                     }`}
                   >
                     {isSoldOut ? "Sold Out" : "Add to Cart"}
@@ -116,23 +116,23 @@ export default function NewArrivals({ initialProducts = [] }: NewArrivalsProps) 
                   {SIZES.map((size) => (
                     <span
                       key={size}
-                      className="w-10 h-9 flex items-center justify-center text-xs font-medium bg-gray-100 text-gray-500"
+                      className="w-10 h-9 flex items-center justify-center text-xs font-medium bg-gray-100 text-black"
                     >
                       {size}
                     </span>
                   ))}
                 </div>
 
-                <span className="text-xs text-gray-400 uppercase tracking-wide">
+                <span className="text-xs text-black uppercase tracking-wide">
                   {product.category?.name || "Shop"}
                 </span>
                 <h3 className="text-lg font-semibold text-black mt-1">
                   {product.name}
                 </h3>
-                <p className="text-red-500 font-medium mt-1">
+                <p className="text-black font-medium mt-1">
                   {"₹"} {price}
                   {product.discountPrice && (
-                    <span className="text-gray-400 text-sm line-through ml-2">
+                    <span className="text-black text-sm line-through ml-2">
                       {"₹"} {product.basePrice}
                     </span>
                   )}

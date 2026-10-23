@@ -52,10 +52,10 @@ export default function AdminBlogsPage() {
     <div className="space-y-8">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Blog Management</h1>
+        <h1 className="text-3xl font-bold text-black">Blog Management</h1>
         <Link
           href="/admin/blogs/create"
-          className="flex items-center gap-2 bg-[#7A3511] hover:bg-[#5A260F] text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+          className="flex items-center gap-2 bg-[#1B2E27] hover:bg-[#5A260F] text-white font-semibold py-2 px-4 rounded-lg transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create Blog
@@ -68,48 +68,48 @@ export default function AdminBlogsPage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm">Total Blogs</p>
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-black text-sm">Total Blogs</p>
+                <p className="text-3xl font-bold text-black">
                   {stats.totalBlogs}
                 </p>
               </div>
-              <BarChart3 className="w-8 h-8 text-[#7A3511] opacity-20" />
+              <BarChart3 className="w-8 h-8 text-black opacity-20" />
             </div>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm">Published</p>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-black text-sm">Published</p>
+                <p className="text-3xl font-bold text-black">
                   {stats.publishedBlogs}
                 </p>
               </div>
-              <BarChart3 className="w-8 h-8 text-green-600 opacity-20" />
+              <BarChart3 className="w-8 h-8 text-black opacity-20" />
             </div>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm">Drafts</p>
-                <p className="text-3xl font-bold text-yellow-600">
+                <p className="text-black text-sm">Drafts</p>
+                <p className="text-3xl font-bold text-black">
                   {stats.draftBlogs}
                 </p>
               </div>
-              <BarChart3 className="w-8 h-8 text-yellow-600 opacity-20" />
+              <BarChart3 className="w-8 h-8 text-black opacity-20" />
             </div>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm">Total Views</p>
-                <p className="text-3xl font-bold text-purple-600">
+                <p className="text-black text-sm">Total Views</p>
+                <p className="text-3xl font-bold text-black">
                   {stats.totalViews.toLocaleString()}
                 </p>
               </div>
-              <BarChart3 className="w-8 h-8 text-purple-600 opacity-20" />
+              <BarChart3 className="w-8 h-8 text-black opacity-20" />
             </div>
           </div>
         </div>

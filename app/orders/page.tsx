@@ -100,7 +100,7 @@ export default function OrdersPage() {
   if (!hasInitialized || isLoading) {
     return (
       <div className="relative overflow-hidden bg-[#f6f2ea]">
-        <div className="pointer-events-none absolute -top-32 right-10 h-72 w-72 rounded-full bg-[#7A3511]/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-10 h-72 w-72 rounded-full bg-[#1B2E27]/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 left-8 h-72 w-72 rounded-full bg-[#4A230F]/15 blur-3xl" />
         <div className="max-w-6xl mx-auto px-6 py-16">
           <div className="h-10 w-48 rounded-full bg-white/70 shadow-sm animate-pulse" />
@@ -128,14 +128,14 @@ export default function OrdersPage() {
   if (error) {
     return (
       <div className="relative overflow-hidden bg-[#f6f2ea]">
-        <div className="pointer-events-none absolute -top-32 right-10 h-72 w-72 rounded-full bg-[#7A3511]/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-10 h-72 w-72 rounded-full bg-[#1B2E27]/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 left-8 h-72 w-72 rounded-full bg-[#4A230F]/15 blur-3xl" />
         <div className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#7A3511]">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-black">
             Orders
           </p>
-          <h1 className="mt-3 text-3xl font-bold text-[#4A230F]">My Orders</h1>
-          <p className="mt-4 text-red-600">{error}</p>
+          <h1 className="mt-3 text-3xl font-bold text-black">My Orders</h1>
+          <p className="mt-4 text-black">{error}</p>
         </div>
       </div>
     );
@@ -144,14 +144,14 @@ export default function OrdersPage() {
   if (orders.length === 0) {
     return (
       <div className="relative overflow-hidden bg-[#f6f2ea]">
-        <div className="pointer-events-none absolute -top-32 right-10 h-72 w-72 rounded-full bg-[#7A3511]/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-10 h-72 w-72 rounded-full bg-[#1B2E27]/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 left-8 h-72 w-72 rounded-full bg-[#4A230F]/15 blur-3xl" />
         <div className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#7A3511]">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-black">
             Orders
           </p>
-          <h1 className="mt-3 text-3xl font-bold text-[#4A230F]">My Orders</h1>
-          <p className="mt-4 text-gray-600">
+          <h1 className="mt-3 text-3xl font-bold text-black">My Orders</h1>
+          <p className="mt-4 text-black">
             You have not placed any orders yet.
           </p>
           <Link
@@ -166,19 +166,19 @@ export default function OrdersPage() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#f6f2ea] text-gray-800">
-      <div className="pointer-events-none absolute -top-40 right-20 h-96 w-96 rounded-full bg-[#7A3511]/15 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#f6f2ea] text-black">
+      <div className="pointer-events-none absolute -top-40 right-20 h-96 w-96 rounded-full bg-[#1B2E27]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 left-10 h-96 w-96 rounded-full bg-[#4A230F]/15 blur-3xl" />
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#7A3511]">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-black">
               Orders
             </p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-[#4A230F]">
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-black">
               My Orders
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-gray-600">
+            <p className="mt-3 max-w-2xl text-sm text-black">
               Check order status, manage payments, and revisit your favorite
               items in one place.
             </p>
@@ -186,7 +186,7 @@ export default function OrdersPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/shop"
-              className="inline-flex items-center justify-center rounded-full border border-[#4A230F]/20 bg-white px-5 py-2.5 text-sm font-semibold text-[#4A230F] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="inline-flex items-center justify-center rounded-full border border-[#4A230F]/20 bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               Continue shopping
             </Link>
@@ -201,50 +201,50 @@ export default function OrdersPage() {
 
         <div className="mt-10 grid gap-4 md:grid-cols-4">
           <div className="rounded-3xl border border-white/50 bg-white/80 p-5 shadow-sm backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black">
               Total Orders
             </p>
-            <p className="mt-4 text-3xl font-semibold text-[#4A230F]">
+            <p className="mt-4 text-3xl font-semibold text-black">
               {orders.length}
             </p>
-            <p className="mt-2 text-sm text-gray-500">Lifetime count</p>
+            <p className="mt-2 text-sm text-black">Lifetime count</p>
           </div>
           <div className="rounded-3xl border border-white/50 bg-white/80 p-5 shadow-sm backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black">
               In Progress
             </p>
-            <p className="mt-4 text-3xl font-semibold text-[#4A230F]">
+            <p className="mt-4 text-3xl font-semibold text-black">
               {summary.inProgress}
             </p>
-            <p className="mt-2 text-sm text-gray-500">Packing to delivery</p>
+            <p className="mt-2 text-sm text-black">Packing to delivery</p>
           </div>
           <div className="rounded-3xl border border-white/50 bg-white/80 p-5 shadow-sm backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black">
               Delivered
             </p>
-            <p className="mt-4 text-3xl font-semibold text-[#4A230F]">
+            <p className="mt-4 text-3xl font-semibold text-black">
               {summary.delivered}
             </p>
-            <p className="mt-2 text-sm text-gray-500">Arrived at your door</p>
+            <p className="mt-2 text-sm text-black">Arrived at your door</p>
           </div>
           <div className="rounded-3xl border border-white/50 bg-white/80 p-5 shadow-sm backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black">
               Total Spent
             </p>
-            <p className="mt-4 text-3xl font-semibold text-[#4A230F]">
+            <p className="mt-4 text-3xl font-semibold text-black">
               Rs. {formatRupees(summary.totalSpent)}
             </p>
-            <p className="mt-2 text-sm text-gray-500">All-time purchases</p>
+            <p className="mt-2 text-sm text-black">All-time purchases</p>
           </div>
         </div>
 
         {summary.needsPayment > 0 && (
-          <div className="mt-6 rounded-3xl border border-amber-200 bg-amber-50/70 p-5 text-sm text-amber-900">
+          <div className="mt-6 rounded-3xl border border-amber-200 bg-amber-50/70 p-5 text-sm text-black">
             <p className="font-semibold">
               Payment attention needed on {summary.needsPayment} order
               {summary.needsPayment > 1 ? "s" : ""}.
             </p>
-            <p className="mt-1 text-amber-800/80">
+            <p className="mt-1 text-black/80">
               Open the order to retry payment or confirm COD details.
             </p>
           </div>
@@ -259,13 +259,13 @@ export default function OrdersPage() {
             >
               <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-400">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-black">
                     Order Number
                   </p>
-                  <h2 className="mt-2 text-2xl font-semibold text-[#4A230F]">
+                  <h2 className="mt-2 text-2xl font-semibold text-black">
                     {order.orderNumber}
                   </h2>
-                  <p className="mt-2 text-sm text-gray-500">
+                  <p className="mt-2 text-sm text-black">
                     {order.createdAt
                       ? new Date(order.createdAt).toLocaleDateString("en-IN", {
                           day: "2-digit",
@@ -290,15 +290,15 @@ export default function OrdersPage() {
                   >
                     {formatStatusLabel(order.paymentStatus)}
                   </span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1.5 text-gray-700">
+                  <span className="rounded-full bg-gray-100 px-3 py-1.5 text-black">
                     {order.paymentMethod.toUpperCase()}
                   </span>
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3 text-sm text-gray-600">
+              <div className="mt-6 grid gap-4 md:grid-cols-3 text-sm text-black">
                 <div>
-                  <p className="font-semibold text-gray-900">
+                  <p className="font-semibold text-black">
                     {order.items.length} items
                   </p>
                   <p>
@@ -314,17 +314,17 @@ export default function OrdersPage() {
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Shipping to</p>
+                  <p className="font-semibold text-black">Shipping to</p>
                   <p>
                     {order.shippingAddress.city}, {order.shippingAddress.state}
                   </p>
                 </div>
                 <div className="md:text-right">
-                  <p className="font-semibold text-gray-900">Total</p>
-                  <p className="text-lg font-semibold text-[#4A230F]">
+                  <p className="font-semibold text-black">Total</p>
+                  <p className="text-lg font-semibold text-black">
                     Rs. {formatRupees(order.total)}
                   </p>
-                  <span className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-[#4A230F]">
+                  <span className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-black">
                     View details
                     <ArrowRightIcon className="h-4 w-4" />
                   </span>

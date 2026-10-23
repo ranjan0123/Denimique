@@ -198,7 +198,7 @@ export default function AdminProductsPage() {
   if (isLoading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-[#7A3511] animate-spin" />
+        <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-[#1B2E27] animate-spin" />
       </div>
     );
   }
@@ -208,17 +208,17 @@ export default function AdminProductsPage() {
       {/* Page header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-xl font-semibold text-slate-950 sm:text-2xl">
+          <h1 className="text-xl font-semibold text-black sm:text-2xl">
             Products
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-black">
             Manage your product inventory.
           </p>
         </div>
 
         <Link
           href="/admin/products/add"
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#7A3511] px-3.5 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1B2E27] px-3.5 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
         >
           <Plus className="h-4 w-4" />
           Add Product
@@ -236,14 +236,14 @@ export default function AdminProductsPage() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-medium text-slate-500">
+                  <p className="text-sm font-medium text-black">
                     {card.label}
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-slate-950">
+                  <p className="mt-2 text-2xl font-semibold text-black">
                     {card.value}
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#7A3511]/8 p-2.5 text-[#7A3511]">
+                <div className="rounded-xl bg-[#1B2E27]/8 p-2.5 text-black">
                   <Icon className="h-4.5 w-4.5" />
                 </div>
               </div>
@@ -255,13 +255,13 @@ export default function AdminProductsPage() {
       {/* Imported-catalog notice */}
       {stats.imported > 0 && (
         <div className="flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-          <Truck className="mt-0.5 h-4.5 w-4.5 shrink-0 text-amber-600" />
+          <Truck className="mt-0.5 h-4.5 w-4.5 shrink-0 text-black" />
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-amber-900">
+            <p className="text-sm font-semibold text-black">
               {stats.imported} product{stats.imported === 1 ? "" : "s"} came from a
               bulk-imported supplier catalog (Snazzyway)
             </p>
-            <p className="mt-0.5 text-xs text-amber-700">
+            <p className="mt-0.5 text-xs text-black">
               These were dropshipped in with a different data shape than
               Denimique&apos;s own products and don&apos;t have a slug, brand,
               or Denimique-native description. Use the &quot;Source&quot; filter
@@ -275,20 +275,20 @@ export default function AdminProductsPage() {
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
           <div className="relative flex-1 min-w-0">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-black" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search products by name..."
-              className="w-full rounded-lg border border-slate-200 bg-slate-50/60 py-2 pl-9 pr-3 text-sm outline-none focus:border-[#7A3511]/40 focus:ring-2 focus:ring-[#7A3511]/10"
+              className="w-full rounded-lg border border-slate-200 bg-slate-50/60 py-2 pl-9 pr-3 text-sm outline-none focus:border-[#1B2E27]/40 focus:ring-2 focus:ring-[#1B2E27]/10"
             />
           </div>
 
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-700 outline-none focus:border-[#7A3511]/40"
+            className="rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-black outline-none focus:border-[#1B2E27]/40"
           >
             <option value="all">All categories</option>
             {categoryOptions.map((name) => (
@@ -301,7 +301,7 @@ export default function AdminProductsPage() {
           <select
             value={sourceFilter}
             onChange={(e) => setSourceFilter(e.target.value as SourceFilter)}
-            className="rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-700 outline-none focus:border-[#7A3511]/40"
+            className="rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-black outline-none focus:border-[#1B2E27]/40"
           >
             <option value="all">All sources</option>
             <option value="native">Denimique products</option>
@@ -309,11 +309,11 @@ export default function AdminProductsPage() {
           </select>
 
           <div className="relative">
-            <ArrowDownUp className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+            <ArrowDownUp className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-black" />
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortOption)}
-              className="rounded-lg border border-slate-200 bg-slate-50/60 py-2 pl-8 pr-3 text-sm text-slate-700 outline-none focus:border-[#7A3511]/40"
+              className="rounded-lg border border-slate-200 bg-slate-50/60 py-2 pl-8 pr-3 text-sm text-black outline-none focus:border-[#1B2E27]/40"
             >
               <option value="newest">Newest first</option>
               <option value="price-asc">Price: Low to High</option>
@@ -330,22 +330,22 @@ export default function AdminProductsPage() {
           <table className="min-w-full divide-y divide-slate-100">
             <thead className="bg-slate-50/70">
               <tr>
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-black">
                   Product
                 </th>
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-black">
                   Category
                 </th>
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-black">
                   Price
                 </th>
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-black">
                   Stock
                 </th>
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-black">
                   Status
                 </th>
-                <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wider text-black">
                   Actions
                 </th>
               </tr>
@@ -364,39 +364,39 @@ export default function AdminProductsPage() {
                           height={40}
                         />
                       ) : (
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-400">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-black">
                           <Boxes className="h-4 w-4" />
                         </div>
                       )}
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <p className="truncate text-sm font-medium text-slate-900 max-w-[260px]">
+                          <p className="truncate text-sm font-medium text-black max-w-[260px]">
                             {product.name}
                           </p>
                           {product.isImported && (
-                            <span className="shrink-0 rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700">
+                            <span className="shrink-0 rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-black">
                               Imported
                             </span>
                           )}
                         </div>
-                        <p className="truncate text-xs text-slate-500 max-w-[260px]">
+                        <p className="truncate text-xs text-black max-w-[260px]">
                           {product.flavor || product.category?.name || "Fashion collection"}
                         </p>
                       </div>
                     </div>
                   </td>
-                  <td className="px-5 py-3.5 whitespace-nowrap text-sm text-slate-600">
+                  <td className="px-5 py-3.5 whitespace-nowrap text-sm text-black">
                     {product.category?.name || "—"}
                   </td>
                   <td className="px-5 py-3.5 whitespace-nowrap">
-                    <div className="text-sm text-slate-900">
+                    <div className="text-sm text-black">
                       ₹{product.discountPrice || product.basePrice}
                     </div>
                     {Boolean(
                       product.discountPrice &&
                         product.discountPrice < product.basePrice,
                     ) && (
-                      <div className="text-xs text-slate-400 line-through">
+                      <div className="text-xs text-black line-through">
                         ₹{product.basePrice}
                       </div>
                     )}
@@ -406,30 +406,30 @@ export default function AdminProductsPage() {
                       <span
                         className={
                           product.totalStock === 0
-                            ? "font-semibold text-red-600"
-                            : "text-slate-700"
+                            ? "font-semibold text-black"
+                            : "text-black"
                         }
                       >
                         {product.totalStock}
                       </span>
                     ) : (
-                      <span className="text-slate-400">—</span>
+                      <span className="text-black">—</span>
                     )}
                   </td>
                   <td className="px-5 py-3.5 whitespace-nowrap">
                     <div className="flex flex-wrap gap-1">
                       {product.isBestSeller && (
-                        <span className="inline-flex rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-800">
+                        <span className="inline-flex rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-black">
                           Best Seller
                         </span>
                       )}
                       {product.isFeatured && (
-                        <span className="inline-flex rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
+                        <span className="inline-flex rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-black">
                           Featured
                         </span>
                       )}
                       {!product.isBestSeller && !product.isFeatured && (
-                        <span className="text-xs text-slate-400">—</span>
+                        <span className="text-xs text-black">—</span>
                       )}
                     </div>
                   </td>
@@ -437,14 +437,14 @@ export default function AdminProductsPage() {
                     <div className="flex justify-end gap-3">
                       <Link
                         href={`/admin/products/edit/${product._id}`}
-                        className="text-[#7A3511] hover:text-[#5A260F]"
+                        className="text-black hover:text-black"
                       >
                         Edit
                       </Link>
                       <button
                         onClick={() => handleDelete(product._id!)}
                         disabled={isDeleting === product._id}
-                        className="text-red-600 hover:text-red-800 disabled:opacity-50"
+                        className="text-black hover:text-black disabled:opacity-50"
                       >
                         {isDeleting === product._id ? "Deleting..." : "Delete"}
                       </button>
@@ -458,11 +458,11 @@ export default function AdminProductsPage() {
 
         {filteredProducts.length === 0 && (
           <div className="py-16 text-center">
-            <Boxes className="mx-auto h-10 w-10 text-slate-300" />
-            <h3 className="mt-3 text-sm font-medium text-slate-900">
+            <Boxes className="mx-auto h-10 w-10 text-black" />
+            <h3 className="mt-3 text-sm font-medium text-black">
               {products.length === 0 ? "No products" : "No matching products"}
             </h3>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-black">
               {products.length === 0
                 ? "Get started by adding a new product."
                 : "Try adjusting your search or filters."}
@@ -471,7 +471,7 @@ export default function AdminProductsPage() {
               <div className="mt-6">
                 <Link
                   href="/admin/products/add"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#7A3511] px-4 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#1B2E27] px-4 py-2 text-sm font-semibold text-white hover:bg-[#5A260F] transition-colors"
                 >
                   <Plus className="h-4 w-4" />
                   Add Product
@@ -483,7 +483,7 @@ export default function AdminProductsPage() {
 
         {filteredProducts.length > 0 && (
           <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-black">
               Showing {(currentPage - 1) * PAGE_SIZE + 1}–
               {Math.min(currentPage * PAGE_SIZE, filteredProducts.length)} of{" "}
               {filteredProducts.length}
@@ -492,18 +492,18 @@ export default function AdminProductsPage() {
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
-                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-black hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 <ChevronLeft className="h-3.5 w-3.5" />
                 Prev
               </button>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-black">
                 Page {currentPage} of {totalPages}
               </span>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
-                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-black hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Next
                 <ChevronRight className="h-3.5 w-3.5" />
@@ -515,7 +515,7 @@ export default function AdminProductsPage() {
 
       <Link
         href="/admin"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900"
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-black hover:text-black"
       >
         <ChevronLeft className="h-4 w-4" />
         Back to Dashboard

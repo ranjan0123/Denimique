@@ -89,18 +89,18 @@ export default function AdminFormResponsesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7]">
+    <div className="min-h-screen bg-white">
       <div className="bg-white border-b border-slate-200">
         <div className="w-full px-6 lg:px-10 py-6 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-950">
+            <h1 className="text-3xl font-bold text-black">
               Form Responses
             </h1>
-            <p className="text-slate-600 mt-1">
+            <p className="text-black mt-1">
               Manage messages from contact, newsletter, wholesale, and blog forms.
             </p>
           </div>
-          <Link href="/admin" className="text-[#0B0F6B] hover:text-[#151b87]">
+          <Link href="/admin" className="text-black hover:text-black">
             {"<-"} Back to Admin
           </Link>
         </div>
@@ -118,8 +118,8 @@ export default function AdminFormResponsesPage() {
               key={card.label}
               className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
             >
-              <p className="text-sm text-slate-500">{card.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-slate-900">
+              <p className="text-sm text-black">{card.label}</p>
+              <p className="mt-2 text-2xl font-semibold text-black">
                 {card.value}
               </p>
             </div>
@@ -156,15 +156,15 @@ export default function AdminFormResponsesPage() {
 
         <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
           <div className="border-b border-slate-200 px-6 py-4">
-            <h2 className="text-xl font-semibold text-slate-900">
+            <h2 className="text-xl font-semibold text-black">
               Latest Responses
             </h2>
           </div>
 
           {loading ? (
-            <div className="p-6 text-center text-slate-500">Loading...</div>
+            <div className="p-6 text-center text-black">Loading...</div>
           ) : responses.length === 0 ? (
-            <div className="p-6 text-center text-slate-500">
+            <div className="p-6 text-center text-black">
               No responses found.
             </div>
           ) : (
@@ -174,17 +174,17 @@ export default function AdminFormResponsesPage() {
                   <div className="flex flex-col lg:flex-row gap-4 lg:items-start lg:justify-between">
                     <div className="space-y-2">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-[#0B0F6B]/10 px-3 py-1 text-xs font-semibold text-[#0B0F6B]">
+                        <span className="rounded-full bg-[#0B0F6B]/10 px-3 py-1 text-xs font-semibold text-black">
                           {response.type}
                         </span>
-                        <span className="text-xs text-slate-400">
+                        <span className="text-xs text-black">
                           {new Date(response.createdAt).toLocaleString()}
                         </span>
                       </div>
-                      <p className="text-lg font-semibold text-slate-900">
+                      <p className="text-lg font-semibold text-black">
                         {response.name || response.email || "Anonymous"}
                       </p>
-                      <div className="text-sm text-slate-600 space-y-1">
+                      <div className="text-sm text-black space-y-1">
                         {response.email && <p>Email: {response.email}</p>}
                         {response.phone && <p>Phone: {response.phone}</p>}
                         {response.company && <p>Company: {response.company}</p>}
@@ -193,7 +193,7 @@ export default function AdminFormResponsesPage() {
                           <p>Monthly Requirement: {response.monthlyRequirement}</p>
                         )}
                         {response.message && (
-                          <p className="text-slate-700">{response.message}</p>
+                          <p className="text-black">{response.message}</p>
                         )}
                       </div>
                     </div>
@@ -201,19 +201,19 @@ export default function AdminFormResponsesPage() {
                     <div className="flex flex-wrap gap-2">
                       <button
                         onClick={() => handleStatusChange(response._id, "read")}
-                        className="rounded-full bg-amber-100 px-4 py-2 text-xs font-semibold text-amber-700 hover:bg-amber-200"
+                        className="rounded-full bg-amber-100 px-4 py-2 text-xs font-semibold text-black hover:bg-amber-200"
                       >
                         Mark Read
                       </button>
                       <button
                         onClick={() => handleStatusChange(response._id, "closed")}
-                        className="rounded-full bg-emerald-100 px-4 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-200"
+                        className="rounded-full bg-emerald-100 px-4 py-2 text-xs font-semibold text-black hover:bg-emerald-200"
                       >
                         Close
                       </button>
                       <button
                         onClick={() => handleDelete(response._id)}
-                        className="rounded-full bg-rose-100 px-4 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-200"
+                        className="rounded-full bg-rose-100 px-4 py-2 text-xs font-semibold text-black hover:bg-rose-200"
                       >
                         Delete
                       </button>

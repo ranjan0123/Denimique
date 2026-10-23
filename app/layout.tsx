@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
 import { Toaster } from "react-hot-toast";
@@ -12,19 +12,19 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://suitablevastra.com";
 const OG_IMAGE = "/logo-removebg-preview.png";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-manrope",
-});
-
-const fraunces = Fraunces({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-dm-sans",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-display",
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
@@ -164,7 +164,7 @@ export default function RootLayout({
         </Script> */}
       </head>
       <body
-        className={`${manrope.className} ${manrope.variable} ${fraunces.variable} antialiased storefront-theme`}
+        className={`${dmSans.className} ${dmSans.variable} ${cormorantGaramond.variable} antialiased storefront-theme`}
       >
         {/* <noscript>
          
@@ -202,7 +202,7 @@ export default function RootLayout({
                   style: {
                     borderRadius: "12px",
                     background: "#ffffff",
-                    color: "#2F2018",
+                    color: "#000000",
                     padding: "12px 16px",
                     fontSize: "14px",
                     fontWeight: 500,
@@ -211,7 +211,7 @@ export default function RootLayout({
                   },
                   success: {
                     iconTheme: {
-                      primary: "#7A3511",
+                      primary: "#1B2E27",
                       secondary: "#ffffff",
                     },
                   },

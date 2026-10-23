@@ -415,34 +415,34 @@ export const formatStatusLabel = (value?: string): string => {
 export const getPaymentStatusTone = (value?: string): string => {
   switch (value) {
     case "paid":
-      return "bg-emerald-50 text-emerald-700";
+      return "bg-emerald-50 text-black";
     case "pending":
     case "cod_pending":
-      return "bg-amber-50 text-amber-700";
+      return "bg-amber-50 text-black";
     case "failed":
-      return "bg-red-50 text-red-700";
+      return "bg-red-50 text-black";
     case "refunded":
-      return "bg-slate-100 text-slate-700";
+      return "bg-slate-100 text-black";
     default:
-      return "bg-gray-100 text-gray-700";
+      return "bg-gray-100 text-black";
   }
 };
 
 export const getOrderStatusTone = (value?: string): string => {
   switch (value) {
     case "delivered":
-      return "bg-emerald-50 text-emerald-700";
+      return "bg-emerald-50 text-black";
     case "shipped":
-      return "bg-blue-50 text-blue-700";
+      return "bg-blue-50 text-black";
     case "processing":
     case "confirmed":
-      return "bg-violet-50 text-violet-700";
+      return "bg-violet-50 text-black";
     case "pending":
-      return "bg-amber-50 text-amber-700";
+      return "bg-amber-50 text-black";
     case "cancelled":
-      return "bg-red-50 text-red-700";
+      return "bg-red-50 text-black";
     default:
-      return "bg-gray-100 text-gray-700";
+      return "bg-gray-100 text-black";
   }
 };
 

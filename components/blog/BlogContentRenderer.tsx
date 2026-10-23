@@ -21,9 +21,9 @@ export default function BlogContentRenderer({
           item.heading?.level || "h2"
         ) as keyof React.JSX.IntrinsicElements;
         const headingClasses = {
-          h1: "text-4xl font-bold text-gray-900 mt-8 mb-4",
-          h2: "text-3xl font-bold text-gray-900 mt-6 mb-3",
-          h3: "text-2xl font-bold text-gray-900 mt-5 mb-2",
+          h1: "text-4xl font-bold text-black mt-8 mb-4",
+          h2: "text-3xl font-bold text-black mt-6 mb-3",
+          h3: "text-2xl font-bold text-black mt-5 mb-2",
         };
 
         return (
@@ -49,7 +49,7 @@ export default function BlogContentRenderer({
             <Link
               key={match.index}
               href={match[2]}
-              className="text-blue-600 hover:text-blue-700 underline transition-colors"
+              className="text-black hover:text-black underline transition-colors"
             >
               {match[1]}
             </Link>,
@@ -59,7 +59,7 @@ export default function BlogContentRenderer({
         parts.push(item.value.substring(lastIndex));
 
         return (
-          <p key={index} className="text-gray-700 text-lg leading-relaxed mb-4">
+          <p key={index} className="text-black text-lg leading-relaxed mb-4">
             {parts}
           </p>
         );
@@ -79,7 +79,7 @@ export default function BlogContentRenderer({
               />
             </div>
             {item.imageAlt && (
-              <figcaption className="bg-gray-50 px-4 py-2 text-sm text-gray-600 italic">
+              <figcaption className="bg-gray-50 px-4 py-2 text-sm text-black italic">
                 {item.imageAlt}
               </figcaption>
             )}
@@ -97,7 +97,7 @@ export default function BlogContentRenderer({
               {item.listItems.map((listItem, itemIndex) => (
                 <li
                   key={itemIndex}
-                  className="text-gray-700 text-lg leading-relaxed"
+                  className="text-black text-lg leading-relaxed"
                 >
                   {listItem}
                 </li>
@@ -111,7 +111,7 @@ export default function BlogContentRenderer({
             {item.listItems.map((listItem, itemIndex) => (
               <li
                 key={itemIndex}
-                className="text-gray-700 text-lg leading-relaxed"
+                className="text-black text-lg leading-relaxed"
               >
                 {listItem}
               </li>
@@ -129,7 +129,7 @@ export default function BlogContentRenderer({
       {content && content.length > 0 ? (
         content.map((item, index) => renderContent(item, index))
       ) : (
-        <p className="text-gray-600">No content available</p>
+        <p className="text-black">No content available</p>
       )}
     </div>
   );

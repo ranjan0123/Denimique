@@ -141,12 +141,12 @@ export default function NotificationBell() {
     <div ref={panelRef} className="relative notification-menu-container">
       <button
         onClick={() => setIsOpen((current) => !current)}
-        className="relative rounded-full p-2 text-[#4A230F] hover:bg-gray-100 transition-colors"
+        className="relative rounded-full p-2 text-black hover:bg-gray-100 transition-colors"
         aria-label="Notifications"
       >
         <Bell size={22} />
         {unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-[#7A3511] text-white text-[10px] font-bold shadow-sm">
+          <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-[#1B2E27] text-white text-[10px] font-bold shadow-sm">
             {badgeLabel(unreadCount)}
           </span>
         )}
@@ -163,10 +163,10 @@ export default function NotificationBell() {
           >
             <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
               <div>
-                <h3 className="text-base font-semibold text-[#4A230F]">
+                <h3 className="text-base font-semibold text-black">
                   Notifications
                 </h3>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-black">
                   {unreadCount > 0 ? `${unreadCount} unread` : "All caught up"}
                 </p>
               </div>
@@ -175,7 +175,7 @@ export default function NotificationBell() {
                 type="button"
                 onClick={() => markAllAsRead()}
                 disabled={unreadCount === 0}
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 disabled:opacity-40"
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-black hover:bg-gray-100 disabled:opacity-40"
               >
                 <CheckCheck size={14} />
                 Mark all
@@ -189,14 +189,14 @@ export default function NotificationBell() {
                 disabled={isPushBusy}
                 className="flex w-full items-center gap-3 border-b border-gray-100 bg-[#FFF7EA] px-5 py-3 text-left transition-colors hover:bg-[#FFF0D6] disabled:opacity-60"
               >
-                <BellRing size={18} className="flex-shrink-0 text-[#7A3511]" />
+                <BellRing size={18} className="flex-shrink-0 text-black" />
                 <span className="min-w-0 flex-1">
-                  <span className="block text-sm font-medium text-[#4A230F]">
+                  <span className="block text-sm font-medium text-black">
                     {isPushSubscribed
                       ? "Push notifications enabled"
                       : "Get order updates on this device"}
                   </span>
-                  <span className="block text-xs text-gray-500">
+                  <span className="block text-xs text-black">
                     {isPushSubscribed
                       ? "Tap to turn off"
                       : "Tap to enable browser push notifications"}
@@ -207,19 +207,19 @@ export default function NotificationBell() {
 
             <div className="max-h-[60vh] overflow-y-auto md:max-h-[420px]">
               {isLoading && !hasFetched ? (
-                <div className="px-5 py-8 text-sm text-gray-500">
+                <div className="px-5 py-8 text-sm text-black">
                   Loading notifications...
                 </div>
               ) : error && notifications.length === 0 ? (
-                <div className="px-5 py-8 text-sm text-red-600">
+                <div className="px-5 py-8 text-sm text-black">
                   Unable to load notifications right now.
                 </div>
               ) : notifications.length === 0 ? (
                 <div className="px-5 py-10 text-center">
-                  <p className="text-sm font-medium text-gray-700">
+                  <p className="text-sm font-medium text-black">
                     No notifications yet
                   </p>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-black">
                     Order updates will appear here.
                   </p>
                 </div>
@@ -241,25 +241,25 @@ export default function NotificationBell() {
                         )
                       }
                       className={`w-full border-b border-gray-100 px-5 py-4 text-left transition-colors hover:bg-gray-50 ${
-                        notification.isRead ? "bg-white" : "bg-[#7A3511]/8"
+                        notification.isRead ? "bg-white" : "bg-[#1B2E27]/8"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
-                            <p className="truncate text-sm font-semibold text-[#4A230F]">
+                            <p className="truncate text-sm font-semibold text-black">
                               {notification.title}
                             </p>
                             {!notification.isRead && (
-                              <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#7A3511]" />
+                              <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#1B2E27]" />
                             )}
                           </div>
-                          <p className="mt-1 text-sm text-gray-600 line-clamp-2">
+                          <p className="mt-1 text-sm text-black line-clamp-2">
                             {notification.message}
                           </p>
                           {notification.order?.orderNumber && (
                             <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                              <span className="font-medium text-gray-500">
+                              <span className="font-medium text-black">
                                 Order {notification.order.orderNumber}
                               </span>
                               {orderStatus && (
@@ -283,7 +283,7 @@ export default function NotificationBell() {
                             </div>
                           )}
                         </div>
-                        <span className="flex-shrink-0 text-xs text-gray-400">
+                        <span className="flex-shrink-0 text-xs text-black">
                           {formatNotificationTime(notification.createdAt)}
                         </span>
                       </div>
@@ -296,7 +296,7 @@ export default function NotificationBell() {
             <div className="border-t border-gray-100 px-5 py-3">
               <Link
                 href="/notifications"
-                className="block rounded-2xl bg-gray-50 px-4 py-3 text-center text-sm font-medium text-[#4A230F] hover:bg-gray-100 transition-colors"
+                className="block rounded-2xl bg-gray-50 px-4 py-3 text-center text-sm font-medium text-black hover:bg-gray-100 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 View all notifications
